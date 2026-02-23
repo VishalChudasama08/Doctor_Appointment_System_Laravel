@@ -1,8 +1,8 @@
-# 🏥 Hospital Appointment System (Laravel)
+# 🏥 Doctor Appointment System (Laravel)
 
 ## 📌 Project Overview
 
-The **Hospital Appointment System** is a web-based clinic management application developed using **Laravel**. It allows patients to book appointments online, doctors to manage their schedules, and administrators to control the entire system.
+The **Doctor Appointment System** is a web-based clinic management application developed using **Laravel**. It allows patients to book appointments online, doctors to manage their schedules, and administrators to control the entire system.
 
 This project is designed as a **real-world healthcare management solution** and is suitable for academic submission as well as portfolio demonstration.
 
@@ -47,7 +47,7 @@ This project is designed as a **real-world healthcare management solution** and 
 ## 📂 Project Structure
 
 ```
-Hospital_Appointment_System_Laravel/
+Doctor_Appointment_System_Laravel/
 │
 ├── app/
 ├── database/
@@ -64,7 +64,7 @@ Hospital_Appointment_System_Laravel/
 ### 1️⃣ Clone Repository
 
 ```
-git clone https://github.com/your-username/Hospital_Appointment_System_Laravel.git
+git clone https://github.com/your-username/Doctor_Appointment_System_Laravel.git
 ```
 
 ### 2️⃣ Install Dependencies
