@@ -3,7 +3,7 @@
 <!--<< Header Area >>-->
 
 
-<!-- Mirrored from etorisoft.com/html/medizen/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
+<!-- Mirrored from etorisoft.com/html/medizen/{{url('index')}} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
 
 <!-- Mirrored from thememxpro.com/demo/medizen/index2.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:10:21 GMT -->
 <!-- Added by HTTrack -->
@@ -97,7 +97,7 @@
                 <div class="header-main style-2">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="index.html" class="header-logo">
+                            <a href="{{url('index')}}" class="header-logo">
                                 <img src="assets/img/logo/logo.png" alt="logo-img">
                             </a>
                         </div>
@@ -108,7 +108,7 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li class="has-dropdown active menu-thumb">
-                                            <a href="index.html">
+                                            <a href="{{url('index')}}">
                                                 Home
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
@@ -116,7 +116,7 @@
                                                 <li>
                                                     <div class="homemenu-items">
                                                         <div class="homemenu">
-                                                            <a href="index.html" class="homemenu-thumb">
+                                                            <a href="{{url('index')}}" class="homemenu-thumb">
                                                                 <img src="assets/img/header/home-1.jpg" alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
@@ -126,7 +126,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="homemenu">
-                                                            <a href="index2.html" class="homemenu-thumb mb-15">
+                                                            <a href="{{url('index2')}}" class="homemenu-thumb mb-15">
                                                                 <img src="assets/img/header/home-2.jpg" alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
@@ -136,7 +136,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="homemenu">
-                                                            <a href="index3.html" class="homemenu-thumb mb-15">
+                                                            <a href="{{url('index3')}}" class="homemenu-thumb mb-15">
                                                                 <img src="assets/img/header/home-3.jpg" alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
@@ -155,13 +155,13 @@
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
                                             <ul class="submenu">
-                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="{{url('about')}}">About Us</a></li>
                                                 <li><a href="doctor.html">Doctor</a></li>
                                                 <li><a href="doctor-details.html">Doctor Details</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html">Contact</a>
+                                            <a href="{{url('contact')}}">Contact</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -176,7 +176,7 @@
                         </div>
                     </div>
                     <div class="header-btn d-xl-block d-none">
-                        <a href="contact.html" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
+                        <a href="{{url('contact')}}" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
                             Contact us
                             <img src="assets/img/icon/arrow-right-black.png" alt="icon">
                         </a>
@@ -283,7 +283,7 @@
                                 <h4 class="black">CarePoint <br> Health</h4>
                             </div>
                         </div>
-                        <a href="about.html" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden white-bg rounded100">
+                        <a href="{{url('about')}}" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden white-bg rounded100">
                             Read More
                             <img src="assets/img/icon/arrow-right-black.png" alt="icon">
                         </a>
@@ -571,7 +571,7 @@
     <footer class="footer-section footer-style2 z-1 position-relative blackbg">
         <div class="container">
             <div class="footer-social-logo d-flex align-items-center justify-content-sm-between justify-content-center">
-                <a href="index.html">
+                <a href="{{url('index')}}">
                     <img src="assets/img/logo/logo-white.png" alt="logo-img">
                 </a>
                 <div class="social-wrapper d-flex align-items-center">
@@ -622,12 +622,12 @@
                             </div>
                             <ul class="list-area">
                                 <li>
-                                    <a href="about.html">
+                                    <a href="{{url('about')}}">
                                         About Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">
+                                    <a href="{{url('contact')}}">
                                         Why Chose Us
                                     </a>
                                 </li>
@@ -728,7 +728,7 @@
                 <div class="offcanvas__content">
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
-                            <a href="index.html">
+                            <a href="{{url('index')}}">
                                 <img src="assets/img/logo/logo.png" alt="logo-img">
                             </a>
                         </div>
@@ -778,7 +778,7 @@
                             </li>
                         </ul>
                         <div class="header-button mt-4">
-                            <a href="contact.html" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
+                            <a href="{{url('contact')}}" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
                                 Get Start
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>

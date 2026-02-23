@@ -3,9 +3,9 @@
 <!--<< Header Area >>-->
 
 
-<!-- Mirrored from etorisoft.com/html/medizen/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
+<!-- Mirrored from etorisoft.com/html/medizen/{{url('index')}} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
 
-<!-- Mirrored from thememxpro.com/demo/medizen/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:09:51 GMT -->
+<!-- Mirrored from thememxpro.com/demo/medizen/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:10:40 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
@@ -17,7 +17,7 @@
     <meta name="author" content="authorName">
     <meta name="description" content="MediZen - Health & Medical HTML Template">
     <!-- ======== Page title ============ -->
-    <title>Home || Medizen || Medizen PHP Template</title>
+    <title>Blog Details || Medizen || Medizen PHP Template</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="assets/img/logo/favs.png">
     <!--<< Bootstrap min.css >>-->
@@ -85,12 +85,11 @@
     </div>
 
     <!-- Start Cursor Pointer -->
-    <!-- <div class="mouse-follower">
+    <div class="mouse-follower">
         <span class="cursor-outline"></span>
         <span class="cursor-dot"></span>
-    </div> -->
-    <!-- End Cursor Pointer -->
-
+    </div>
+    <!-- End Cursor Pointer --><!-- header -->
 
     <!-- Header Section Start -->
     <header id="header-sticky" class="header-1 header-style2">
@@ -99,7 +98,7 @@
                 <div class="header-main style-2">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="index.html" class="header-logo">
+                            <a href="{{url('index')}}" class="header-logo">
                                 <img src="assets/img/logo/logo.png" alt="logo-img">
                             </a>
                         </div>
@@ -110,7 +109,7 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li class="has-dropdown active menu-thumb">
-                                            <a href="index.html">
+                                            <a href="{{url('index')}}">
                                                 Home
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
@@ -118,7 +117,7 @@
                                                 <li>
                                                     <div class="homemenu-items">
                                                         <div class="homemenu">
-                                                            <a href="index.html" class="homemenu-thumb">
+                                                            <a href="{{url('index')}}" class="homemenu-thumb">
                                                                 <img src="assets/img/header/home-1.jpg" alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
@@ -128,7 +127,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="homemenu">
-                                                            <a href="index2.html" class="homemenu-thumb mb-15">
+                                                            <a href="{{url('index2')}}" class="homemenu-thumb mb-15">
                                                                 <img src="assets/img/header/home-2.jpg" alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
@@ -138,7 +137,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="homemenu">
-                                                            <a href="index3.html" class="homemenu-thumb mb-15">
+                                                            <a href="{{url('index3')}}" class="homemenu-thumb mb-15">
                                                                 <img src="assets/img/header/home-3.jpg" alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
@@ -152,12 +151,19 @@
                                             </ul>
                                         </li>
                                         <li class="has-dropdown">
-                                            <a href="#!">Pages</a>
+                                            <a href="#!">
+                                                Pages
+                                                <i class="fas fa-angle-down"></i>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li><a href="{{url('about')}}">About Us</a></li>
+                                                <li><a href="doctor.html">Doctor</a></li>
+                                                <li><a href="doctor-details.html">Doctor Details</a></li>
+                                            </ul>
                                         </li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="doctor.html">Doctor</a></li>
-                                        <li><a href="doctor-details.html">Doctor Details</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li>
+                                            <a href="{{url('contact')}}">Contact</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -172,345 +178,125 @@
                 </div>
             </div>
         </div>
-    </header>
-
-General Consultation / Primary Care Visit <br>
-
-Sick Visit (Cold, Fever, Infection, etc.) <br>
-
-Annual Physical / Routine Check-up <br>
-
-Follow-up Appointment
-<br>
-Specialist Consultation (Cardiology, Dermatology, etc.)
-<br>
-Pediatric Appointment
-<br>
-OB-GYN / Women’s Health Visit
-<br>
-Vaccination / Immunization
-<br>
-Diagnostic Test / Lab Appointment
-<br>
-Telemedicine / Online Consultation <br>
-    <!-- Helth Compassionate -->
-    <section class="helth-compassionate cmn-bg section-padding">
+    </header> <!-- Banner Section Start -->
+    <section class="breadcrumb-section position-relative fix">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-7 h-100">
-                    <div class="compassionate-left-content">
-                        <div class="box">
-                            <h4 class="black mb-md-3 mb-2">Compassionate Care There Health First</h4>
-                            <p class="black mb-40 pb-2">Health care is a vital aspect of maintaining overall well-being
-                                encompassing a range of services from preventive</p>
-                            <a href="doctor-details.html" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
-                                Book An Appiontment
-                                <img src="assets/img/icon/arrow-right-black.png" alt="icon">
-                            </a>
-                        </div>
-                        <div class="thumb d-md-block d-none">
-                            <img src="assets/img/global/compassionate.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 h-100">
-                    <div class="compassionate-right">
-                        <div class="compassionate-item">
-                            <div class="icon d-center rounded-circle"><img src="assets/img/icon/compasi1.png" alt="icon"></div>
-                            <div class="cont">
-                                <h4 class="white mb-2">Your health our priority</h4>
-                                <p class="white">
-                                    Medical care encompasses a range of services aimed at the a promoting health,
-                                    preventing
-                                </p>
-                            </div>
-                        </div>
-                        <div class="compassionate-item">
-                            <div class="icon d-center rounded-circle"><img src="assets/img/icon/compasi2.png" alt="icon"></div>
-                            <div class="cont">
-                                <h4 class="white mb-2">wellness Healing with heart</h4>
-                                <p class="white">
-                                    Medical care encompasses a range of services aimed at the a promoting health,
-                                    preventing
-                                </p>
-                            </div>
-                        </div>
-                        <div class="compassionate-item">
-                            <div class="icon d-center rounded-circle"><img src="assets/img/icon/compasi3.png" alt="icon"></div>
-                            <div class="cont">
-                                <h4 class="white mb-2">Care Point Health Institute</h4>
-                                <p class="white">
-                                    Medical care encompasses a range of services aimed at the a promoting health,
-                                    preventing
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
+                <h2 class="black">Blog Details</h2>
+                <ul class="d-flex align-items-center gap-3">
+                    <li>
+                        <a href="{{url('index')}}">Home</a>
+                    </li>
+                    <li>/</li>
+                    <li>Blog Details</li>
+                </ul>
             </div>
         </div>
+        <!-- Bread Ele -->
+        <img src="assets/img/about/breadcrumnd-shap.png" alt="img" class="bread-ele">
     </section>
+    <!-- Banner Section Start -->
 
-    <!-- Appiontment Section Start -->
-    <section class="appoentment-section fix mb-30">
+
+    <!-- Contact Section Start -->
+    <section class="contact-section section-padding fix">
         <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-5 order-lg-0 order-1">
-                    <div class="apoentment-thumb">
-                        <img src="assets/img/blog/apoentment-thumb.jpg" style="width: 120%;" alt="img" class="rounded-4">
-                    </div>
-                </div>
-                <!-- Appiontment Form -->
-                <div class="col-lg-7">
-                    <form action="#" class="appoentment-forms">
-                        <div class="section-title mb-30">
-                            <span class="cmn-tag p1-bg heading-font">
-                                <h3 class="wow fadeInUp black" data-wow-delay=".3s">
-                                    Get an Appiontment
-                                </h3>
-                            </span>
+            <div class="space-bottom">
+                <div class="row g-xl-6 g-4 contact-info-area">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="contact-info wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="cont">
+                                <h4 class="fw-bold black d-block mb-1">Address</h4>
+                                <a href="mailto:Company@mail.com" class="pra fs-seven">Mirpur,10 Road 1 House 12 Mirpur
+                                    Dhaka Bangladesh</a>
+                            </div>
                         </div>
-                        <div class="row g-lg-4 g-3">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Your Name">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="email" placeholder="Your Email">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Phone Number">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="date" placeholder="date">
-                            </div>
-                            <div class="col-lg-12">
-                                <textarea name="message" placeholder="Message" rows="5"></textarea>
-                            </div>
-                            <div class="col-lg-12">
-                                <a href="doctor-details.html" class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight" data-wow-delay="0.8s">
-                                    Book An Appiontment
-                                    <img src="assets/img/icon/arrow-right-white.png" alt="icon">
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="contact-info wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="cont">
+                                <h4 class="fw-bold black d-block mb-1">Email</h4>
+                                <a href="mailto:Company@mail.com" class="pra fs-seven">
+                                    chirsbekham12@gmail.com <br>
+                                    simmons12@gmail.com
                                 </a>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Banner Section Start -->
-    <section class="banner-section white-bg fix  mb-30">
-        <div class="banner-adjust-thumb">
-            <div class="container">
-                <!-- <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="adjust-category-items">
-                            <div class="icon"><img src="assets/img/icon/f-icon6.png" alt="icon"></div>
-                            <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
-                                Healing with heart</h4>
-                        </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="adjust-category-items">
-                            <div class="icon"><img src="assets/img/icon/f-icon4.png" alt="icon"></div>
-                            <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
-                                Where health meets hope</h5>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="hero-thumbs1 position-relative w-100 wow fadeInUp" data-wow-delay="0.5s">
-                    <img src="assets/img/banner/hero1-thumb.jpg" alt="img" class="rounded-4 w-100">
-                    <!-- Circle -->
-                    <div class="text-circle-inner d-center p1-bg">
-                        <img src="assets/img/element/circle-copy.png" alt="img" class="copy">
-                        <!-- Ele -->
-                        <img src="assets/img/element/circle-element.png" alt="circle" class="text-circle">
-                    </div>
-                    <!-- Ele -->
-                    <img src="assets/img/element/dots-element.png" alt="img" class="hero-dot-element">
-                </div>
-            </div>
-            <!-- Element -->
-            <img src="assets/img/element/hero-shape-elemenet.png" alt="img" class="hero-shape-element">
-        </div>
-        <!-- Element -->
-        <img src="assets/img/element/feature-element.png" alt="img" class="hero-element1">
-    </section>
-
-    <!-- Feature Section Start -->
-    <section class="feature-section fix mb-30">
-        <div class="container">
-            <div class="featue-wrapper position-relative white-bg">
-                <div class="section-title mb-60">
-                    <span class="cmn-tag p1-bg heading-font">Our Feature</span>
-                    <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
-                        Compassionate Care <br> Health
-                        <span class="position-relative z-1">
-                            Exceptional
-                            <img src="assets/img/element/title-badge1.png" alt="img" class="title-badge1 d-md-block d-none w-100">
-                        </span>
-                        Results
-                    </h2>
-                </div>
-                <div class="feature-inner">
-                    <div class="feature-items">
-                        <div class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
-                            <div class="d-flex align-items-center gap-xxl-4 gap-xl-3 gap-2">
-                                <div class="icons d-center rounded-circle p1-bg">
-                                    <img src="assets/img/icon/f-icon1.png" alt="icon">
-                                </div>
-                                <h4>Quality Care <br> Exceptional
-                                    Service</a></h4>
+                        <div class="contact-info wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="cont">
+                                <h4 class="fw-bold black d-block mb-1">Phone</h4>
+                                <a href="mailto:Company@mail.com" class="pra fs-seven">
+                                    017 5552-0127 <br>
+                                    017458632718
+                                </a>
                             </div>
-                            <ul class="feature-list d-flex flex-column gap-1">
-                                <li>
-                                    Your Health, Our Priority
-                                </li>
-                                <li>
-                                    Harmony Health
-                                </li>
-                            </ul>
                         </div>
-                        <!-- Extra Hover -->
-                        <img src="assets/img/choose/feature1.jpg" alt="img" class="extra-feature">
-                    </div>
-                    <div class="line"></div>
-                    <div class="feature-items">
-                        <div class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
-                            <div class="d-flex align-items-center gap-xxl-4 gap-xl-3 gap-2">
-                                <div class="icons d-center rounded-circle p1-bg">
-                                    <img src="assets/img/icon/f-icon2.png" alt="icon">
-                                </div>
-                                <h4>Healing Lives One <br> Patient
-                                    at a Time</h4>
-                            </div>
-                            <ul class="feature-list d-flex flex-column gap-1">
-                                <li>
-                                    Your Health, Our Priority
-                                </li>
-                                <li>
-                                    Harmony Health
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Extra Hover -->
-                        <img src="assets/img/choose/feature2.jpg" alt="img" class="extra-feature">
-                    </div>
-                    <div class="line"></div>
-                    <div class="feature-items">
-                        <div class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
-                            <div class="d-flex align-items-center gap-xxl-4 gap-xl-3 gap-2">
-                                <div class="icons d-center rounded-circle p1-bg">
-                                    <img src="assets/img/icon/f-icon3.png" alt="icon">
-                                </div>
-                                <h4>Caring for You Caring <br> for
-                                    Tomorrow</h4>
-                            </div>
-                            <ul class="feature-list d-flex flex-column gap-1">
-                                <li>
-                                    Your Health, Our Priority
-                                </li>
-                                <li>
-                                    Harmony Health
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Extra Hover -->
-                        <img src="assets/img/choose/feature3.jpg" alt="img" class="extra-feature">
-                    </div>
-                    <div class="line"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Choose Section Start -->
-    <section class="choose-section mb-30">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="choose-left">
-                        <div class="section-title mb-60">
-                            <span class="cmn-tag p1-bg heading-font">Why Chose Us</span>
-                            <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
-                                Empower Health <br>
-                                Lives
-                                <span class="position-relative z-1">
-                                    Expert
-                                    <img src="assets/img/element/title-badge1.png" alt="img" class="title-badge1 d-md-block d-none w-100">
-                                </span>
-                                Care
-                            </h2>
-                        </div>
-                        <a href="doctor.html" class="w-100 rounded-4 overflow-hidden">
-                            <img src="assets/img/choose/choose1.jpg" alt="img" class="rounded-4 w-100">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="chosse-middle">
-                        <a href="doctor.html" class="w-100 rounded-4 overflow-hidden mb-xxl-4 mb-3 d-block">
-                            <img src="assets/img/choose/choose2.jpg" alt="img" class="rounded-4 w-100">
-                        </a>
-                        <h4 class="mb-xxl-3 mb-2">
-                            <a href="#" class="black fw_700">
-                                The Enhanc Lives care Through Care
-                            </a>
-                        </h4>
-                        <p class="pra fs-seven">
-                            Health care is a vital aspect of maintaining overall well-being, encompassing a range of
-                            services from preventive
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.8s">
-                    <div class="choose-right position-relative d-center overflow-hidden rounded-4 w-100">
-                        <img src="assets/img/choose/choose3.jpg" alt="img" class="rounded-4 w-100">
-                        <a href="doctor.html" class="video-choose d-center rounded-circle p1-bg video-popup">
-                            <i class="fa-solid fa-play black"></i>
-                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Counter Care Section Start -->
-    <section class="care-counter fix mb-30">
-        <div class="container">
-            <div class="care-counter-wrap">
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-5">
-                        <div class="care-counter-text">
-                            <h3 class="black fw_700 visible-slowly-right">Tomorrow's Health <br> Today's Care</h3>
-                        </div>
-                    </div>
+            <div class="contact-wrapper-anys white-bg rounded-4">
+                <div class="row g-6 align-items-center justify-content-between">
                     <div class="col-lg-7">
-                        <div class="care-counter">
-                            <div class="counter-items box-style first-box wow fadeIn" data-wow-delay="0.4s">
-                                <div class="content">
-                                    <h2><span class="count">600</span>+</h2>
-                                    <p class="black">Complte Project</p>
+                        <form action="#" class="appoentment-forms py-xl-0 py-6 px-xl-10 px-6">
+                            <div class="section-title mb-60">
+                                <span class="black fw_700 fs-six d-block mb-3 heading-font">Contact Us</span>
+                                <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
+                                    Get an
+                                    <span class="position-relative z-1">
+                                        Appiontment
+                                        <img src="assets/img/element/title-badge1.png" alt="img" class="title-badge1 d-md-block d-none w-100">
+                                    </span>
+                                </h2>
+                            </div>
+                            <div class="row g-lg-4 g-3">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Your Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="email" placeholder="Your Email">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Phone Number">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Subject">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea name="message" placeholder="Message" rows="5"></textarea>
+                                </div>
+                                <div class="col-lg-12">
+                                    <button type="button" class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight" data-wow-delay="0.8s">
+                                        Book An Appiontment
+                                        <img src="assets/img/icon/arrow-right-white.png" alt="icon">
+                                    </button>
                                 </div>
                             </div>
-                            <div class="counter-items box-style first-box wow fadeIn" data-wow-delay="0.5s">
-                                <div class="content">
-                                    <h2><span class="count">200</span>+</h2>
-                                    <p class="black">Team Member</p>
-                                </div>
-                            </div>
-                            <div class="counter-items box-style first-box wow fadeIn" data-wow-delay="0.6s">
-                                <div class="content">
-                                    <h2><span class="count">500</span>k+</h2>
-                                    <p class="black">Clients Reviews</p>
-                                </div>
-                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="contact-thumb w-100">
+                            <img src="assets/img/choose/contact-thumb.jpg" alt="img" class="rounded-4 w-100">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Map -->
+    <div class="space-bottom">
+        <div class="map-area">
+            <div class="container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52816169.558200695!2d-161.49265223136007!3d36.102185713814805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1726005337075!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Map -->
 
     <!--<< Footer Section Start >>-->
     <footer class="footer-section z-1 position-relative blackbg fix">
@@ -521,6 +307,13 @@ Telemedicine / Online Consultation <br>
                     <!-- Element -->
                     <img src="assets/img/element/newsletter-element.png" alt="element" class="newsletter-element">
                 </h2>
+                <form action="#" class="form-cmn-style1">
+                    <input type="text" placeholder="Enter your email">
+                    <button type="button" class="common-btn text-nowrap box-style py-3 first-box d-inline-flex justify-content-center align-items-center fs-seven fw_600 gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded-5">
+                        Subscribe Now
+                        <img src="assets/img/icon/arrow-right-black.png" alt="icon">
+                    </button>
+                </form>
             </div>
             <div class="footer-space">
                 <div class="footer-widgets-wrapper">
@@ -528,7 +321,7 @@ Telemedicine / Online Consultation <br>
                         <div class="col-lg-3 col-md-6 col-sm-7">
                             <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.4s">
                                 <div class="widget-head">
-                                    <a href="index.html">
+                                    <a href="{{url('index')}}">
                                         <img src="assets/img/logo/logo-white.png" alt="logo-img">
                                     </a>
                                 </div>
@@ -553,12 +346,12 @@ Telemedicine / Online Consultation <br>
                                 </div>
                                 <ul class="list-area">
                                     <li>
-                                        <a href="about.html">
+                                        <a href="{{url('about')}}">
                                             About Us
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="{{url('contact')}}">
                                             Why Chose Us
                                         </a>
                                     </li>
@@ -577,22 +370,22 @@ Telemedicine / Online Consultation <br>
                                 </div>
                                 <ul class="list-area">
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="{{url('contact')}}">
                                             Trems & Condition
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="{{url('contact')}}">
                                             Privacy Policy
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="{{url('contact')}}">
                                             Contact Us
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="{{url('contact')}}">
                                             Treams Of Use
                                         </a>
                                     </li>
@@ -645,7 +438,6 @@ Telemedicine / Online Consultation <br>
         <!-- Element-->
         <img src="assets/img/element/footer-element.png" alt="element" class="footer-element">
     </footer>
-
     <!-- Offcanvas Area Start -->
     <div class="fix-area">
         <div class="offcanvas__info">
@@ -653,7 +445,7 @@ Telemedicine / Online Consultation <br>
                 <div class="offcanvas__content">
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
-                            <a href="index.html">
+                            <a href="{{url('index')}}">
                                 <img src="assets/img/logo/logo.png" alt="logo-img">
                             </a>
                         </div>
@@ -703,7 +495,7 @@ Telemedicine / Online Consultation <br>
                             </li>
                         </ul>
                         <div class="header-button mt-4">
-                            <a href="contact.html" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
+                            <a href="{{url('contact')}}" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
                                 Get Start
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -768,6 +560,6 @@ Telemedicine / Online Consultation <br>
 </body>
 
 
-<!-- Mirrored from thememxpro.com/demo/medizen/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:10:12 GMT -->
+<!-- Mirrored from thememxpro.com/demo/medizen/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:10:41 GMT -->
 
 </html>
