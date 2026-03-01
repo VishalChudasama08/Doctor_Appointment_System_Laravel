@@ -1,13 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adminPanel</title>
-</head>
-<body>
-    <h1>Admin Panel {{auth()->user()->name}}</h1>
-    <a href="{{url('logout')}}">Logout</a>
-</body>
-</html>
+@extends('admin/adminLayout')
+
+@section('admin-content')
+    <section class="container">
+        <h3>Admin Panel</h3>
+        {{-- {{auth()->user()->name}} --}}
+    </section>
+
+    {{-- Patients --}}
+    <section class="container">
+        <div>
+            <h3>Patients</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>@social</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    {{-- Doctors --}}
+    <section class="container">
+        <div>
+            <h3>Doctors</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>@social</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+@endsection

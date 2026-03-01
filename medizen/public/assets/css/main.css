@@ -5918,6 +5918,36 @@ footer {
   background-color: var(--p2-clr);
 }
 
+.profile-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.profile-inner {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  padding: 30px;
+}
+
+.profile-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 input.main-search-input::placeholder {
   color: var(--p2-clr);
   opacity: 1;

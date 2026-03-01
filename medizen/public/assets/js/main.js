@@ -383,6 +383,28 @@ CSS TABLE OF CONTENTS
 			e.stopPropagation();
 		});
 
+		//>> Profile Popup Start <<//
+
+		const $profileWrap = $(".profile-wrap");
+
+		$(".profile-trigger").on("click", function (e) {
+			e.preventDefault();
+			$profileWrap.animate({ opacity: "toggle" }, 500);
+		});
+
+		$(".profile-close").on("click", function (e) {
+			e.preventDefault();
+			$profileWrap.animate({ opacity: "toggle" }, 500);
+		});
+
+		$(document.body).on("click", function () {
+			$profileWrap.fadeOut(200);
+		});
+
+		$(".profile-trigger, .profile-inner").on("click", function (e) {
+			e.stopPropagation();
+		});
+
 		//---------Use In Gsap--------
 		// lenis Scroll Init
 		// gsap.registerPlugin(ScrollSmoother);

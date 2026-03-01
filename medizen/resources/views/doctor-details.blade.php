@@ -216,8 +216,24 @@
     </div>
 </section>
 @else
-<li class="has-dropdown"><a href="{{url('login')}}">Login</a></li>
-<li class="has-dropdown dark"><a href="{{url('register')}}">Register</a></li>
+<!-- Banner Section Start -->
+<section class="breadcrumb-section position-relative fix">
+    <div class="container">
+        <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center" style="padding: 150px 0 130px !important">
+            <h2 class="black">Service</h2>
+            <ul class="d-flex align-items-center gap-3">
+                <li>
+                    <a href="{{url('login')}}" style="color:red">Login</a>
+                    &nbsp;OR&nbsp;
+                    <a href="{{url('register')}}" style="color:red">Register</a>
+                    &nbsp;To See Doctors Details
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Bread Ele -->
+    <img src="assets/img/about/breadcrumnd-shap.png" alt="img" class="bread-ele" style="max-width: 280px !important">
+</section>
 @endif
 
 @endsection

@@ -109,56 +109,10 @@
 							<div class="main-menu">
 								<nav id="mobile-menu">
 									<ul>
-										<li class="has-dropdown active menu-thumb">
-											<a href="{{url('index')}}">
-												Home
-												<i class="fas fa-angle-down"></i>
-											</a>
-											<ul class="submenu has-homemenu">
-												<li>
-													<div class="homemenu-items">
-														<div class="homemenu">
-															<a href="{{url('index')}}" class="homemenu-thumb">
-																<img src="assets/img/header/home-1.jpg" alt="img">
-																<span class="demo-button">
-																	<span class="theme-btn p1-bg box-style first-box">
-																		<span class="black">Home 01</span>
-																	</span>
-																</span>
-															</a>
-														</div>
-														<div class="homemenu">
-															<a href="{{url('index2')}}" class="homemenu-thumb mb-15">
-																<img src="assets/img/header/home-2.jpg" alt="img">
-																<span class="demo-button">
-																	<span class="theme-btn p1-bg box-style first-box">
-																		<span class="black">Home 02</span>
-																	</span>
-																</span>
-															</a>
-														</div>
-														<div class="homemenu">
-															<a href="{{url('index3')}}" class="homemenu-thumb mb-15">
-																<img src="assets/img/header/home-3.jpg" alt="img">
-																<span class="demo-button">
-																	<span class="theme-btn p1-bg box-style first-box">
-																		<span class="black">Home 03</span>
-																	</span>
-																</span>
-															</a>
-														</div>
-													</div>
-												</li>
-											</ul>
-										</li>
-										<li><a href="{{url('about')}}">About Us</a></li>
-										<li><a href="{{url('doctors')}}">Doctor</a></li>
-										<li><a href="{{url('contact')}}">Contact</a></li>
+										<li><a href="{{url('admin/patients')}}">Patients</a></li>
+										<li><a href="{{url('admin/doctors')}}">Doctors</a></li>
 										@if(auth()->user())
 										<li class="has-dropdown"><a href="{{url('logout')}}" style="color:#f98c8c">Logout</a></li>
-										@else
-										<li class="has-dropdown"><a href="{{url('login')}}">Login</a></li>
-										<li class="has-dropdown dark"><a href="{{url('register')}}">Register</a></li>
 										@endif
 									</ul>
 								</nav>
@@ -181,7 +135,7 @@
 
 	<hr style="margin: 0;">
 
-	@yield('main-content')
+	@yield('admin-content')
 
 
 	<!--<< Footer Section Start >>-->
@@ -385,33 +339,6 @@
 		</div>
 	</div>
 	<div class="offcanvas__overlay"></div><!-- Search Area Start -->
-	<div class="search-wrap">
-		<div class="search-inner">
-			<i class="fas fa-times search-close" id="search-close"></i>
-			<div class="search-cell">
-				<form method="get">
-					<div class="search-field-holder">
-						<input type="search" class="main-search-input" placeholder="Search...">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	@if(auth()->user())
-	<div class="profile-wrap">
-		<div class="profile-inner">
-			<i class="fas fa-times profile-close"></i>
-
-			<div class="profile-content">
-				<h3>{{auth()->user()->name}}</h3>
-				<p>Email: {{auth()->user()->email}}</p>
-
-				<!-- <a href="#" class="btn btn-primary">View Profile</a>
-				<a href="#" class="btn btn-danger">Logout</a> -->
-			</div>
-		</div>
-	</div>
-	@endif
 	<!--<< All JS Plugins >>-->
 	<script src="assets/js/jquery-3.7.1.min.js"></script>
 	<!--<< Viewport Js >>-->
