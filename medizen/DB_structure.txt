@@ -20,3 +20,17 @@ table => patient
 	name, email, number, (ex. father book for it's son so name, email, number is different from users login table)
 	message, time
 	relation => users table id -> patient_id
+
+
+admin dashboard:- 
+two part ui
+1 access panel = patients, doctors, appointments, logout
+1 showing panel
+
+
+doctor dashboard:- 
+navbar = profile (all information, Time & schedule), appointments, login & register & logout 
+
+
+patient dashboard:-
+navbar = category, contact, login & register & logout 
