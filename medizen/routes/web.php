@@ -16,13 +16,13 @@ Route::post('/registerNow', [AuthController::class, 'registerProcess']);
 
 Route::get('/logout', [AuthController::class, 'logoutProcess']);
 
-Route::get('/AdminDashboard', function () {
+Route::get('/Admin/AdminDashboard', function () {
     return view('admin.AdminDashboard');
 });
-Route::get('/PatientDashboard', function () {
+Route::get('/Patient/PatientDashboard', function () {
     return view('patient.PatientDashboard');
 });
-Route::get('/DoctorDashboard', function () {
+Route::get('/Doctor/DoctorDashboard', function () {
     return view('doctor.DoctorDashboard');
 });
 

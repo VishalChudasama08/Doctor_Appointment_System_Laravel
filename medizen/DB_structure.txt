@@ -13,7 +13,7 @@ CREATE TABLE `users` (
 
 
 table => doctor
-	Expertise, Education, Experience, Profession, availability time with days
+	Expertise, Experience, Education, Profession, availability time with days
    relation => users table id -> doctor_id
 
 table => patient

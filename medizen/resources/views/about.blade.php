@@ -3,7 +3,7 @@
 <!--<< Header Area >>-->
 
 
-<!-- Mirrored from etorisoft.com/html/medizen/{{url('index')}} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
+<!-- Mirrored from etorisoft.com/html/medizen/{{ url('index') }} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
 
 <!-- Mirrored from thememxpro.com/demo/medizen/about.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:10:40 GMT -->
 <!-- Added by HTTrack -->
@@ -19,23 +19,23 @@
     <!-- ======== Page title ============ -->
     <title>About || Medizen || Medizen PHP Template</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="assets/img/logo/favs.png">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo/favs.png') }}">
     <!--<< Bootstrap min.css >>-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <!--<< All Min Css >>-->
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
     <!--<< Animate.css >>-->
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
     <!--<< Magnific Popup.css >>-->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
     <!--<< MeanMenu.css >>-->
-    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.css') }}">
     <!--<< Swiper Bundle.css >>-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
     <!--<< Nice Select.css >>-->
-    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 
 <body class="body-bg">
@@ -98,8 +98,8 @@
                 <div class="header-main style-2">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="{{url('index')}}" class="header-logo">
-                                <img src="assets/img/logo/logo.png" alt="logo-img">
+                            <a href="{{ url('index') }}" class="header-logo">
+                                <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
                             </a>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li class="has-dropdown active menu-thumb">
-                                            <a href="{{url('index')}}">
+                                            <a href="{{ url('index') }}">
                                                 Home
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
@@ -117,8 +117,9 @@
                                                 <li>
                                                     <div class="homemenu-items">
                                                         <div class="homemenu">
-                                                            <a href="{{url('index')}}" class="homemenu-thumb">
-                                                                <img src="assets/img/header/home-1.jpg" alt="img">
+                                                            <a href="{{ url('index') }}" class="homemenu-thumb">
+                                                                <img src="{{ asset('assets/img/header/home-1.jpg') }}"
+                                                                    alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
                                                                         <span class="black">Home 01</span>
@@ -127,8 +128,9 @@
                                                             </a>
                                                         </div>
                                                         <div class="homemenu">
-                                                            <a href="{{url('index2')}}" class="homemenu-thumb mb-15">
-                                                                <img src="assets/img/header/home-2.jpg" alt="img">
+                                                            <a href="{{ url('index2') }}" class="homemenu-thumb mb-15">
+                                                                <img src="{{ asset('assets/img/header/home-2.jpg') }}"
+                                                                    alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
                                                                         <span class="black">Home 02</span>
@@ -137,8 +139,10 @@
                                                             </a>
                                                         </div>
                                                         <div class="homemenu">
-                                                            <a href="{{url('index3')}}" class="homemenu-thumb mb-15">
-                                                                <img src="assets/img/header/home-3.jpg" alt="img">
+                                                            <a href="{{ url('index3') }}"
+                                                                class="homemenu-thumb mb-15">
+                                                                <img src="{{ asset('assets/img/header/home-3.jpg') }}"
+                                                                    alt="img">
                                                                 <span class="demo-button">
                                                                     <span class="theme-btn p1-bg box-style first-box">
                                                                         <span class="black">Home 03</span>
@@ -156,22 +160,23 @@
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
                                             <ul class="submenu">
-                                                <li><a href="{{url('about')}}">About Us</a></li>
+                                                <li><a href="{{ url('about') }}">About Us</a></li>
                                                 <li><a href="doctor.html">Doctor</a></li>
                                                 <li><a href="doctor-details.html">Doctor Details</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="{{url('login')}}">Login</a></li>
-									    <li class="has-dropdown"><a href="{{url('register')}}">Register</a></li>
-                                        <li><a href="{{url('contact')}}">Contact</a></li>
+                                        <li class="has-dropdown"><a href="{{ url('login') }}">Login</a></li>
+                                        <li class="has-dropdown"><a href="{{ url('register') }}">Register</a></li>
+                                        <li><a href="{{ url('contact') }}">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i class="fal fa-search"></i></a>
+                        <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
+                                class="fal fa-search"></i></a>
                         <div class="header__hamburger d-xl-none my-auto">
                             <div class="sidebar__toggle">
-                                <img src="assets/img/icon/menu.png" alt="icon">
+                                <img src="{{ asset('assets/img/icon/menu.png') }}" alt="icon">
                             </div>
                         </div>
                     </div>
@@ -181,11 +186,12 @@
     </header> <!-- Banner Section Start -->
     <section class="breadcrumb-section position-relative fix">
         <div class="container">
-            <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
+            <div
+                class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
                 <h2 class="black">About</h2>
                 <ul class="d-flex align-items-center gap-3">
                     <li>
-                        <a href="{{url('index')}}">Home</a>
+                        <a href="{{ url('index') }}">Home</a>
                     </li>
                     <li>/</li>
                     <li>About</li>
@@ -193,7 +199,7 @@
             </div>
         </div>
         <!-- Bread Ele -->
-        <img src="assets/img/about/breadcrumnd-shap.png" alt="img" class="bread-ele">
+        <img src="{{ asset('assets/img/about/breadcrumnd-shap.png') }}" alt="img" class="bread-ele">
     </section>
     <!-- Banner Section Start -->
 
@@ -211,11 +217,13 @@
                                 Compassionate Care <br> Always There
                                 <span class="position-relative z-1">
                                     Health
-                                    <img src="assets/img/element/title-badge1.png" alt="img" class="title-badge1 d-md-block d-none w-100">
+                                    <img src="{{ asset('assets/img/element/title-badge1.png') }}" alt="img"
+                                        class="title-badge1 d-md-block d-none w-100">
                                 </span>
                                 First
                             </h2>
-                            <p class="pra">Health care is a vital aspect of maintaining overall well-being, encompassing
+                            <p class="pra">Health care is a vital aspect of maintaining overall well-being,
+                                encompassing
                                 a range of services from preventive care
                                 to treatment of cuses on promoting</p>
                         </div>
@@ -256,12 +264,14 @@
                 <div class="col-lg-5">
                     <div class="about-thumb-inner">
                         <div class="thumb">
-                            <img src="assets/img/about/about1.png" alt="img" class="about-img">
+                            <img src="{{ asset('assets/img/about/about1.png') }}" alt="img" class="about-img">
                         </div>
-                        <img src="assets/img/element/about1-bg.png" alt="img" class="about1-bg">
+                        <img src="{{ asset('assets/img/element/about1-bg.png') }}" alt="img" class="about1-bg">
                         <!-- Element -->
-                        <img src="assets/img/element/about1-element1.png" alt="img" class="about1-element1">
-                        <img src="assets/img/element/about1-element2.png" alt="img" class="about1-element2">
+                        <img src="{{ asset('assets/img/element/about1-element1.png') }}" alt="img"
+                            class="about1-element1">
+                        <img src="{{ asset('assets/img/element/about1-element2.png') }}" alt="img"
+                            class="about1-element2">
                     </div>
                 </div>
             </div>
@@ -278,19 +288,22 @@
                         Compassionate Care <br> Health
                         <span class="position-relative z-1">
                             Exceptional
-                            <img src="assets/img/element/title-badge1.png" alt="img" class="title-badge1 d-md-block d-none w-100">
+                            <img src="{{ asset('assets/img/element/title-badge1.png') }}" alt="img"
+                                class="title-badge1 d-md-block d-none w-100">
                         </span>
                         Results
                     </h2>
                 </div>
                 <div class="feature-inner">
                     <div class="feature-items">
-                        <div class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
+                        <div
+                            class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
                             <div class="d-flex align-items-center gap-xxl-4 gap-xl-3 gap-2">
                                 <div class="icons d-center rounded-circle p1-bg">
-                                    <img src="assets/img/icon/f-icon1.png" alt="icon">
+                                    <img src="{{ asset('assets/img/icon/f-icon1.png') }}" alt="icon">
                                 </div>
-                                <h4><a href="doctor.html" class="black fw_600">Quality Care <br> Exceptional Service</a>
+                                <h4><a href="doctor.html" class="black fw_600">Quality Care <br> Exceptional
+                                        Service</a>
                                 </h4>
                             </div>
                             <ul class="feature-list d-flex flex-column gap-1">
@@ -302,19 +315,23 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="doctor.html" class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight" data-wow-delay="0.8s">
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
                             Read More
-                            <img src="assets/img/icon/arrow-right-black.png" alt="icon">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
                         </a>
                         <!-- Extra Hover -->
-                        <img src="assets/img/choose/feature1.jpg" alt="img" class="extra-feature">
+                        <img src="{{ asset('assets/img/choose/feature1.jpg') }}" alt="img"
+                            class="extra-feature">
                     </div>
                     <div class="line"></div>
                     <div class="feature-items">
-                        <div class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
+                        <div
+                            class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
                             <div class="d-flex align-items-center gap-xxl-4 gap-xl-3 gap-2">
                                 <div class="icons d-center rounded-circle p1-bg">
-                                    <img src="assets/img/icon/f-icon2.png" alt="icon">
+                                    <img src="{{ asset('assets/img/icon/f-icon2.png') }}" alt="icon">
                                 </div>
                                 <h4><a href="doctor.html" class="black fw_600">Healing Lives One <br> Patient at a
                                         Time</a></h4>
@@ -328,19 +345,23 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="doctor.html" class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight" data-wow-delay="0.8s">
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
                             Read More
-                            <img src="assets/img/icon/arrow-right-black.png" alt="icon">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
                         </a>
                         <!-- Extra Hover -->
-                        <img src="assets/img/choose/feature2.jpg" alt="img" class="extra-feature">
+                        <img src="{{ asset('assets/img/choose/feature2.jpg') }}" alt="img"
+                            class="extra-feature">
                     </div>
                     <div class="line"></div>
                     <div class="feature-items">
-                        <div class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
+                        <div
+                            class="feature-left d-lg-flex d-grid gap-3 flex-lg-nowrap flex-wrap justify-content-between align-items-center">
                             <div class="d-flex align-items-center gap-xxl-4 gap-xl-3 gap-2">
                                 <div class="icons d-center rounded-circle p1-bg">
-                                    <img src="assets/img/icon/f-icon3.png" alt="icon">
+                                    <img src="{{ asset('assets/img/icon/f-icon3.png') }}" alt="icon">
                                 </div>
                                 <h4><a href="doctor.html" class="black fw_600">Caring for You Caring <br> for
                                         Tomorrow</a></h4>
@@ -354,18 +375,22 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="doctor.html" class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight" data-wow-delay="0.8s">
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
                             Read More
-                            <img src="assets/img/icon/arrow-right-black.png" alt="icon">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
                         </a>
                         <!-- Extra Hover -->
-                        <img src="assets/img/choose/feature3.jpg" alt="img" class="extra-feature">
+                        <img src="{{ asset('assets/img/choose/feature3.jpg') }}" alt="img"
+                            class="extra-feature">
                     </div>
                     <div class="line"></div>
                 </div>
                 <!-- Element-->
                 <a href="doctor.html" class="feature-element">
-                    <img src="assets/img/element/feature-element.png" alt="img" class="rounded-4">
+                    <img src="{{ asset('assets/img/element/feature-element.png') }}" alt="img"
+                        class="rounded-4">
                 </a>
             </div>
         </div>
@@ -421,20 +446,23 @@
                                 Lives
                                 <span class="position-relative z-1">
                                     Expert
-                                    <img src="assets/img/element/title-badge1.png" alt="img" class="title-badge1 d-md-block d-none w-100">
+                                    <img src="{{ asset('assets/img/element/title-badge1.png') }}" alt="img"
+                                        class="title-badge1 d-md-block d-none w-100">
                                 </span>
                                 Care
                             </h2>
                         </div>
                         <a href="doctor-details.html" class="w-100 rounded-4 overflow-hidden">
-                            <img src="assets/img/choose/choose1.jpg" alt="img" class="rounded-4 w-100">
+                            <img src="{{ asset('assets/img/choose/choose1.jpg') }}" alt="img"
+                                class="rounded-4 w-100">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                     <div class="chosse-middle">
                         <a href="doctor-details.html" class="w-100 rounded-4 overflow-hidden mb-xxl-4 mb-3 d-block">
-                            <img src="assets/img/choose/choose2.jpg" alt="img" class="rounded-4 w-100">
+                            <img src="{{ asset('assets/img/choose/choose2.jpg') }}" alt="img"
+                                class="rounded-4 w-100">
                         </a>
                         <h4 class="mb-xxl-3 mb-2">
                             <a href="doctor-details.html" class="black fw_700">
@@ -449,7 +477,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.8s">
                     <div class="choose-right position-relative d-center overflow-hidden rounded-4 w-100">
-                        <img src="assets/img/choose/choose3.jpg" alt="img" class="rounded-4 w-100">
+                        <img src="{{ asset('assets/img/choose/choose3.jpg') }}" alt="img"
+                            class="rounded-4 w-100">
                         <a href="doctor-details.html" class="video-choose d-center rounded-circle p1-bg video-popup">
                             <i class="fa-solid fa-play black"></i>
                         </a>
@@ -466,13 +495,15 @@
                 <h2 class="fw_600 white visible-slowly-right position-relative mb-40">
                     Ready To Turn Dreams Into Reality Subscribe to Our Newsletter
                     <!-- Element -->
-                    <img src="assets/img/element/newsletter-element.png" alt="element" class="newsletter-element">
+                    <img src="{{ asset('assets/img/element/newsletter-element.png') }}" alt="element"
+                        class="newsletter-element">
                 </h2>
                 <form action="#" class="form-cmn-style1">
                     <input type="text" placeholder="Enter your email">
-                    <button type="button" class="common-btn text-nowrap box-style py-3 first-box d-inline-flex justify-content-center align-items-center fs-seven fw_600 gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded-5">
+                    <button type="button"
+                        class="common-btn text-nowrap box-style py-3 first-box d-inline-flex justify-content-center align-items-center fs-seven fw_600 gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded-5">
                         Subscribe Now
-                        <img src="assets/img/icon/arrow-right-black.png" alt="icon">
+                        <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
                     </button>
                 </form>
             </div>
@@ -482,8 +513,8 @@
                         <div class="col-lg-3 col-md-6 col-sm-7">
                             <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.4s">
                                 <div class="widget-head">
-                                    <a href="{{url('index')}}">
-                                        <img src="assets/img/logo/logo-white.png" alt="logo-img">
+                                    <a href="{{ url('index') }}">
+                                        <img src="{{ asset('assets/img/logo/logo-white.png') }}" alt="logo-img">
                                     </a>
                                 </div>
                                 <div class="footer-content">
@@ -507,12 +538,12 @@
                                 </div>
                                 <ul class="list-area">
                                     <li>
-                                        <a href="{{url('about')}}">
+                                        <a href="{{ url('about') }}">
                                             About Us
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{url('contact')}}">
+                                        <a href="{{ url('contact') }}">
                                             Why Chose Us
                                         </a>
                                     </li>
@@ -531,22 +562,22 @@
                                 </div>
                                 <ul class="list-area">
                                     <li>
-                                        <a href="{{url('contact')}}">
+                                        <a href="{{ url('contact') }}">
                                             Trems & Condition
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{url('contact')}}">
+                                        <a href="{{ url('contact') }}">
                                             Privacy Policy
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{url('contact')}}">
+                                        <a href="{{ url('contact') }}">
                                             Contact Us
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{url('contact')}}">
+                                        <a href="{{ url('contact') }}">
                                             Treams Of Use
                                         </a>
                                     </li>
@@ -579,7 +610,8 @@
                                         <span class="icon d-center"><i class="fa-solid fa-envelope"></i></span>
                                         <div class="cont">
                                             <span class="pra fs-seven d-block">Email</span>
-                                            <a href="javascript:void(0)" class="fs-six fw_500 white sub-font">abcd@gmail.com</a>
+                                            <a href="javascript:void(0)"
+                                                class="fs-six fw_500 white sub-font">abcd@gmail.com</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -597,7 +629,7 @@
             </div>
         </div>
         <!-- Element-->
-        <img src="assets/img/element/footer-element.png" alt="element" class="footer-element">
+        <img src="{{ asset('assets/img/element/footer-element.png') }}" alt="element" class="footer-element">
     </footer>
     <!-- Offcanvas Area Start -->
     <div class="fix-area">
@@ -606,8 +638,8 @@
                 <div class="offcanvas__content">
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
-                            <a href="{{url('index')}}">
-                                <img src="assets/img/logo/logo.png" alt="logo-img">
+                            <a href="{{ url('index') }}">
+                                <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
                             </a>
                         </div>
                         <div class="offcanvas__close">
@@ -625,7 +657,8 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Mirpur,10 Road 1 House 12 Mirpur Dhaka Bangladesh</a>
+                                    <a target="_blank" href="#">Mirpur,10 Road 1 House 12 Mirpur Dhaka
+                                        Bangladesh</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -633,8 +666,10 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="mailto:info@example.com"><span class="mailto:info@example.com">info@example.com</span></a>
-                                    <a href="mailto:info@example.com"><span class="mailto:info@example.com">ex@example.com</span></a>
+                                    <a href="mailto:info@example.com"><span
+                                            class="mailto:info@example.com">info@example.com</span></a>
+                                    <a href="mailto:info@example.com"><span
+                                            class="mailto:info@example.com">ex@example.com</span></a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -656,7 +691,8 @@
                             </li>
                         </ul>
                         <div class="header-button mt-4">
-                            <a href="{{url('contact')}}" class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
+                            <a href="{{ url('contact') }}"
+                                class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden p1-bg rounded100">
                                 Get Start
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -685,39 +721,39 @@
             </div>
         </div>
     </div><!--<< All JS Plugins >>-->
-    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <!--<< Viewport Js >>-->
-    <script src="assets/js/viewport.jquery.js"></script>
+    <script src="{{ asset('assets/js/viewport.jquery.js') }}"></script>
     <!--<< Bootstrap Js >>-->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <!--<< Nice Select Js >>-->
-    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
     <!--<< Waypoints Js >>-->
-    <script src="assets/js/jquery.waypoints.js"></script>
+    <script src="{{ asset('assets/js/jquery.waypoints.js') }}"></script>
     <!--<< Counterup Js >>-->
-    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
     <!--<< Swiper Slider Js >>-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
     <!--<< MeanMenu Js >>-->
-    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.meanmenu.min.js') }}"></script>
     <!--<< Magnific Popup Js >>-->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
     <!--<< Wow Animation Js >>-->
-    <script src="assets/js/wow.min.js"></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
     <!--<< Gsap Js >>-->
-    <script src="assets/js/gsap.min.js"></script>
+    <script src="{{ asset('assets/js/gsap.min.js') }}"></script>
     <!--<< Lenis Js >>-->
-    <script src="assets/js/lenis.min.js"></script>
+    <script src="{{ asset('assets/js/lenis.min.js') }}"></script>
     <!--<< ScrollSmoother Js >>-->
-    <script src="assets/js/scrollSmoother.js"></script>
+    <script src="{{ asset('assets/js/scrollSmoother.js') }}"></script>
     <!--<< ScrollTrigger Js >>-->
-    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
     <!--<< Spalit Text Js >>-->
-    <script src="assets/js/spilitext-gsap.js"></script>
+    <script src="{{ asset('assets/js/spilitext-gsap.js') }}"></script>
     <!--<< Valina Tilt Js >>-->
-    <script src="assets/js/vanilla-tilt.min.js"></script>
+    <script src="{{ asset('assets/js/vanilla-tilt.min.js') }}"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 

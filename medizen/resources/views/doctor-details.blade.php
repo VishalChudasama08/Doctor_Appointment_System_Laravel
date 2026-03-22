@@ -1,239 +1,261 @@
 @extends('layout')
 
 @section('main-content')
-@if(auth()->user())
-<!-- Banner Section Start -->
-<section class="breadcrumb-section position-relative fix">
-    <div class="container">
-        <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
-            <h2 class="black">Doctor Details</h2>
-            <ul class="d-flex align-items-center gap-3">
-                <li><a href="{{url('index')}}">Home</a></li>
-                <li>/</li>
-                <li><a href="{{url('doctors')}}">Doctor</a></li>
-                <li>/</li>
-                <li>Doctor Details</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Bread Ele -->
-    <img src="assets/img/about/breadcrumnd-shap.png" alt="img" class="bread-ele">
-</section>
+    @if (auth()->user())
+        <!-- Banner Section Start -->
+        <section class="breadcrumb-section position-relative fix">
+            <div class="container">
+                <div
+                    class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
+                    <h2 class="black">Doctor Details</h2>
+                    <ul class="d-flex align-items-center gap-3">
+                        <li><a href="{{ url('index') }}">Home</a></li>
+                        <li>/</li>
+                        <li><a href="{{ url('doctors') }}">Doctor</a></li>
+                        <li>/</li>
+                        <li>Doctor Details</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Bread Ele -->
+            <img src="{{ asset('assets/img/about/breadcrumnd-shap.png') }}" alt="img" class="bread-ele">
+        </section>
 
-<!-- doctor Section Start-->
-<section class="doctor-details-section pt-3">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-8">
-                <div class="doctor-details-wraping">
-                    <form action="#" class="contact-forms blog-form wow fadeInUp mb-40" data-wow-delay="0.6s">
-                        <h4 class="black mb-xl-4 mb-3">Write Your Message</h4>
-                        <div class="row g-lg-4 g-3">
-                            <div class="col-lg-12">
-                                <textarea name="message" placeholder="Message here.." rows="5"></textarea>
+        <!-- doctor Section Start-->
+        <section class="doctor-details-section pt-3">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="doctor-details-wraping">
+                            <form action="#" class="contact-forms blog-form wow fadeInUp mb-40" data-wow-delay="0.6s">
+                                <h4 class="black mb-xl-4 mb-3">Write Your Message</h4>
+                                <div class="row g-lg-4 g-3">
+                                    <div class="col-lg-12">
+                                        <textarea name="message" placeholder="Message here.." rows="5"></textarea>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" value="{{ auth()->user()->name }}" placeholder="Your Name"
+                                            class="rounded-5">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="email" value="{{ auth()->user()->email }}" placeholder="Your Email"
+                                            class="rounded-5">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" value="{{ auth()->user()->number }}"
+                                            placeholder="Phone Number" class="rounded-5">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <select name="doctor-appoinment">
+                                            <option value="1">Choose a Time</option>
+                                            <option value="2">2:10 am</option>
+                                            <option value="3">3:10 am</option>
+                                            <option value="4">10:10 pm</option>
+                                            <option value="4">8:10 am</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-12 mt-4">
+                                        <button type="submit" href="{{ url('doctorDetails') }}"
+                                            class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight"
+                                            data-wow-delay="0.8s">
+                                            Book An Appiontment
+                                            <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="mb-40">
+                                <h2 class="black mb-1">Dr.Chirs Bekham</h2>
+                                <span class="pra">Cardiac Surgeon</span>
+                                <p class="pt-xl-3 pt-2">
+                                    Medical services are an essential part of our lives, offering care and treatment for
+                                    various health conditions. Th
+                                    services encompass a wide range of specialties, including primary care, pediatrics,
+                                    cardiology, dermatology, and more.
+                                    Whether it's a routine check-up or a complex surgical procedure, medical professionals
+                                    work tirelessly to ensure the
+                                    well-being of their patients Medical services are an essential part of our lives,
+                                    offering care and treatment for
+                                    various
+                                </p>
                             </div>
-                            <div class="col-lg-6">
-                                <input type="text" value="{{auth()->user()->name}}" placeholder="Your Name" class="rounded-5">
+                            <ul class="doctor-professional mb-40">
+                                <li class="d-flex align-items-center">
+                                    <span class="names">Expertise</span>
+                                    <span class="pra">Cardiac Surgeon</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="names">Education</span>
+                                    <span class="pra">Dhaka Madical College,2018</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="names">Experience</span>
+                                    <span class="pra">5 Years Of Experience In Madicine</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="names">Profession</span>
+                                    <span class="pra">Doctor At Dhaka Madical College,Head OF Bailogy Department
+                                        Du</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog-details-right">
+                            <div class="details-common pt-3 px-3 pb-4">
+                                <div class="thumb rounded-circle m-auto w-100">
+                                    <img src="{{ asset('assets/img/choose/doctor-details.jpg') }}" alt="img"
+                                        class="rounded-4 w-100">
+                                </div>
+                                <div class="cont mt-xl-3 mt-2 text-center mb-3">
+                                    <h4 class="black mb-1">Dr.Chirs Bekham</h4>
+                                    <span class="pra">Cardiac Surgeon</span>
+                                </div>
+                                <div class="social-wrapper d-flex justify-content-center align-items-center">
+                                    <a href="#" class=" black"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class=" black"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class=" black">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_5855_218)">
+                                                <path
+                                                    d="M8.30314 5.92804L13.4029 0H12.1944L7.7663 5.14724L4.22958 0H0.150391L5.4986 7.78354L0.150391 14H1.35894L6.03514 8.56434L9.77017 14H13.8494L8.30284 5.92804H8.30314ZM6.64787 7.85211L6.10598 7.07705L1.79439 0.909771H3.65065L7.13015 5.88696L7.67204 6.66202L12.195 13.1316H10.3387L6.64787 7.85241V7.85211Z"
+                                                    fill="#090A0B" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_5855_218">
+                                                    <rect width="14" height="14" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class=" black"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </div>
                             </div>
-                            <div class="col-lg-6">
-                                <input type="email" value="{{auth()->user()->email}}" placeholder="Your Email" class="rounded-5">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" value="{{auth()->user()->number}}" placeholder="Phone Number" class="rounded-5">
-                            </div>
-                            <div class="col-lg-6">
-                                <select name="doctor-appoinment">
-                                    <option value="1">Choose a Time</option>
-                                    <option value="2">2:10 am</option>
-                                    <option value="3">3:10 am</option>
-                                    <option value="4">10:10 pm</option>
-                                    <option value="4">8:10 am</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-12 mt-4">
-                                <button type="submit" href="{{url('doctorDetails')}}" class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight" data-wow-delay="0.8s">
-                                    Book An Appiontment
-                                    <img src="assets/img/icon/arrow-right-white.png" alt="icon">
-                                </button>
+                            <div class="details-common category-service">
+                                <div class="mb-4">
+                                    <h4 class="black d-flex align-items-center gap-2 mb-1 fw_700 visible-slowly-right">
+                                        Schedule</h4>
+                                    <p class="pra">Health care is a vital aspect of maintain overall well-being,
+                                        encompassing a range</p>
+                                </div>
+                                <ul class="cates">
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
+                                            <span class="pra fs-seven">Saturday-Sunday</span>
+                                            <span class="just-serial">9 Am To 5 Pm</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
+                                            <span class="pra fs-seven">
+                                                Monday-Tuesday
+                                            </span>
+                                            <span class="just-serial">1 Pm To 7 Pm</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
+                                            <span class="pra fs-seven">
+                                                Wednesday-Thusday
+                                            </span>
+                                            <span class="just-serial">2 Am To 6 Pm</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
+                                            <span class="pra fs-seven">
+                                                Friday
+                                            </span>
+                                            <span class="just-serial">Off Day</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </form>
-                    <div class="mb-40">
-                        <h2 class="black mb-1">Dr.Chirs Bekham</h2>
-                        <span class="pra">Cardiac Surgeon</span>
-                        <p class="pt-xl-3 pt-2">
-                            Medical services are an essential part of our lives, offering care and treatment for
-                            various health conditions. Th
-                            services encompass a wide range of specialties, including primary care, pediatrics,
-                            cardiology, dermatology, and more.
-                            Whether it's a routine check-up or a complex surgical procedure, medical professionals
-                            work tirelessly to ensure the
-                            well-being of their patients Medical services are an essential part of our lives,
-                            offering care and treatment for
-                            various
-                        </p>
                     </div>
-                    <ul class="doctor-professional mb-40">
-                        <li class="d-flex align-items-center">
-                            <span class="names">Expertise</span>
-                            <span class="pra">Cardiac Surgeon</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <span class="names">Education</span>
-                            <span class="pra">Dhaka Madical College,2018</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <span class="names">Experience</span>
-                            <span class="pra">5 Years Of Experience In Madicine</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <span class="names">Profession</span>
-                            <span class="pra">Doctor At Dhaka Madical College,Head OF Bailogy Department Du</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Appiontment Section Start -->
+        <section class="appoentment-section fix space-bottom">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6 order-lg-0 order-1">
+                        <div class="apoentment-thumb">
+                            <img src="{{ asset('assets/img/service/sub-contact.jpg') }}" alt="img"
+                                class="rounded-4">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="#" class="appoentment-forms">
+                            <div class="section-title mb-60">
+                                <span class="cmn-tag p1-bg heading-font">Contact Us</span>
+                                <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
+                                    Get an
+                                    <span class="position-relative z-1">
+                                        Appiontment
+                                        <img src="{{ asset('assets/img/element/title-badge1.png') }}" alt="img"
+                                            class="title-badge1 d-md-block d-none w-100">
+                                    </span>
+                                </h2>
+                            </div>
+                            <div class="row g-lg-4 g-3">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Your Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="email" placeholder="Your Email">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Phone Number">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Subject">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea name="message" placeholder="Message" rows="5"></textarea>
+                                </div>
+                                <div class="col-lg-12">
+                                    <a href="{{ url('doctorDetails') }}"
+                                        class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight"
+                                        data-wow-delay="0.8s">
+                                        Book An Appiontment
+                                        <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @else
+        <!-- Banner Section Start -->
+        <section class="breadcrumb-section position-relative fix">
+            <div class="container">
+                <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center"
+                    style="padding: 150px 0 130px !important">
+                    <h2 class="black">Service</h2>
+                    <ul class="d-flex align-items-center gap-3">
+                        <li>
+                            <a href="{{ url('login') }}" style="color:red">Login</a>
+                            &nbsp;OR&nbsp;
+                            <a href="{{ url('register') }}" style="color:red">Register</a>
+                            &nbsp;To See Doctors Details
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="blog-details-right">
-                    <div class="details-common pt-3 px-3 pb-4">
-                        <div class="thumb rounded-circle m-auto w-100">
-                            <img src="assets/img/choose/doctor-details.jpg" alt="img" class="rounded-4 w-100">
-                        </div>
-                        <div class="cont mt-xl-3 mt-2 text-center mb-3">
-                            <h4 class="black mb-1">Dr.Chirs Bekham</h4>
-                            <span class="pra">Cardiac Surgeon</span>
-                        </div>
-                        <div class="social-wrapper d-flex justify-content-center align-items-center">
-                            <a href="#" class=" black"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class=" black"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class=" black">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_5855_218)">
-                                        <path d="M8.30314 5.92804L13.4029 0H12.1944L7.7663 5.14724L4.22958 0H0.150391L5.4986 7.78354L0.150391 14H1.35894L6.03514 8.56434L9.77017 14H13.8494L8.30284 5.92804H8.30314ZM6.64787 7.85211L6.10598 7.07705L1.79439 0.909771H3.65065L7.13015 5.88696L7.67204 6.66202L12.195 13.1316H10.3387L6.64787 7.85241V7.85211Z" fill="#090A0B" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_5855_218">
-                                            <rect width="14" height="14" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </a>
-                            <a href="#" class=" black"><i class="fa-brands fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="details-common category-service">
-                        <div class="mb-4">
-                            <h4 class="black d-flex align-items-center gap-2 mb-1 fw_700 visible-slowly-right">Schedule</h4>
-                            <p class="pra">Health care is a vital aspect of maintain overall well-being, encompassing a range</p>
-                        </div>
-                        <ul class="cates">
-                            <li>
-                                <a href="javascript:void(0)" class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                    <span class="pra fs-seven">Saturday-Sunday</span>
-                                    <span class="just-serial">9 Am To 5 Pm</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                    <span class="pra fs-seven">
-                                        Monday-Tuesday
-                                    </span>
-                                    <span class="just-serial">1 Pm To 7 Pm</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                    <span class="pra fs-seven">
-                                        Wednesday-Thusday
-                                    </span>
-                                    <span class="just-serial">2 Am To 6 Pm</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                    <span class="pra fs-seven">
-                                        Friday
-                                    </span>
-                                    <span class="just-serial">Off Day</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Appiontment Section Start -->
-<section class="appoentment-section fix space-bottom">
-    <div class="container">
-        <div class="row g-4 align-items-center">
-            <div class="col-lg-6 order-lg-0 order-1">
-                <div class="apoentment-thumb">
-                    <img src="assets/img/service/sub-contact.jpg" alt="img" class="rounded-4">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <form action="#" class="appoentment-forms">
-                    <div class="section-title mb-60">
-                        <span class="cmn-tag p1-bg heading-font">Contact Us</span>
-                        <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
-                            Get an
-                            <span class="position-relative z-1">
-                                Appiontment
-                                <img src="assets/img/element/title-badge1.png" alt="img" class="title-badge1 d-md-block d-none w-100">
-                            </span>
-                        </h2>
-                    </div>
-                    <div class="row g-lg-4 g-3">
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Your Name">
-                        </div>
-                        <div class="col-lg-6">
-                            <input type="email" placeholder="Your Email">
-                        </div>
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Phone Number">
-                        </div>
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Subject">
-                        </div>
-                        <div class="col-lg-12">
-                            <textarea name="message" placeholder="Message" rows="5"></textarea>
-                        </div>
-                        <div class="col-lg-12">
-                            <a href="{{url('doctorDetails')}}" class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight" data-wow-delay="0.8s">
-                                Book An Appiontment
-                                <img src="assets/img/icon/arrow-right-white.png" alt="icon">
-                            </a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-@else
-<!-- Banner Section Start -->
-<section class="breadcrumb-section position-relative fix">
-    <div class="container">
-        <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center" style="padding: 150px 0 130px !important">
-            <h2 class="black">Service</h2>
-            <ul class="d-flex align-items-center gap-3">
-                <li>
-                    <a href="{{url('login')}}" style="color:red">Login</a>
-                    &nbsp;OR&nbsp;
-                    <a href="{{url('register')}}" style="color:red">Register</a>
-                    &nbsp;To See Doctors Details
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- Bread Ele -->
-    <img src="assets/img/about/breadcrumnd-shap.png" alt="img" class="bread-ele" style="max-width: 280px !important">
-</section>
-@endif
-
+            <!-- Bread Ele -->
+            <img src="{{ asset('assets/img/about/breadcrumnd-shap.png') }}" alt="img" class="bread-ele"
+                style="max-width: 280px !important">
+        </section>
+    @endif
 @endsection
