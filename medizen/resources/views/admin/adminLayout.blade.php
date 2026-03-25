@@ -45,6 +45,7 @@
 </head>
 
 <body class="body-bg">
+    {{-- <div style="height:100vh"> --}}
     <!-- Preloader Start -->
     <div id="preloader" class="preloader">
         <div class="animation-preloader">
@@ -115,14 +116,16 @@
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li><a href="{{ url('admin/patients') }}">Patients</a></li>
-                                        <li><a href="{{ url('admin/doctors') }}">Doctors</a></li>
+                                        <li><a href="{{ url('Admin/AdminDashboard') }}">Home</a></li>
+                                        <li><a href="{{ url('Admin/Patients') }}">Patients</a></li>
+                                        <li><a href="{{ url('Admin/Doctors') }}">Doctors</a></li>
                                         @if (Auth::check())
                                             @if (auth()->user()->user_type == 'Admin')
                                                 <li class="has-dropdown"><a href="{{ url('logout') }}"
                                                         style="color:#f98c8c">Logout</a></li>
                                             @else
-                                                <li class="has-dropdown"><a href="{{ url('login') }}">Login</a></li>
+                                                <li class="has-dropdown"><a href="{{ url('login') }}">Login</a>
+                                                </li>
                                                 <li class="has-dropdown dark"><a
                                                         href="{{ url('register') }}">Register</a>
                                                 </li>
@@ -164,6 +167,8 @@
             </div>
         @endif
     @endif
+
+    {{-- </div> --}}
     <!--<< Footer Section Start >>-->
     <footer class="footer-section z-1 position-relative blackbg fix">
         <div class="container pt-5">

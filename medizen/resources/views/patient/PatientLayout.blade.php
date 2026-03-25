@@ -441,7 +441,8 @@
                 <div class="profile-content">
                     <h3>{{ auth()->user()->name }}</h3>
                     <p>Email: {{ auth()->user()->email }}</p>
-
+                    <a href="{{ url('Patient/EditProfile', auth()->user()->id) }}"
+                        class="btn btn-small btn-success">Edit Profile</a>
                     <!-- <a href="#" class="btn btn-primary">View Profile</a>
     <a href="#" class="btn btn-danger">Logout</a> -->
                 </div>
