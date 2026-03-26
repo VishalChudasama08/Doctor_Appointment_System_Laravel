@@ -11,8 +11,9 @@
                             <h2 class="wow fadeInUp black" data-wow-delay=".3s">
                                 <span class="position-relative z-1 w-100">
                                     Collect Doctor Details From
-                                    <img src="{{ asset('assets/img/element/title-badge1.png') }}" style="bottom: -25px;"
-                                        alt="img" class="title-badge1 d-md-block d-none w-100">
+                                    <img src="{{ asset('assets/img/element/title-badge1.png') }}"
+                                        style="bottom: -5px;left: 300px;" alt="img"
+                                        class="title-badge1 d-md-block d-none w-90">
                                 </span>
                             </h2>
                         </div>

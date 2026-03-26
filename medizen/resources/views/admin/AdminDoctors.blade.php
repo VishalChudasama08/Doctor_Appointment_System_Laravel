@@ -6,11 +6,14 @@
         {{-- {{auth()->user()->name}} --}}
     </section>
 
-    {{-- Patients --}}
+    {{-- Doctor's --}}
     <section class="container">
         <div>
             @if (session('doctorDetailsAddOkay'))
                 <div style="color: green; margin: 10px;">{{ session('doctorDetailsAddOkay') }}</div>
+            @endif
+            @if (session('DoctorDeletedDone'))
+                <div style="color: green; margin: 10px;">{{ session('DoctorDeletedDone') }}</div>
             @endif
             <div class="d-flex justify-content-between">
                 <h3>Doctors</h3>
@@ -25,7 +28,7 @@
                             <th>Email</th>
                             <th>Number</th>
                             <th class="text-center" style="width: 1%;">Delete</th>
-                            <th class="text-center" style="width: 1%;">Activity</th>
+                            <th class="text-center" style="width: 1%;">Profile</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,9 +51,10 @@
                                 </td>
 
                                 <td class="text-center text-nowrap">
-                                    <a href="{{ url('Admin/AdminDoctorDetailsForm', $d['id']) }}">
-                                        <i class="bi bi-activity"
-                                            style="color:#6c757d; display:contents; position:absolute; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;"
+                                    {{-- <a href="{{ url('Admin/AdminDoctorDetailsForm', $d['id']) }}"> --}}
+                                    <a href="{{ url('Admin/DoctorProfile', $d['id']) }}">
+                                        <i class="bi bi-person-lines-fill"
+                                            style="color:#6c757d; cursor:pointer; display:contents; position:absolute; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;"
                                             onmouseover="this.style.color='green'; this.style.fontSize='22px'"
                                             onmouseout="this.style.color='#6c757d'; this.style.fontSize='18px'">
                                         </i>

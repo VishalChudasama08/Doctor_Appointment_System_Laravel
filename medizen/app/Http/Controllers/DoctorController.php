@@ -5,65 +5,55 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class DoctorController extends Controller
 {
-    public function registerDoctor(Request $req)
+    public function dashboard()
     {
+        $user = Auth::user(); // logged-in user 
+        $doctor = Doctor::where('user_id', $user->id)->get();
+        $data = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'number' => $user->number,
+            'user_type' => $user->user_type,
+            'image' => $doctor[0]->image,
+            'expertise' => $doctor[0]->expertise,
+            'experience' => $doctor[0]->experience,
+            'education' => $doctor[0]->education,
+            'profession' => $doctor[0]->profession,
+            'available_days' => $doctor[0]->available_days,
+            'available_time' => $doctor[0]->available_time
+        ];
+
         // echo "<pre>";
-        // print_r($req->all());
+        // print_r($data);
         // die;
-        $req->validate([
-            'number' => 'required|digits:10|regex:/^[0-9]{10}$/'
-        ]);
-        $data = User::create([
-            'user_type' => $req->userType,
-            'name' => $req->name,
-            'email' => $req->email,
-            'password' => $req->password,
-            'number' => $req->number
-        ]);
-        // echo $data['id'];
-        // die;
-        return redirect('Admin/AdminDoctorDetailsForm/' . $data['id'])->with('DoctorRegisterOKay', 'Doctor Register successfully');
+
+        return view('doctor.DoctorDashboard', compact('data'));
     }
 
-    public function addDoctorDetails($id)
+    public function getDoctorProfile()
     {
-        $doctor = User::find($id);
+        $info = Auth::user();
+        $detail = Doctor::where('user_id', $info->id)->get();
         // echo "<pre>";
-        // print_r($doctor->toArray());
+        // print_r($doctor);
         // die;
-        return view('admin.AdminDoctorDetailsForm', compact('doctor'));
-    }
-
-    public function doctorsList()
-    {
-        $doctors = User::where('user_type', 'Doctor')->paginate(8);
-        return view('admin.AdminDoctors', compact('doctors'));
-    }
-
-    public function saveDoctorDetails(Request $req)
-    {
-        // echo "<pre>";
-        // print_r($req->all());
-        // die;
-
-        $file = $req->image;
-        $name = time() . "." . $file->getClientOriginalExtension();
-        $file->move(public_path('upload/doctors'), $name); // move file on upload folder
-
-        Doctor::create([
-            'image' => $name,
-            'user_id' => $req->user_id,
-            'expertise' => $req->expertise,
-            'experience' => $req->experience,
-            'education' => $req->education,
-            'profession' => $req->profession,
-            'available_days' => $req->available_days,
-            'available_time' => $req->available_time
-        ]);
-
-        return redirect('Admin/Doctors')->with('doctorDetailsAddOkay', 'Doctor Details add and save successfully');
+        $doctor = [
+            'name' => $info->name,
+            'email' => $info->email,
+            'number' => $info->number,
+            'image' => $detail[0]->image,
+            'expertise' => $detail[0]->expertise,
+            'experience' => $detail[0]->experience,
+            'education' => $detail[0]->education,
+            'profession' => $detail[0]->profession,
+            'available_days' => $detail[0]->available_days,
+            'available_time' => $detail[0]->available_time
+        ];
+        return view('doctor.DoctorProfile', compact('doctor'));
     }
 }

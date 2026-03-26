@@ -1,48 +1,45 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 
-Route::get('/login', function () {
-    return view('loginPage');
-});
-Route::post('/loginNow', [AuthController::class, 'loginProcess']);
 
+// ================ Patient Register Router's ================
 Route::get('/register', function () {
     return view('registerPage');
 });
 Route::post('/registerNow', [AuthController::class, 'registerProcess']);
 
+
+// ================ Global Login Router's ================
+Route::get('/login', function () {
+    return view('loginPage');
+});
+Route::post('/loginNow', [AuthController::class, 'loginProcess']);
 Route::get('/logout', [AuthController::class, 'logoutProcess']);
-
-Route::get('/Admin/AdminDashboard', function () {
-    return view('admin.AdminDashboard');
-});
-Route::get('/Patient/PatientDashboard', function () {
-    return view('patient.PatientDashboard');
-});
-Route::get('/Doctor/DoctorDashboard', function () {
-    return view('doctor.DoctorDashboard');
-});
-
+Route::get('/Admin/AdminDashboard', [AdminController::class, 'dashboard']);
+Route::get('/Patient/PatientDashboard', [PatientController::class, 'dashboard']);
+Route::get('/Doctor/DoctorDashboard', [DoctorController::class, 'dashboard']);
 
 
 // ================ Admin Router's ================
-Route::get('Admin/Patients', [PatientController::class, 'patientList']);
-Route::get('Admin/Patient/DeleteThis/{id}', [PatientController::class, 'deleteThisPatient']);
+// ------ Admin Patients Control Router's ------
+Route::get('Admin/Patients', [AdminController::class, 'patientList']);
+Route::get('Admin/Patient/DeleteThis/{id}', [AdminController::class, 'deleteThisPatient']);
 
+// ------ Admin Doctor Control Router's ------
 Route::get('Admin/DoctorRegister', function () {
     return view('admin.AdminDoctorRegister');
 });
-Route::post('Admin/RegisterThisDoctorNow', [DoctorController::class, 'registerDoctor']);
-Route::get('Admin/Doctors', [DoctorController::class, 'doctorsList']);
-
-Route::get('Admin/AdminDoctorDetailsForm/{id}', [DoctorController::class, 'addDoctorDetails']);
-Route::post('Admin/AddThisDoctorDetailsNow', [DoctorController::class, 'saveDoctorDetails']);
-
-// Route::get('Admin/Patient/DeleteThis/{id}', [PatientController::class, 'deleteThisPatient']);
+Route::post('Admin/RegisterThisDoctorNow', [AdminController::class, 'registerDoctor']);
+Route::get('Admin/Doctors', [AdminController::class, 'doctorsList']);
+Route::get('Admin/Doctor/DeleteThis/{id}', [AdminController::class, 'deleteThisDoctor']);
+Route::get('Admin/AdminDoctorDetailsForm/{id}', [AdminController::class, 'addDoctorDetails']);
+Route::post('Admin/AddThisDoctorDetailsNow', [AdminController::class, 'saveDoctorDetails']);
+Route::get('Admin/DoctorProfile/{id}', [AdminController::class, 'getThisDoctorProfile']);
 
 
 // ================ Patient Router's ================
@@ -51,8 +48,14 @@ Route::post('Patient/EditThisProfile', [PatientController::class, 'editPatient']
 
 
 // ================ Doctor Router's ================
-Route::get('Patient/EditProfile/{id}', [PatientController::class, 'editPatientForm']);
-Route::post('Patient/EditThisProfile', [PatientController::class, 'editPatient']);
+Route::get('Doctor/MyProfile', [DoctorController::class, 'getDoctorProfile']);
+// Route::get('Patient/EditProfile/{id}', [PatientController::class, 'editPatientForm']);
+// Route::post('Patient/EditThisProfile', [PatientController::class, 'editPatient']);
+
+
+
+
+
 
 // views routers 
 Route::get('/', function () {

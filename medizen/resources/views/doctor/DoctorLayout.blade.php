@@ -100,7 +100,7 @@
 
 
     <!-- Header Section Start -->
-    <header id="header-sticky" class="header-1 header-style2">
+    <header id="header-sticky" class="header-1 header-style2" style="border: 1px solid grey; border-radius: 15px;">
         <div class="container">
             <div class="mega-menu-wrapper">
                 <div class="header-main style-2">
@@ -116,27 +116,21 @@
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li><a href="{{ url('Admin/AdminDashboard') }}">Home</a></li>
-                                        <li><a href="{{ url('Admin/Patients') }}">Patients</a></li>
-                                        <li><a href="{{ url('Admin/Doctors') }}">Doctors</a></li>
+                                        <li><a href="{{ url('Doctor/DoctorDashboard') }}">Home</a></li>
+                                        <li><a href="{{ url('Doctor/MyProfile') }}">Profile</a></li>
+                                        <li><a href="{{ url('Doctor/Schedule') }}">Schedule</a></li>
                                         @if (Auth::check())
-                                            @if (auth()->user()->user_type == 'Admin')
-                                                <li class="has-dropdown"><a href="{{ url('logout') }}"
-                                                        style="color:#f98c8c">Logout</a></li>
-                                            @else
-                                                <li class="has-dropdown"><a href="{{ url('login') }}">Login</a>
-                                                </li>
-                                                <li class="has-dropdown dark"><a
-                                                        href="{{ url('register') }}">Register</a>
-                                                </li>
-                                            @endif
+                                            <li class="has-dropdown"><a href="{{ url('logout') }}"
+                                                    style="color:#f98c8c">Logout</a></li>
+                                        @else
+                                            <li class="has-dropdown"><a href="{{ url('login') }}">Login</a></li>
+                                            <li class="has-dropdown dark"><a href="{{ url('register') }}">Register</a>
+                                            </li>
                                         @endif
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
-                                class="fal fa-search"></i></a>
                         <div class="header__hamburger d-xl-none my-auto">
                             <div class="sidebar__toggle">
                                 <img src="{{ asset('assets/img/icon/menu.png') }}" alt="icon">
@@ -148,21 +142,9 @@
         </div>
     </header>
 
-    <hr style="margin: 0;">
-    @if (Auth::check())
-        @if (auth()->user()->user_type == 'Admin')
-            @yield('admin-content')
-        @else
-            <div class="footer-bottom text-center">
-                <div class="container">
-                    <h3 style="color: red;" class="body-font text-center py-4">
-                        <i class="bi bi-exclamation-circle"></i>
-                        Admin login required
-                    </h3>
-                </div>
-            </div>
-        @endif
-    @endif
+    {{-- <hr style="margin: 0;"> --}}
+
+    @yield('doctor-content')
 
     {{-- </div> --}}
     <!--<< Footer Section Start >>-->
@@ -371,8 +353,34 @@
         </div>
     </div>
     <div class="offcanvas__overlay"></div><!-- Search Area Start -->
+    <div class="search-wrap">
+        <div class="search-inner">
+            <i class="fas fa-times search-close" id="search-close"></i>
+            <div class="search-cell">
+                <form method="get">
+                    <div class="search-field-holder">
+                        <input type="search" class="main-search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- @if (auth()->user())
+        <div class="profile-wrap">
+            <div class="profile-inner">
+                <i class="fas fa-times profile-close"></i>
 
-
+                <div class="profile-content">
+                    <h3>{{ auth()->user()->name }}</h3>
+                    <p>Email: {{ auth()->user()->email }}</p>
+                    <a href="{{ url('Patient/EditProfile', auth()->user()->id) }}"
+                        class="btn btn-small btn-success">Edit Profile</a>
+                    <!-- <a href="#" class="btn btn-primary">View Profile</a>
+    <a href="#" class="btn btn-danger">Logout</a> -->
+                </div>
+            </div>
+        </div>
+    @endif --}}
     <!--<< All JS Plugins >>-->
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <!--<< Viewport Js >>-->

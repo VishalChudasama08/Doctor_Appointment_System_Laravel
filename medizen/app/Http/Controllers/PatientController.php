@@ -7,15 +7,10 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
-    public function patientList()
+    public function dashboard()
     {
-        $patients = User::where('user_type', 'Patient')->paginate(8);
-        return view('admin.AdminPatients', compact('patients'));
-    }
-    public function deleteThisPatient($id)
-    {
-        User::where('id', $id)->delete();
-        return redirect('Admin/Patients');
+        $user = Auth::user(); // logged-in user 
+        return view('patient.PatientDashboard', compact('user'));
     }
     public function editPatientForm($id)
     {
