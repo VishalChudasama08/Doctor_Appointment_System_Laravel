@@ -56,4 +56,17 @@ class DoctorController extends Controller
         ];
         return view('doctor.DoctorProfile', compact('doctor'));
     }
+
+    public function editDoctor($id)
+    {
+        $user = User::find($id);
+        $doctor = Doctor::where('user_id', $id)->first();
+        // echo "<pre>";
+        // print_r($user->toArray());
+        // echo $user->name;
+        // print_r($doctor->toArray());
+        // echo $doctor->user_id;
+        // die;
+        return view('doctor.DoctorEditProfileForm', compact('user', 'doctor'));
+    }
 }

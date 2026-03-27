@@ -43,14 +43,15 @@ Route::get('Admin/DoctorProfile/{id}', [AdminController::class, 'getThisDoctorPr
 
 
 // ================ Patient Router's ================
+Route::get('Patient/MyProfile', [PatientController::class, 'patientProfile']);
 Route::get('Patient/EditProfile/{id}', [PatientController::class, 'editPatientForm']);
 Route::post('Patient/EditThisProfile', [PatientController::class, 'editPatient']);
+Route::get('Patient/Delete/{id}', [PatientController::class, 'deletePatient']);
 
 
 // ================ Doctor Router's ================
 Route::get('Doctor/MyProfile', [DoctorController::class, 'getDoctorProfile']);
-// Route::get('Patient/EditProfile/{id}', [PatientController::class, 'editPatientForm']);
-// Route::post('Patient/EditThisProfile', [PatientController::class, 'editPatient']);
+Route::get('Doctor/EditProfile/{id}', [DoctorController::class, 'editDoctor']);
 
 
 

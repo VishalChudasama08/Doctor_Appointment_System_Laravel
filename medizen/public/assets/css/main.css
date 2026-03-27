@@ -3194,6 +3194,15 @@ footer {
   color: var(--header);
   margin-left: 30px;
 }
+.header-1 .header-main .header-right .profile-icon {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid rgba(92, 112, 126, 0.3);
+  color: var(--header);
+}
 @media (max-width: 1199px) {
   .header-1 .header-main .header-right .search-icon {
     margin-left: 0;

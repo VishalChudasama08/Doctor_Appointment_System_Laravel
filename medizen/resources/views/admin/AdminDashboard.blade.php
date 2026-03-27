@@ -5,7 +5,7 @@
         <section>
             <h3>Admin Panel</h3>
             {{-- {{auth()->user()->name}} --}}
-            <a href="{{ url('Admin/DoctorRegister') }}" class="btn btn-small btn-success">Doctor Register</a>
+            <a href="{{ url('Admin/DoctorRegister') }}" class="btn btn-small btn-success">New Doctor Register</a>
         </section>
 
         {{-- Doctor's --}}

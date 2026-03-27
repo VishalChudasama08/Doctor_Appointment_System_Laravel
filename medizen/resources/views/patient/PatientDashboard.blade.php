@@ -1,6 +1,6 @@
 @extends('patient.PatientLayout')
 
-@section('main-content')
+@section('patient-content')
     <!-- Servie Section Start -->
     <section class="services-section main-style cmn-bg fix p-4">
         <div class="container">
@@ -266,21 +266,21 @@
         <div class="banner-adjust-thumb">
             <div class="container">
                 <!-- <div class="row g-4">
-                                    <div class="col-lg-4 col-md-6 col-sm-6">
-                                        <div class="adjust-category-items">
-                                            <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
-                                            <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
-                                                Healing with heart</h4>
+                                        <div class="col-lg-4 col-md-6 col-sm-6">
+                                            <div class="adjust-category-items">
+                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
+                                                <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
+                                                    Healing with heart</h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6">
-                                        <div class="adjust-category-items">
-                                            <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
-                                            <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
-                                                Where health meets hope</h5>
+                                        <div class="col-lg-4 col-md-6 col-sm-6">
+                                            <div class="adjust-category-items">
+                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
+                                                <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
+                                                    Where health meets hope</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div> -->
+                                    </div> -->
                 <div class="hero-thumbs1 position-relative w-100 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="{{ asset('assets/img/banner/hero1-thumb.jpg') }}" alt="img" class="rounded-4 w-100">
                     <!-- Circle -->

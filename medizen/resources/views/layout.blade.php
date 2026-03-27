@@ -179,7 +179,7 @@
                         </div>
                         <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
                                 class="fal fa-search"></i></a>
-                        @if (Auth::check())
+                        {{-- @if (Auth::check())
                             @if (auth()->user()->user_type == 'Admin')
                                 <a href="{{ url('/Admin/AdminDashboard') }}"
                                     class="profile-trigger search-icon d-none d-xl-block ms-0">
@@ -198,7 +198,7 @@
                             @else
                                 <i class="fas fa-user"></i>
                             @endif
-                        @endif
+                        @endif --}}
                         <div class="header__hamburger d-xl-none my-auto">
                             <div class="sidebar__toggle">
                                 <img src="{{ asset('assets/img/icon/menu.png') }}" alt="icon">
@@ -433,7 +433,7 @@
             </div>
         </div>
     </div>
-    @if (auth()->user())
+    {{-- @if (auth()->user())
         <div class="profile-wrap">
             <div class="profile-inner">
                 <i class="fas fa-times profile-close"></i>
@@ -447,7 +447,7 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
     <!--<< All JS Plugins >>-->
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <!--<< Viewport Js >>-->

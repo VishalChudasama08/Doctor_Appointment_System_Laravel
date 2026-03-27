@@ -1,6 +1,6 @@
 @extends('patient.PatientLayout')
 
-@section('main-content')
+@section('patient-content')
     <div class="container mt-5">
         <div class="appointment-wrapper position-relative d-center w-100">
             <div class="row gx-0 gy-5">
@@ -28,7 +28,8 @@
                                     placeholder="Your Email" required>
                             </div>
                             <div class="col-lg-12">
-                                <input type="tel" name="number" id="number" pattern="[0-9]{10}" maxlength="10"
+                                <input type="tel" name="number" value="{{ $user->number }}" id="number"
+                                    pattern="[0-9]{10}" maxlength="10"
                                     oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                     placeholder="Your Mobile Number" required>
                             </div>

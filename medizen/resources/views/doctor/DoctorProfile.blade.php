@@ -48,6 +48,15 @@
                                     <span class="names shift-colon">Available Time</span>
                                     <span class="pra ms-3">{{ $doctor['available_time'] }}</span>
                                 </li>
+                                <li class="d-flex align-items-center">
+                                    <a href="{{ url('Doctor/EditProfile', auth()->user()->id) }}"
+                                        class="btn btn-small btn-success">Edit
+                                        Profile</a>
+                                    <a href="{{ url('Doctor/Delete', auth()->user()->id) }}"
+                                        onclick="return confirm('Are you sure? You want to delete your account?')"
+                                        class="btn btn-small btn-danger">Delete
+                                        Account</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

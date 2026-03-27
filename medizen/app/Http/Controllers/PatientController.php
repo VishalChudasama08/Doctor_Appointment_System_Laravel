@@ -4,13 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class PatientController extends Controller
 {
     public function dashboard()
     {
-        $user = Auth::user(); // logged-in user 
-        return view('patient.PatientDashboard', compact('user'));
+        // $user = Auth::user(); // logged-in user 
+        // return view('patient.PatientDashboard', compact('user'));
+        return view('patient.PatientDashboard');
+    }
+    public function patientProfile()
+    {
+        $user = Auth::user();
+        $data = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'number' => $user->number
+        ];
+        return view('patient.PatientProfile', compact('data'));
     }
     public function editPatientForm($id)
     {
@@ -36,5 +49,11 @@ class PatientController extends Controller
 
         $user->save();
         return redirect('Patient/PatientDashboard');
+    }
+    public function deletePatient($id)
+    {
+        User::find($id)->delete();
+        Auth::logout();
+        return redirect('index');
     }
 }

@@ -1,8 +1,8 @@
 @extends('doctor/DoctorLayout')
 
 @section('doctor-content')
-    <section class="container">
-        <ul class="doctor-professional mb-40">
+    <section class="container my-5">
+        <ul class="doctor-professional">
             <li class="d-flex align-items-center">
                 <span class="names shift-colon">Name</span>
                 <span class="pra ms-3">{{ $data['name'] }}</span>

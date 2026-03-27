@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--<< Header Area >>-->
 
-
-<!-- Mirrored from etorisoft.com/html/medizen/{{ url('index') }} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
-
-<!-- Mirrored from thememxpro.com/demo/medizen/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:09:51 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
@@ -106,7 +101,7 @@
                 <div class="header-main style-2">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="{{ url('index') }}" class="header-logo">
+                            <a href="{{ url('Patient/PatientDashboard') }}" class="header-logo">
                                 <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
                             </a>
                         </div>
@@ -117,7 +112,7 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li class="has-dropdown active menu-thumb">
-                                            <a href="{{ url('index') }}">
+                                            <a href="{{ url('Patient/PatientDashboard') }}">
                                                 Home
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
@@ -125,7 +120,8 @@
                                                 <li>
                                                     <div class="homemenu-items">
                                                         <div class="homemenu">
-                                                            <a href="{{ url('index') }}" class="homemenu-thumb">
+                                                            <a href="{{ url('Patient/PatientDashboard') }}"
+                                                                class="homemenu-thumb">
                                                                 <img src="{{ asset('assets/img/header/home-1.jpg') }}"
                                                                     alt="img">
                                                                 <span class="demo-button">
@@ -179,26 +175,13 @@
                         </div>
                         <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
                                 class="fal fa-search"></i></a>
-                        @if (Auth::check())
-                            @if (auth()->user()->user_type == 'Admin')
-                                <a href="{{ url('/Admin/AdminDashboard') }}"
-                                    class="profile-trigger search-icon d-none d-xl-block ms-0">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                            @elseif (auth()->user()->user_type == 'Patient')
-                                <a href="{{ url('/Patient/PatientDashboard') }}"
-                                    class="profile-trigger search-icon d-none d-xl-block ms-0">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                            @elseif (auth()->user()->user_type == 'Doctor')
-                                <a href="{{ url('/Doctor/DoctorDashboard') }}"
-                                    class="profile-trigger search-icon d-none d-xl-block ms-0">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                            @else
-                                <i class="fas fa-user"></i>
-                            @endif
-                        @endif
+                        <a href="{{ url('Patient/MyProfile') }}" class="profile-icon"><i
+                                class="fas fa-user"></i></a>
+                        {{-- Profile canvas --}}
+                        {{-- <a href="{{ url('/Patient/PatientDashboard') }}"
+                            class="profile-trigger search-icon d-none d-xl-block ms-0">
+                            <i class="fas fa-user"></i>
+                        </a> --}}
                         <div class="header__hamburger d-xl-none my-auto">
                             <div class="sidebar__toggle">
                                 <img src="{{ asset('assets/img/icon/menu.png') }}" alt="icon">
@@ -212,7 +195,7 @@
 
     <hr style="margin: 0;">
 
-    @yield('main-content')
+    @yield('patient-content')
 
     {{-- </div> --}}
     <!--<< Footer Section Start >>-->
@@ -224,7 +207,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-7">
                             <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.4s">
                                 <div class="widget-head">
-                                    <a href="{{ url('index') }}">
+                                    <a href="{{ url('Patient/PatientDashboard') }}">
                                         <img src="{{ asset('assets/img/logo/logo-white.png') }}" alt="logo-img">
                                     </a>
                                 </div>
@@ -350,7 +333,7 @@
                 <div class="offcanvas__content">
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
-                            <a href="{{ url('index') }}">
+                            <a href="{{ url('Patient/PatientDashboard') }}">
                                 <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
                             </a>
                         </div>
@@ -433,7 +416,7 @@
             </div>
         </div>
     </div>
-    @if (auth()->user())
+    {{-- @if (auth()->user())
         <div class="profile-wrap">
             <div class="profile-inner">
                 <i class="fas fa-times profile-close"></i>
@@ -448,7 +431,7 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
     <!--<< All JS Plugins >>-->
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <!--<< Viewport Js >>-->
