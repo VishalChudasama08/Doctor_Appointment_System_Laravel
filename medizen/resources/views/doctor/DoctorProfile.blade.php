@@ -9,7 +9,7 @@
                     <div class="col-lg-8">
                         <div class="doctor-details-wraping">
                             <div class="mb-40">
-                                <h2 class="black mb-1">{{ $doctor['name'] }}</h2>
+                                <h2 class="black mb-1">{{ $user->name }}</h2>
                                 <p class="pt-xl-3 pt-2">
                                     Medical services are an essential part of our lives, offering care and treatment for
                                     various health conditions. Th
@@ -25,52 +25,51 @@
                             <ul class="doctor-professional mb-40">
                                 <li class="d-flex align-items-center">
                                     <span class="names shift-colon">Expertise</span>
-                                    <span class="pra ms-3">{{ $doctor['expertise'] }}</span>
+                                    <span class="pra ms-3">{{ $doctor->expertise }}</span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <span class="names shift-colon">Education</span>
-                                    <span class="pra ms-3">{{ $doctor['education'] }}</span>
+                                    <span class="pra ms-3">{{ $doctor->education }}</span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <span class="names shift-colon">Experience</span>
-                                    <span class="pra ms-3">{{ $doctor['experience'] }} Years Of Experience In
+                                    <span class="pra ms-3">{{ $doctor->experience }} Years Of Experience In
                                         Madicine</span>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <span class="names shift-colon">Profession</span>
-                                    <span class="pra ms-3">{{ $doctor['profession'] }}</span>
+                                    <span class="pra ms-3">{{ $doctor->profession }}</span>
                                 </li>
-                                <li class="d-flex align-items-center">
-                                    <span class="names shift-colon">Available Days</span>
-                                    <span class="pra ms-3">{{ $doctor['available_days'] }}</span>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <span class="names shift-colon">Available Time</span>
-                                    <span class="pra ms-3">{{ $doctor['available_time'] }}</span>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <a href="{{ url('Doctor/EditProfile', auth()->user()->id) }}"
-                                        class="btn btn-small btn-success">Edit
-                                        Profile</a>
-                                    <a href="{{ url('Doctor/Delete', auth()->user()->id) }}"
-                                        onclick="return confirm('Are you sure? You want to delete your account?')"
-                                        class="btn btn-small btn-danger">Delete
-                                        Account</a>
-                                </li>
+                                <h5>Your Schedule</h5>
+
+                                @foreach ($doctor->schedules as $schedule)
+                                    <p>
+                                        {{ $schedule->day }} :
+                                        {{ \Carbon\Carbon::parse($schedule->start_time)->format('h:i A') }}
+                                        -
+                                        {{ \Carbon\Carbon::parse($schedule->end_time)->format('h:i A') }}
+                                    </p>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4">
+                        <a href="{{ url('Doctor/EditProfile', $user->id) }}" class="btn btn-small btn-success m-2">Edit
+                            Profile</a>
+                        <a href="{{ url('Doctor/Delete', $user->id) }}"
+                            onclick="return confirm('Are you sure! You want to delete your account and all data permanently?')"
+                            class="btn btn-small btn-danger m-2">Delete
+                            Account</a>
                         <div class="blog-details-right">
                             <div class="details-common pt-3 px-3 pb-4">
                                 <div class="thumb rounded-circle m-auto w-100">
-                                    <img src="{{ asset('upload/doctors/' . $doctor['image']) }}" alt="img"
+                                    <img src="{{ asset('upload/doctors/' . $doctor->image) }}" alt="img"
                                         class="rounded-4 w-100">
                                 </div>
                                 <div class="cont mt-xl-3 mt-2 text-center mb-3">
-                                    <h4 class="black mb-1">{{ $doctor['name'] }}</h4>
-                                    <span class="pra">{{ $doctor['email'] }}</span><br>
-                                    <span class="pra">+91 {{ $doctor['number'] }}</span>
+                                    <h4 class="black mb-1">{{ $user->name }}</h4>
+                                    <span class="pra">{{ $user->email }}</span><br>
+                                    <span class="pra">+91 {{ $user->number }}</span>
                                 </div>
                                 <div class="social-wrapper d-flex justify-content-center align-items-center">
                                     <a href="#" class=" black"><i class="fab fa-facebook-f"></i></a>

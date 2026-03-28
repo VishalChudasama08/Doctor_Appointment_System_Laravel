@@ -11,12 +11,14 @@
                         </span>
                     </h2>
                 </div>
-                <form action="{{ url('Doctor/SaveInformationNow') }}" method="post" enctype="multipart/form-data"
+                <form action="{{ url('Doctor/SaveEditedInformationNow') }}" method="post" enctype="multipart/form-data"
                     class="appointment-forms mt-0">
                     @csrf
+                    <input type="hidden" id="userType" value="Doctor" name="userType">
+                    <input type="hidden" id="user_id" value="{{ $doctor->user_id }}" name="user_id">
+                    <input type="hidden" id="id" value="{{ $doctor->id }}" name="id">
                     <div class="row gx-0 gy-5">
                         <div class="col-lg-4 pe-1">
-                            <input type="hidden" id="userType" value="Doctor" name="userType">
                             <div class="row g-lg-3 g-3">
                                 <div class="col-lg-12">
                                     <input type="text" value="{{ $user->name }}" name="name" id="name"
@@ -34,11 +36,10 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <img src="{{ asset('upload/doctors/' . $doctor->image) }}" alt="img"
-                                        class="rounded-4" style="width: 45%;">
+                                        class="rounded-4" style="width: 45%;" id="preview">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="file" name="image" id="image" placeholder="Choice you image"
-                                        required>
+                                    <input type="file" name="image" id="image" placeholder="Choice you image">
                                 </div>
                             </div>
                         </div>
@@ -60,13 +61,38 @@
                                     <input type="text" value="{{ $doctor->profession }}" name="profession"
                                         id="profession" placeholder="Your profession" required>
                                 </div>
-                                <div class="col-lg-12">
-                                    <input type="text" value="{{ $doctor->available_days }}" name="available_days"
-                                        id="available_days" placeholder="Ex. Mon-Sat" required>
-                                </div>
-                                <div class="col-lg-12">
-                                    <input type="text" value="{{ $doctor->available_time }}" name="available_time"
-                                        id="available_time" placeholder="Ex. 10:00 AM - 4:00 PM" required>
+                                <div class="col-lg-4 ps-2">
+                                    <div class="row g-lg-3 g-3">
+                                        <div class="col-lg-12">
+                                            <label class="form-label">Select Available Days:</label><br>
+                                            <input type="checkbox" name="days[]" value="Monday"
+                                                {{ in_array('Monday', $days) ? 'checked' : '' }}> Monday<br>
+                                            <input type="checkbox" name="days[]" value="Tuesday"
+                                                {{ in_array('Tuesday', $days) ? 'checked' : '' }}> Tuesday<br>
+                                            <input type="checkbox" name="days[]" value="Wednesday"
+                                                {{ in_array('Wednesday', $days) ? 'checked' : '' }}> Wednesday<br>
+                                            <input type="checkbox" name="days[]" value="Thursday"
+                                                {{ in_array('Thursday', $days) ? 'checked' : '' }}> Thursday<br>
+                                            <input type="checkbox" name="days[]" value="Friday"
+                                                {{ in_array('Friday', $days) ? 'checked' : '' }}> Friday<br>
+                                            <input type="checkbox" name="days[]" value="Saturday"
+                                                {{ in_array('Saturday', $days) ? 'checked' : '' }}> Saturday<br>
+                                            <input type="checkbox" name="days[]" value="Sunday"
+                                                {{ in_array('Sunday', $days) ? 'checked' : '' }}> Sunday<br>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <label class="form-label">Start Time:</label>
+                                            <input type="time" name="start_time" id="start_time"
+                                                value="{{ $doctor->schedules[0]->start_time }}" required>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <label class="form-label">End Time:</label>
+                                            <input type="time" name="end_time" id="end_time"
+                                                value="{{ $doctor->schedules[0]->end_time }}" required>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="col-lg-12">
@@ -84,4 +110,24 @@
             </div>
         </div>
     </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            let checked = document.querySelectorAll('input[name="days[]"]:checked');
+
+            if (checked.length === 0) {
+                e.preventDefault();
+                alert("Please select at least one day");
+            }
+        });
+        document.getElementById("image").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const preview = document.getElementById("preview");
+
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = "block";
+            }
+        });
+    </script>
 @endsection

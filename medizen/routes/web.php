@@ -50,10 +50,12 @@ Route::get('Patient/Delete/{id}', [PatientController::class, 'deletePatient']);
 
 
 // ================ Doctor Router's ================
+Route::get('Doctor/ShowDoctorDetailsForm', [DoctorController::class, 'doctorCollectDataForm']);
+Route::post('Doctor/SaveDoctorDetailsNow', [DoctorController::class, 'saveDoctorDetails']);
 Route::get('Doctor/MyProfile', [DoctorController::class, 'getDoctorProfile']);
 Route::get('Doctor/EditProfile/{id}', [DoctorController::class, 'editDoctor']);
-
-
+Route::post('Doctor/SaveEditedInformationNow', [DoctorController::class, 'saveEditedDoctorDetails']);
+Route::get('Doctor/Delete/{id}', [DoctorController::class, 'deleteDoctor']);
 
 
 

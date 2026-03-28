@@ -6967,6 +6967,11 @@ input.main-search-input::placeholder {
   border: 1px solid var(--cmn-border);
   opacity: 0.8;
 }
+.appointment-wrapper .appointment-forms input[type="checkbox"] {
+  transform: scale(1.2);
+  width: 10%;
+  margin: 4px;
+}
 .appointment-wrapper .appointment-forms textarea {
   width: 100%;
   border-radius: 20px;

@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     protected $table = "doctors";
-    protected $fillable = ['image', 'user_id', 'expertise', 'experience', 'education', 'profession', 'available_days', 'available_time'];
+    protected $fillable = ['image', 'user_id', 'expertise', 'experience', 'education', 'profession'];
+
+    public function schedules()
+    {
+        return $this->hasMany(DoctorSchedule::class, 'doctor_id');
+    }
 }
