@@ -1,6 +1,6 @@
-@extends('doctor/DoctorLayout')
+@extends('admin/AdminLayout')
 
-@section('doctor-content')
+@section('admin-content')
     <div class="container mb-5 mt-3">
         <div class="appointment-wrapper position-relative d-center w-100">
             <div class="row gx-0 gy-5">
@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ url('Doctor/SaveEditedInformationNow') }}" method="post" enctype="multipart/form-data"
+                <form action="{{ url('Admin/Doctor/SaveThisEditedDetailsNow') }}" method="post" enctype="multipart/form-data"
                     class="appointment-forms mt-0">
                     @csrf
                     <input type="hidden" id="userType" value="Doctor" name="userType">
@@ -108,7 +108,7 @@
                                     <button type="submit"
                                         class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight"
                                         data-wow-delay="0.8s">
-                                        Save Information
+                                        Save Details
                                         <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
                                     </button>
                                 </div>

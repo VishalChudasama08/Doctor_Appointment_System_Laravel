@@ -9,7 +9,13 @@
                     class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
                     <h2 class="black">Doctor Details</h2>
                     <ul class="d-flex align-items-center gap-3">
-                        <li><a href="{{ url('index') }}">Home</a></li>
+                        @if (Auth::check())
+                            @if (auth()->user()->user_type == 'Patient')
+                                <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
+                            @else
+                                <li><a href="{{ url('index') }}">Home</a></li>
+                            @endif
+                        @endif
                         <li>/</li>
                         <li><a href="{{ url('doctors') }}">Doctor</a></li>
                         <li>/</li>
@@ -20,53 +26,14 @@
             <!-- Bread Ele -->
             <img src="{{ asset('assets/img/about/breadcrumnd-shap.png') }}" alt="img" class="bread-ele">
         </section>
-
-        <!-- doctor Section Start-->
-        <section class="doctor-details-section pt-3">
+        <!-- === doctor details Section === -->
+        <section class="doctor-details-section py-5">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-8">
                         <div class="doctor-details-wraping">
-                            <form action="#" class="contact-forms blog-form wow fadeInUp mb-40" data-wow-delay="0.6s">
-                                <h4 class="black mb-xl-4 mb-3">Write Your Message</h4>
-                                <div class="row g-lg-4 g-3">
-                                    <div class="col-lg-12">
-                                        <textarea name="message" placeholder="Message here.." rows="5"></textarea>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="text" value="{{ auth()->user()->name }}" placeholder="Your Name"
-                                            class="rounded-5">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="email" value="{{ auth()->user()->email }}" placeholder="Your Email"
-                                            class="rounded-5">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="text" value="{{ auth()->user()->number }}"
-                                            placeholder="Phone Number" class="rounded-5">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <select name="doctor-appoinment">
-                                            <option value="1">Choose a Time</option>
-                                            <option value="2">2:10 am</option>
-                                            <option value="3">3:10 am</option>
-                                            <option value="4">10:10 pm</option>
-                                            <option value="4">8:10 am</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-12 mt-4">
-                                        <button type="submit" href="{{ url('doctorDetails') }}"
-                                            class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight"
-                                            data-wow-delay="0.8s">
-                                            Book An Appiontment
-                                            <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
                             <div class="mb-40">
-                                <h2 class="black mb-1">Dr.Chirs Bekham</h2>
-                                <span class="pra">Cardiac Surgeon</span>
+                                <h2 class="black mb-1">{{ $user->name }}</h2>
                                 <p class="pt-xl-3 pt-2">
                                     Medical services are an essential part of our lives, offering care and treatment for
                                     various health conditions. Th
@@ -81,21 +48,36 @@
                             </div>
                             <ul class="doctor-professional mb-40">
                                 <li class="d-flex align-items-center">
-                                    <span class="names">Expertise</span>
-                                    <span class="pra">Cardiac Surgeon</span>
+                                    <span class="names shift-colon">Expertise</span>
+                                    <span class="pra ms-3">{{ $doctor->expertise }}</span>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <span class="names">Education</span>
-                                    <span class="pra">Dhaka Madical College,2018</span>
+                                    <span class="names shift-colon">Education</span>
+                                    <span class="pra ms-3">{{ $doctor->education }}</span>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <span class="names">Experience</span>
-                                    <span class="pra">5 Years Of Experience In Madicine</span>
+                                    <span class="names shift-colon">Experience</span>
+                                    <span class="pra ms-3">{{ $doctor->experience }} Years Of Experience In
+                                        Madicine</span>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <span class="names">Profession</span>
-                                    <span class="pra">Doctor At Dhaka Madical College,Head OF Bailogy Department
-                                        Du</span>
+                                    <span class="names shift-colon">Profession</span>
+                                    <span class="pra ms-3">{{ $doctor->profession }}</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="names shift-colon">Available Days</span>
+                                    <span class="pra ms-3">
+                                        @foreach ($doctor->schedules as $schedule)
+                                            <span> {{ $schedule->day }} &nbsp;|&nbsp; </span>
+                                        @endforeach
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="names shift-colon">Available Time</span>
+                                    <span class="pra ms-3">
+                                        {{ \Carbon\Carbon::parse($doctor->schedules[0]->start_time)->format('h:i A') }} -
+                                        {{ \Carbon\Carbon::parse($doctor->schedules[0]->end_time)->format('h:i A') }}
+                                    </span>
                                 </li>
                             </ul>
                         </div>
@@ -104,12 +86,13 @@
                         <div class="blog-details-right">
                             <div class="details-common pt-3 px-3 pb-4">
                                 <div class="thumb rounded-circle m-auto w-100">
-                                    <img src="{{ asset('assets/img/choose/doctor-details.jpg') }}" alt="img"
+                                    <img src="{{ asset('upload/doctors/' . $doctor->image) }}" alt="img"
                                         class="rounded-4 w-100">
                                 </div>
                                 <div class="cont mt-xl-3 mt-2 text-center mb-3">
-                                    <h4 class="black mb-1">Dr.Chirs Bekham</h4>
-                                    <span class="pra">Cardiac Surgeon</span>
+                                    <h4 class="black mb-1">{{ $user->name }}</h4>
+                                    <span class="pra">{{ $user->email }}</span><br>
+                                    <span class="pra">+91 {{ $user->number }}</span>
                                 </div>
                                 <div class="social-wrapper d-flex justify-content-center align-items-center">
                                     <a href="#" class=" black"><i class="fab fa-facebook-f"></i></a>
@@ -132,56 +115,11 @@
                                     <a href="#" class=" black"><i class="fa-brands fa-linkedin-in"></i></a>
                                 </div>
                             </div>
-                            <div class="details-common category-service">
-                                <div class="mb-4">
-                                    <h4 class="black d-flex align-items-center gap-2 mb-1 fw_700 visible-slowly-right">
-                                        Schedule</h4>
-                                    <p class="pra">Health care is a vital aspect of maintain overall well-being,
-                                        encompassing a range</p>
-                                </div>
-                                <ul class="cates">
-                                    <li>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                            <span class="pra fs-seven">Saturday-Sunday</span>
-                                            <span class="just-serial">9 Am To 5 Pm</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                            <span class="pra fs-seven">
-                                                Monday-Tuesday
-                                            </span>
-                                            <span class="just-serial">1 Pm To 7 Pm</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                            <span class="pra fs-seven">
-                                                Wednesday-Thusday
-                                            </span>
-                                            <span class="just-serial">2 Am To 6 Pm</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center justify-content-between rounded-4 fs-five black">
-                                            <span class="pra fs-seven">
-                                                Friday
-                                            </span>
-                                            <span class="just-serial">Off Day</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
 
         <!-- Appiontment Section Start -->
         <section class="appoentment-section fix space-bottom">
@@ -189,8 +127,7 @@
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6 order-lg-0 order-1">
                         <div class="apoentment-thumb">
-                            <img src="{{ asset('assets/img/service/sub-contact.jpg') }}" alt="img"
-                                class="rounded-4">
+                            <img src="{{ asset('assets/img/service/sub-contact.jpg') }}" alt="img" class="rounded-4">
                         </div>
                     </div>
                     <div class="col-lg-6">

@@ -16,6 +16,15 @@
                                 </span>
                             </h2>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form action="{{ url('Admin/RegisterThisDoctorNow') }}" method="post" enctype="multipart/form-data"
                             class="appointment-forms">
                             @csrf

@@ -116,7 +116,7 @@
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li class="has-dropdown active menu-thumb">
+                                        {{-- <li class="has-dropdown active menu-thumb">
                                             <a href="{{ url('index') }}">
                                                 Home
                                                 <i class="fas fa-angle-down"></i>
@@ -161,7 +161,14 @@
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
+                                        @if (Auth::check())
+                                            @if (auth()->user()->user_type == 'Patient')
+                                                <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
+                                            @else
+                                                <li><a href="{{ url('index') }}">Home</a></li>
+                                            @endif
+                                        @endif
                                         <li><a href="{{ url('about') }}">About Us</a></li>
                                         <li><a href="{{ url('doctors') }}">Doctor</a></li>
                                         <li><a href="{{ url('contact') }}">Contact</a></li>
@@ -170,8 +177,8 @@
                                                     style="color:#f98c8c">Logout</a></li>
                                         @else
                                             <li class="has-dropdown"><a href="{{ url('login') }}">Login</a></li>
-                                            <li class="has-dropdown dark"><a
-                                                    href="{{ url('register') }}">Register</a></li>
+                                            <li class="has-dropdown dark"><a href="{{ url('register') }}">Register</a>
+                                            </li>
                                         @endif
                                     </ul>
                                 </nav>
@@ -179,6 +186,10 @@
                         </div>
                         <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
                                 class="fal fa-search"></i></a>
+                        @if (Auth::check())
+                            <a href="{{ url('Patient/MyProfile') }}" class="profile-icon"><i
+                                    class="fas fa-user"></i></a>
+                        @endif
                         {{-- @if (Auth::check())
                             @if (auth()->user()->user_type == 'Admin')
                                 <a href="{{ url('/Admin/AdminDashboard') }}"

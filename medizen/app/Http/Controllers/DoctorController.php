@@ -38,6 +38,10 @@ class DoctorController extends Controller
 
         $req->validate([
             'image' => 'image',
+            'expertise' => 'required',
+            'experience' => 'required|numeric',
+            'education' => 'required',
+            'profession' => 'required',
             'days' => 'required|array|min:1',
         ]);
 
@@ -76,7 +80,7 @@ class DoctorController extends Controller
         return view('doctor.DoctorProfile', compact('user', 'doctor'));
     }
 
-    public function editDoctor($id)
+    public function getEditDoctorForm($id)
     {
         $user = User::find($id);
         $doctor = Doctor::with('schedules')->where('user_id', $id)->first();
@@ -137,12 +141,13 @@ class DoctorController extends Controller
             ]);
         }
 
-        return redirect('Doctor/DoctorDashboard')->with('infoSave', 'Your information saved successfully');
+        return redirect('Doctor/DoctorDashboard')->with('infoSave', 'Your edited information saved successfully');
     }
 
     public function deleteDoctor($id)
     {
         User::find($id)->delete();
+        Auth::logout();
         return redirect('index')->with('doctorDeletedOkay', 'Your account and all data deleted permanently!');
     }
 }

@@ -19,7 +19,15 @@
                     @if (session('DoctorRegisterOKay'))
                         <div style="color: green; margin: 10px;">{{ session('DoctorRegisterOKay') }}</div>
                     @endif
-
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     Doctor name: {{ auth()->user()->name }} &nbsp;&nbsp; | &nbsp;&nbsp; Email:
                     {{ auth()->user()->email }} &nbsp;&nbsp; | &nbsp;&nbsp; Number: {{ auth()->user()->number }}
                     <form action="{{ url('Doctor/SaveDoctorDetailsNow') }}" method="post" enctype="multipart/form-data"
@@ -36,8 +44,8 @@
                                                 <input type="file" name="image" id="image" required>
                                             </div>
                                             <div class="col-4">
-                                                <img id="preview" src="" style="width:80px;display:none;"
-                                                    alt="Preview" style="width:100%; display:none;">
+                                                <img id="preview" src="" style="width:100px;display:none;"
+                                                    alt="Preview">
                                             </div>
                                         </div>
                                     </div>
@@ -99,16 +107,6 @@
                                     <input type="text" name="available_time" id="available_time"
                                         placeholder="Ex. 10:00 AM - 4:00 PM" required>
                                 </div> --}}
-
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
 
                         </div>
 

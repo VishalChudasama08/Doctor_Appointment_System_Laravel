@@ -40,16 +40,21 @@
                                     <span class="names shift-colon">Profession</span>
                                     <span class="pra ms-3">{{ $doctor->profession }}</span>
                                 </li>
-                                <h5>Your Schedule</h5>
-
-                                @foreach ($doctor->schedules as $schedule)
-                                    <p>
-                                        {{ $schedule->day }} :
-                                        {{ \Carbon\Carbon::parse($schedule->start_time)->format('h:i A') }}
-                                        -
-                                        {{ \Carbon\Carbon::parse($schedule->end_time)->format('h:i A') }}
-                                    </p>
-                                @endforeach
+                                <li class="d-flex align-items-center">
+                                    <span class="names shift-colon">Available Days</span>
+                                    <span class="pra ms-3">
+                                        @foreach ($doctor->schedules as $schedule)
+                                            <span> {{ $schedule->day }} &nbsp;|&nbsp; </span>
+                                        @endforeach
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="names shift-colon">Available Time</span>
+                                    <span class="pra ms-3">
+                                        {{ \Carbon\Carbon::parse($doctor->schedules[0]->start_time)->format('h:i A') }} -
+                                        {{ \Carbon\Carbon::parse($doctor->schedules[0]->end_time)->format('h:i A') }}
+                                    </span>
+                                </li>
                             </ul>
                         </div>
                     </div>

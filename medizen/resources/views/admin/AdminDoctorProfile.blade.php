@@ -5,6 +5,12 @@
         <!-- doctor Section Start-->
         <section class="doctor-details-section py-5">
             <div class="container">
+                @if (session('ThisDoctorEditedOkay'))
+                    <div style="color: green; margin: 10px;">{{ session('ThisDoctorEditedOkay') }}</div>
+                @endif
+                @if (session('doctorDetailsAddOkay'))
+                    <div style="color: green; margin: 10px;">{{ session('doctorDetailsAddOkay') }}</div>
+                @endif
                 <div class="row g-4">
                     <div class="col-lg-8">
                         <div class="doctor-details-wraping">
@@ -40,25 +46,29 @@
                                     <span class="names shift-colon">Profession</span>
                                     <span class="pra ms-3">{{ $doctor->profession }}</span>
                                 </li>
-                                <h5>Your Schedule</h5>
-
-                                @foreach ($doctor->schedules as $schedule)
-                                    <p>
-                                        {{ $schedule->day }} :
-                                        {{ \Carbon\Carbon::parse($schedule->start_time)->format('h:i A') }}
-                                        -
-                                        {{ \Carbon\Carbon::parse($schedule->end_time)->format('h:i A') }}
-                                    </p>
-                                @endforeach
+                                <li class="d-flex align-items-center">
+                                    <span class="names shift-colon">Available Days</span>
+                                    <span class="pra ms-3">
+                                        @foreach ($doctor->schedules as $schedule)
+                                            <span> {{ $schedule->day }} &nbsp;|&nbsp; </span>
+                                        @endforeach
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="names shift-colon">Available Time</span>
+                                    <span class="pra ms-3">
+                                        {{ \Carbon\Carbon::parse($doctor->schedules[0]->start_time)->format('h:i A') }} -
+                                        {{ \Carbon\Carbon::parse($doctor->schedules[0]->end_time)->format('h:i A') }}
+                                    </span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <a href="{{ url('Doctor/EditProfile', auth()->user()->id) }}"
-                            class="btn btn-small btn-success m-2">Edit
-                            Profile</a>
-                        <a href="{{ url('Doctor/Delete', auth()->user()->id) }}"
-                            onclick="return confirm('Are you sure? You want to delete your account?')"
+                        <a href="{{ url('Admin/Doctor/EditThisProfile', $user->id) }}"
+                            class="btn btn-small btn-success m-2">Edit Profile</a>
+                        <a href="{{ url('Admin/Doctor/DeleteThis', $user->id) }}"
+                            onclick="return confirm('Are you sure? You want to delete doctor `{{ $user->name }}` account and all data permanently?')"
                             class="btn btn-small btn-danger m-2">Delete
                             Account</a>
                         <div class="blog-details-right">
@@ -68,9 +78,9 @@
                                         class="rounded-4 w-100">
                                 </div>
                                 <div class="cont mt-xl-3 mt-2 text-center mb-3">
-                                    <h4 class="black mb-1">{{ auth()->user()->name }}</h4>
-                                    <span class="pra">{{ auth()->user()->email }}</span><br>
-                                    <span class="pra">+91 {{ auth()->user()->number }}</span>
+                                    <h4 class="black mb-1">{{ $user->name }}</h4>
+                                    <span class="pra">{{ $user->email }}</span><br>
+                                    <span class="pra">+91 {{ $user->number }}</span>
                                 </div>
                                 <div class="social-wrapper d-flex justify-content-center align-items-center">
                                     <a href="#" class=" black"><i class="fab fa-facebook-f"></i></a>

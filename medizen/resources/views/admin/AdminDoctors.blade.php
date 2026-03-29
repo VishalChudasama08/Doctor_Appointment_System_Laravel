@@ -9,9 +9,6 @@
     {{-- Doctor's --}}
     <section class="container">
         <div>
-            @if (session('doctorDetailsAddOkay'))
-                <div style="color: green; margin: 10px;">{{ session('doctorDetailsAddOkay') }}</div>
-            @endif
             @if (session('DoctorDeletedDone'))
                 <div style="color: green; margin: 10px;">{{ session('DoctorDeletedDone') }}</div>
             @endif
