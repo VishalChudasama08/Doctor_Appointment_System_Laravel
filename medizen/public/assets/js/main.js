@@ -27,6 +27,19 @@ CSS TABLE OF CONTENTS
 	("use strict");
 
 	$(document).ready(function () {
+		// Load filter into offcanvas (like navbar meanmenu)
+		function loadFilterToOffcanvas() {
+			var filterHtml = $("#desktop-filter").html();
+			$(".filter-dynamic-content").html(filterHtml);
+
+			// re-init nice select
+			$('select').niceSelect('destroy');
+			$('select').niceSelect();
+		}
+
+		// Run on page load
+		loadFilterToOffcanvas();
+
 		//>> Mobile Menu Js Start <<//
 		$("#mobile-menu").meanmenu({
 			meanMenuContainer: ".mobile-menu",
@@ -43,6 +56,20 @@ CSS TABLE OF CONTENTS
 			$(".offcanvas__info").addClass("info-open");
 			$(".offcanvas__overlay").addClass("overlay-open");
 		});
+
+		// Filter Toggle Js (same as offcanvas)
+		$(".filter__close, .filter__overlay").on("click", function () {
+			$(".filter__info").removeClass("filter-open");
+			$(".filter__overlay").removeClass("overlay-open");
+		});
+
+		$(".filter__toggle").on("click", function () {
+			$(".filter__info").toggleClass("filter-open");
+			$(".filter__overlay").toggleClass("overlay-open");
+		});
+
+
+
 
 		//>> Body Overlay Js Start <<//
 		$(".body-overlay").on("click", function () {

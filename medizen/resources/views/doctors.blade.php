@@ -8,11 +8,11 @@
                 <h2 class="black">Doctors</h2>
                 <ul class="d-flex align-items-center gap-3">
                     @if (Auth::check())
-                        @if (auth()->user()->user_type == 'Patient')
-                            <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
-                        @else
-                            <li><a href="{{ url('index') }}">Home</a></li>
-                        @endif
+                        <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
+                        {{-- @if (auth()->user()->user_type == 'Patient')
+                        @endif --}}
+                    @else
+                        <li><a href="{{ url('index') }}">Home</a></li>
                     @endif
                     <li>/</li>
                     <li>Doctor</li>

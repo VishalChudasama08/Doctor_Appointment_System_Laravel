@@ -160,7 +160,7 @@
                                 encompassing a range of services from preventive</p>
                             <a href="doctor-details.html"
                                 class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
-                                Book An Appiontment
+                                Book An Appointment
                                 <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
                             </a>
                         </div>
@@ -210,7 +210,7 @@
         </div>
     </section>
 
-    <!-- Appiontment Section Start -->
+    <!-- Appointment Section Start -->
     <section class="appoentment-section fix mb-30">
         <div class="container">
             <div class="row g-4 align-items-center">
@@ -220,13 +220,13 @@
                             alt="img" class="rounded-4">
                     </div>
                 </div>
-                <!-- Appiontment Form -->
+                <!-- Appointment Form -->
                 <div class="col-lg-7">
                     <form action="#" class="appoentment-forms">
                         <div class="section-title mb-30">
                             <span class="cmn-tag p1-bg heading-font">
                                 <h3 class="wow fadeInUp black" data-wow-delay=".3s">
-                                    Get an Appiontment
+                                    Get an Appointment
                                 </h3>
                             </span>
                         </div>
@@ -250,7 +250,7 @@
                                 <a href="doctor-details.html"
                                     class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight"
                                     data-wow-delay="0.8s">
-                                    Book An Appiontment
+                                    Book An Appointment
                                     <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
                                 </a>
                             </div>
@@ -266,21 +266,21 @@
         <div class="banner-adjust-thumb">
             <div class="container">
                 <!-- <div class="row g-4">
-                                        <div class="col-lg-4 col-md-6 col-sm-6">
-                                            <div class="adjust-category-items">
-                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
-                                                <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
-                                                    Healing with heart</h4>
+                                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                                <div class="adjust-category-items">
+                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
+                                                    <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
+                                                        Healing with heart</h4>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6">
-                                            <div class="adjust-category-items">
-                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
-                                                <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
-                                                    Where health meets hope</h5>
+                                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                                <div class="adjust-category-items">
+                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
+                                                    <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
+                                                        Where health meets hope</h5>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div> -->
+                                        </div> -->
                 <div class="hero-thumbs1 position-relative w-100 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="{{ asset('assets/img/banner/hero1-thumb.jpg') }}" alt="img" class="rounded-4 w-100">
                     <!-- Circle -->

@@ -230,7 +230,7 @@
                 </div>
                 <div class="col-xxl-3 col-xl-4 col-lg-4">
                     <form action="#" class="hero-appoinment">
-                        <h4 class="black mb-xxl-3 mb-2">Appiontment</h4>
+                        <h4 class="black mb-xxl-3 mb-2">Appointment</h4>
                         <p class="pra mb-xxl-3 mb-2">Health care is a vital aspect of overall well-being</p>
                         <input type="text" placeholder="Your Name" class="mb-3">
                         <input type="text" placeholder="Your Phone" class="mb-3">
@@ -244,7 +244,7 @@
                         <a href="doctor-details.html"
                             class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs-seven fw-medium white overflow-hidden rounded100 wow fadeInRight"
                             data-wow-delay="0.8s">
-                            Book Appiontment
+                            Book Appointment
                             <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
                         </a>
                     </form>
@@ -448,7 +448,7 @@
                                 encompassing a range of services from preventive</p>
                             <a href="doctor-details.html"
                                 class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
-                                Book An Appiontment
+                                Book An Appointment
                                 <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
                             </a>
                         </div>
@@ -596,7 +596,7 @@
                     <a href="doctor-details.html"
                         class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden p2-bg rounded100 wow fadeInRight"
                         data-wow-delay="0.8s">
-                        Book An Appiontment
+                        Book An Appointment
                         <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
                     </a>
                 </div>

@@ -42,6 +42,27 @@
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <style>
+        /* FILTER OFFCANVAS SAME AS NAV */
+        .filter__info {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 400px;
+            max-width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            transform: translateX(-100%);
+            transition: all 0.4s ease;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .filter__info.filter-open {
+            transform: translateX(0);
+        }
+    </style>
 </head>
 
 <body class="body-bg">
@@ -116,62 +137,17 @@
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        {{-- <li class="has-dropdown active menu-thumb">
-                                            <a href="{{ url('index') }}">
-                                                Home
-                                                <i class="fas fa-angle-down"></i>
-                                            </a>
-                                            <ul class="submenu has-homemenu">
-                                                <li>
-                                                    <div class="homemenu-items">
-                                                        <div class="homemenu">
-                                                            <a href="{{ url('index') }}" class="homemenu-thumb">
-                                                                <img src="{{ asset('assets/img/header/home-1.jpg') }}"
-                                                                    alt="img">
-                                                                <span class="demo-button">
-                                                                    <span class="theme-btn p1-bg box-style first-box">
-                                                                        <span class="black">Home 01</span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <a href="{{ url('index2') }}" class="homemenu-thumb mb-15">
-                                                                <img src="{{ asset('assets/img/header/home-2.jpg') }}"
-                                                                    alt="img">
-                                                                <span class="demo-button">
-                                                                    <span class="theme-btn p1-bg box-style first-box">
-                                                                        <span class="black">Home 02</span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <a href="{{ url('index3') }}"
-                                                                class="homemenu-thumb mb-15">
-                                                                <img src="{{ asset('assets/img/header/home-3.jpg') }}"
-                                                                    alt="img">
-                                                                <span class="demo-button">
-                                                                    <span class="theme-btn p1-bg box-style first-box">
-                                                                        <span class="black">Home 03</span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li> --}}
+
                                         @if (Auth::check())
-                                            @if (auth()->user()->user_type == 'Patient')
-                                                <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
-                                            @else
-                                                <li><a href="{{ url('index') }}">Home</a></li>
-                                            @endif
+                                            <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
+                                            {{-- @if (auth()->user()->user_type == 'Patient')
+                                            @endif --}}
+                                        @else
+                                            <li><a href="{{ url('index') }}">Home</a></li>
                                         @endif
-                                        <li><a href="{{ url('about') }}">About Us</a></li>
                                         <li><a href="{{ url('doctors') }}">Doctor</a></li>
                                         <li><a href="{{ url('contact') }}">Contact</a></li>
+                                        <li><a href="{{ url('about') }}">About Us</a></li>
                                         @if (Auth::check())
                                             <li class="has-dropdown"><a href="{{ url('logout') }}"
                                                     style="color:#f98c8c">Logout</a></li>
@@ -190,31 +166,21 @@
                             <a href="{{ url('Patient/MyProfile') }}" class="profile-icon"><i
                                     class="fas fa-user"></i></a>
                         @endif
-                        {{-- @if (Auth::check())
-                            @if (auth()->user()->user_type == 'Admin')
-                                <a href="{{ url('/Admin/AdminDashboard') }}"
-                                    class="profile-trigger search-icon d-none d-xl-block ms-0">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                            @elseif (auth()->user()->user_type == 'Patient')
-                                <a href="{{ url('/Patient/PatientDashboard') }}"
-                                    class="profile-trigger search-icon d-none d-xl-block ms-0">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                            @elseif (auth()->user()->user_type == 'Doctor')
-                                <a href="{{ url('/Doctor/DoctorDashboard') }}"
-                                    class="profile-trigger search-icon d-none d-xl-block ms-0">
-                                    <i class="fas fa-user"></i>
-                                </a>
-                            @else
-                                <i class="fas fa-user"></i>
-                            @endif
-                        @endif --}}
                         <div class="header__hamburger d-xl-none my-auto">
                             <div class="sidebar__toggle">
                                 <img src="{{ asset('assets/img/icon/menu.png') }}" alt="icon">
                             </div>
                         </div>
+                        <!-- FILTER BUTTON (mobile only) -->
+                        <div class="header__hamburger d-xl-none my-auto ms-2">
+                            <div class="filter__toggle">
+                                <img src="{{ asset('assets/img/icon/menu.png') }}" alt="filter">
+                            </div>
+                        </div>
+                        {{-- <div class="filter__toggle header__hamburger d-xl-none my-auto ms-2"
+                            style="border: 2px solid red">
+                            <img src="{{ asset('assets/img/icon/menu.png') }}" alt="filter">
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -431,6 +397,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Filter Overlay -->
+    <div class="filter__overlay"></div>
+    <!-- Filter Offcanvas Start -->
+    <div class="filter-area">
+        <div class="filter__info">
+            <div class="filter__wrapper">
+                <div class="filter__content">
+                    <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="{{ url('index') }}">
+                                <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
+                            </a>
+                        </div>
+                        <div class="filter__close">
+                            <button>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    {{-- <!-- TOP -->
+                    <div class="filter__top mb-4 d-flex justify-content-between align-items-center">
+                        <h5>Filters</h5>
+                        <div class="filter__close">
+                            <button>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div> --}}
+
+                    <!-- DYNAMIC CONTENT COMES HERE -->
+                    <div class="filter-dynamic-content"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="offcanvas__overlay"></div><!-- Search Area Start -->
     <div class="search-wrap">
         <div class="search-inner">
@@ -444,6 +450,7 @@
             </div>
         </div>
     </div>
+
     {{-- @if (auth()->user())
         <div class="profile-wrap">
             <div class="profile-inner">

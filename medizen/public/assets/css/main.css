@@ -3102,6 +3102,29 @@ footer {
   width: 30px;
 }
 
+.header-main .filter__toggle {
+  cursor: pointer;
+  width: 30px;
+  font-size: 20px;
+}
+.header-main .filter__toggle img {
+  width: 30px;
+}
+.filter__close {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: var(--p2-clr);
+  position: relative;
+  z-index: 9;
+  cursor: pointer;
+}
+.filter__close i {
+  color: var(--white);
+}
+
 .header-1 {
   background: #f5f6f8;
   padding-top: 30px;
