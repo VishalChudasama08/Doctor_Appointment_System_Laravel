@@ -27,18 +27,137 @@ CSS TABLE OF CONTENTS
 	("use strict");
 
 	$(document).ready(function () {
-		// Load filter into offcanvas (like navbar meanmenu)
 		function loadFilterToOffcanvas() {
+
 			var filterHtml = $("#desktop-filter").html();
 			$(".filter-dynamic-content").html(filterHtml);
 
-			// re-init nice select
-			$('select').niceSelect('destroy');
-			$('select').niceSelect();
+			// ✅ restore checked state
+			$(".filter-checkbox:checked").each(function () {
+				const value = $(this).val();
+
+				$(`.filter-dynamic-content .filter-checkbox[value="${value}"]`)
+					.prop("checked", true);
+			});
+
 		}
 
-		// Run on page load
 		loadFilterToOffcanvas();
+
+		// =========================
+		// SHOW MORE / LESS (FIXED)
+		// =========================
+		$(document).on("click", ".toggleMore", function () {
+
+			const parent = $(this).closest("div");
+			const moreItems = parent.find(".more-items");
+			const list = parent.find(".speciality-list");
+
+			if (moreItems.is(":visible")) {
+				moreItems.hide();
+				list.css("max-height", "220px");
+				$(this).text("Show More");
+			} else {
+				moreItems.show();
+				list.css("max-height", "500px");
+				$(this).text("Show Less");
+			}
+		});
+
+		// =========================
+		// UPDATE TAG UI (FIXED)
+		// =========================
+		function updateSelectedFilters() {
+
+			$(".selected-filters").html(""); // clear BOTH
+
+			$(".filter-checkbox:checked").each(function () {
+
+				const value = $(this).val();
+				const id = value.replace(/\s+/g, "_");
+
+				if ($("#tag-" + id).length === 0) {
+
+					const tag = $(`
+                    <span id="tag-${id}" 
+                        style="display:inline-block;background:#f1f1f1;padding:5px 10px;border-radius:20px;margin:3px;font-size:13px;">
+                        ${value}
+                        <i class="bi bi-x-circle" style="cursor:pointer;margin-left:5px;"></i>
+                    </span>
+                `);
+
+					tag.find("i").on("click", function () {
+
+						$(`.filter-checkbox[value="${value}"]`).prop("checked", false);
+
+						updateSelectedFilters();
+					});
+
+					// add to BOTH (desktop + offcanvas)
+					$(".selected-filters").append(tag.clone(true));
+				}
+
+			});
+		}
+
+		// =========================
+		// CHECKBOX SYNC (FIXED)
+		// =========================
+		$(document).on("change", ".filter-checkbox", function () {
+
+			const value = $(this).val();
+			const isChecked = $(this).is(":checked");
+
+			// sync both
+			$(`.filter-checkbox[value="${value}"]`).prop("checked", isChecked);
+
+			updateSelectedFilters();
+		});
+
+		// =========================
+		// OFFCANVAS
+		// =========================
+		$(".filter__toggle").on("click", function () {
+
+			loadFilterToOffcanvas();
+
+			$(".filter__info").addClass("filter-open");
+			$(".filter__overlay").addClass("overlay-open");
+
+			updateSelectedFilters(); // IMPORTANT
+		});
+
+		$(".filter__close, .filter__overlay").on("click", function () {
+			$(".filter__info").removeClass("filter-open");
+			$(".filter__overlay").removeClass("overlay-open");
+		});
+
+		// // Load filter into offcanvas (like navbar meanmenu)
+		// function loadFilterToOffcanvas() {
+		// 	var filterHtml = $("#desktop-filter").html();
+		// 	$(".filter-dynamic-content").html(filterHtml);
+
+		// 	// re-init nice select
+		// 	$('select').niceSelect('destroy');
+		// 	$('select').niceSelect();
+		// }
+
+		// // Run on page load
+		// loadFilterToOffcanvas();
+
+		// // Filter Toggle Js (same as offcanvas)
+		// $(".filter__close, .filter__overlay").on("click", function () {
+		// 	$(".filter__info").removeClass("filter-open");
+		// 	$(".filter__overlay").removeClass("overlay-open");
+		// });
+
+		// $(".filter__toggle").on("click", function () {
+		// 	$(".filter__info").toggleClass("filter-open");
+		// 	$(".filter__overlay").toggleClass("overlay-open");
+		// });
+
+
+
 
 		//>> Mobile Menu Js Start <<//
 		$("#mobile-menu").meanmenu({
@@ -56,20 +175,6 @@ CSS TABLE OF CONTENTS
 			$(".offcanvas__info").addClass("info-open");
 			$(".offcanvas__overlay").addClass("overlay-open");
 		});
-
-		// Filter Toggle Js (same as offcanvas)
-		$(".filter__close, .filter__overlay").on("click", function () {
-			$(".filter__info").removeClass("filter-open");
-			$(".filter__overlay").removeClass("overlay-open");
-		});
-
-		$(".filter__toggle").on("click", function () {
-			$(".filter__info").toggleClass("filter-open");
-			$(".filter__overlay").toggleClass("overlay-open");
-		});
-
-
-
 
 		//>> Body Overlay Js Start <<//
 		$(".body-overlay").on("click", function () {

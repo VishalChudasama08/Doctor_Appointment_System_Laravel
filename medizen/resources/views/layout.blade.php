@@ -407,15 +407,6 @@
                             </button>
                         </div>
                     </div>
-                    {{-- <!-- TOP -->
-                    <div class="filter__top mb-4 d-flex justify-content-between align-items-center">
-                        <h5>Filters</h5>
-                        <div class="filter__close">
-                            <button>
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div> --}}
 
                     <!-- DYNAMIC CONTENT COMES HERE -->
                     <div class="filter-dynamic-content"></div>
