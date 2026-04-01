@@ -171,16 +171,6 @@
                                 <img src="{{ asset('assets/img/icon/menu.png') }}" alt="icon">
                             </div>
                         </div>
-                        <!-- FILTER BUTTON (mobile only) -->
-                        <div class="header__hamburger d-xl-none my-auto ms-2">
-                            <div class="filter__toggle">
-                                <img src="{{ asset('assets/img/icon/menu.png') }}" alt="filter">
-                            </div>
-                        </div>
-                        {{-- <div class="filter__toggle header__hamburger d-xl-none my-auto ms-2"
-                            style="border: 2px solid red">
-                            <img src="{{ asset('assets/img/icon/menu.png') }}" alt="filter">
-                        </div> --}}
                     </div>
                 </div>
             </div>
