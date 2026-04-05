@@ -27,6 +27,11 @@ CSS TABLE OF CONTENTS
 	("use strict");
 
 	$(document).ready(function () {
+
+
+		loadFilterToOffcanvas();
+		loadFiltersFromURL();
+
 		function loadFilterToOffcanvas() {
 
 			var filterHtml = $("#desktop-filter").html();
@@ -42,16 +47,16 @@ CSS TABLE OF CONTENTS
 
 		}
 
-		loadFilterToOffcanvas();
-
 		// =========================
 		// SHOW MORE / LESS (FIXED)
 		// =========================
+
 		$(document).on("click", ".toggleMore", function () {
 
 			const parent = $(this).closest("div");
 			const moreItems = parent.find(".more-items");
-			const list = parent.find(".speciality-list");
+
+			const list = parent.find(".expertise-list, .profession-list");
 
 			if (moreItems.is(":visible")) {
 				moreItems.hide();
@@ -130,6 +135,54 @@ CSS TABLE OF CONTENTS
 		$(".filter__close, .filter__overlay").on("click", function () {
 			$(".filter__info").removeClass("filter-open");
 			$(".filter__overlay").removeClass("overlay-open");
+		});
+
+		$(document).on("change", ".filter-checkbox", function () {
+
+			const value = $(this).val();
+			const isChecked = $(this).is(":checked");
+
+			// sync both (desktop + offcanvas)
+			$(`.filter-checkbox[value="${value}"]`).prop("checked", isChecked);
+
+			updateSelectedFilters(); // only UI
+		});
+
+		function loadFiltersFromURL() {
+
+			const params = new URLSearchParams(window.location.search);
+
+			$(".filter-checkbox").each(function () {
+
+				const value = $(this).val();
+
+				if (
+					params.getAll("expertise[]").includes(value) ||
+					params.getAll("experience[]").includes(value) ||
+					params.getAll("profession[]").includes(value)
+				) {
+					$(this).prop("checked", true);
+				}
+			});
+
+			updateSelectedFilters();
+		}
+
+		$("#filterForm").on("submit", function () {
+
+			// remove old hidden inputs
+			$(this).find("input[type='hidden']").remove();
+
+			$("#desktop-filter .filter-checkbox:checked").each(function () {
+
+				const value = $(this).val();
+				const type = $(this).data("type"); // 🔥 direct
+
+				$("#filterForm").append(
+					`<input type="hidden" name="${type}[]" value="${value}">`
+				);
+			});
+
 		});
 
 		// // Load filter into offcanvas (like navbar meanmenu)

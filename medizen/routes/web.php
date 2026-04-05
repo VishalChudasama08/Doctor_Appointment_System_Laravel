@@ -65,13 +65,8 @@ Route::get('Patient/Delete/{id}', [PatientController::class, 'deletePatient']);
 Route::get('/doctors', [LocalController::class, 'getDoctorsList']);
 Route::get('/doctorDetails/{id}', [LocalController::class, 'getThisDoctorDetails']);
 
-Route::get('FilterDoctors', function () {
-    return view('FilterDoctors');
-});
-Route::get('Appointment', function () {
-    return view('BookAppointment');
-});
-
+Route::get('FilterDoctors', [LocalController::class, 'getDoctorListForFilter']);
+Route::get('Appointment', [LocalController::class, 'getDoctorListForFilter']);
 Route::get('/', function () {
     return view('index');
 });

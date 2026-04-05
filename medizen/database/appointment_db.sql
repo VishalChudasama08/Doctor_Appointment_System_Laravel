@@ -407,3 +407,77 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+
+
+
+
+INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `user_type`, `created_at`, `updated_at`) VALUES
+(101,'Dr. Amit Shah','amit1@mail.com','9990000001','123456','Doctor',NOW(),NOW()),
+(102,'Dr. Neha Patel','neha2@mail.com','9990000002','123456','Doctor',NOW(),NOW()),
+(103,'Dr. Raj Mehta','raj3@mail.com','9990000003','123456','Doctor',NOW(),NOW()),
+(104,'Dr. Pooja Desai','pooja4@mail.com','9990000004','123456','Doctor',NOW(),NOW()),
+(105,'Dr. Kiran Joshi','kiran5@mail.com','9990000005','123456','Doctor',NOW(),NOW()),
+(106,'Dr. Sneha Shah','sneha6@mail.com','9990000006','123456','Doctor',NOW(),NOW()),
+(107,'Dr. Vivek Patel','vivek7@mail.com','9990000007','123456','Doctor',NOW(),NOW()),
+(108,'Dr. Rina Mehta','rina8@mail.com','9990000008','123456','Doctor',NOW(),NOW()),
+(109,'Dr. Hardik Shah','hardik9@mail.com','9990000009','123456','Doctor',NOW(),NOW()),
+(110,'Dr. Aarti Patel','aarti10@mail.com','9990000010','123456','Doctor',NOW(),NOW()),
+
+
+(111,'Dr. Mehul Shah','mehul11@mail.com','9990000011','123456','Doctor',NOW(),NOW()),
+(112,'Dr. Komal Joshi','komal12@mail.com','9990000012','123456','Doctor',NOW(),NOW()),
+(113,'Dr. Ankit Mehta','ankit13@mail.com','9990000013','123456','Doctor',NOW(),NOW()),
+(114,'Dr. Nidhi Shah','nidhi14@mail.com','9990000014','123456','Doctor',NOW(),NOW()),
+(115,'Dr. Rahul Patel','rahul15@mail.com','9990000015','123456','Doctor',NOW(),NOW()),
+(116,'Dr. Priya Desai','priya16@mail.com','9990000016','123456','Doctor',NOW(),NOW()),
+(117,'Dr. Jay Shah','jay17@mail.com','9990000017','123456','Doctor',NOW(),NOW()),
+(118,'Dr. Mansi Patel','mansi18@mail.com','9990000018','123456','Doctor',NOW(),NOW()),
+(119,'Dr. Dhruv Mehta','dhruv19@mail.com','9990000019','123456','Doctor',NOW(),NOW()),
+(120,'Dr. Krupa Shah','krupa20@mail.com','9990000020','123456','Doctor',NOW(),NOW());
+(121,'Dr. Yash Patel','yash21@mail.com','9990000021','123456','Doctor',NOW(),NOW()),
+(122,'Dr. Riddhi Shah','riddhi22@mail.com','9990000022','123456','Doctor',NOW(),NOW()),
+(123,'Dr. Tushar Mehta','tushar23@mail.com','9990000023','123456','Doctor',NOW(),NOW()),
+(125,'Dr. Parth Joshi','parth25@mail.com','9990000025','123456','Doctor',NOW(),NOW()),
+(126,'Dr. Bhavya Shah','bhavya26@mail.com','9990000026','123456','Doctor',NOW(),NOW()),
+(127,'Dr. Chirag Patel','chirag27@mail.com','9990000027','123456','Doctor',NOW(),NOW()),
+(128,'Dr. Nisha Mehta','nisha28@mail.com','9990000028','123456','Doctor',NOW(),NOW()),
+(129,'Dr. Kunal Shah','kunal29@mail.com','9990000029','123456','Doctor',NOW(),NOW()),
+(130,'Dr. Rupal Patel','rupal30@mail.com','9990000030','123456','Doctor',NOW(),NOW());
+
+INSERT INTO `doctors` (`id`, `image`, `user_id`, `expertise`, `experience`, `education`, `profession`, `created_at`, `updated_at`) VALUES
+
+(201,'doc1.jpg',101,'Dermatology',3,'MBBS, MD Dermatology','Skin Specialist',NOW(),NOW()),
+(202,'doc2.jpg',102,'Dermatology',8,'MBBS, MD Dermatology','Consultant',NOW(),NOW()),
+(203,'doc3.jpg',103,'Cardiac Sciences',12,'MBBS, MD Cardiology','Senior Doctor',NOW(),NOW()),
+(204,'doc4.jpg',104,'Cardiac Sciences',6,'MBBS, MD Cardiology','Consultant',NOW(),NOW()),
+(205,'doc5.jpg',105,'Dentistry',2,'BDS','Dentist',NOW(),NOW()),
+(206,'doc6.jpg',106,'Dentistry',7,'BDS','Senior Dentist',NOW(),NOW()),
+(207,'doc7.jpg',107,'Neurology',10,'MBBS, MD Neurology','Neurologist',NOW(),NOW()),
+(208,'doc8.jpg',108,'Neurology',15,'MBBS, MD Neurology','Senior Specialist',NOW(),NOW()),
+(209,'doc9.jpg',109,'Orthopedics',5,'MBBS, MS Orthopedics','Consultant',NOW(),NOW()),
+(210,'doc10.jpg',110,'Orthopedics',14,'MBBS, MS Orthopedics','Senior Specialist',NOW(),NOW()),
+
+
+(211,'doc11.jpg',111,'Pediatrics',4,'MBBS, MD Pediatrics','Child Specialist',NOW(),NOW()),
+(212,'doc12.jpg',112,'Pediatrics',9,'MBBS, MD Pediatrics','Consultant',NOW(),NOW()),
+(213,'doc13.jpg',113,'Psychiatry',6,'MBBS, MD Psychiatry','Psychiatrist',NOW(),NOW()),
+(214,'doc14.jpg',114,'Psychiatry',11,'MBBS, MD Psychiatry','Senior Psychiatrist',NOW(),NOW()),
+(215,'doc15.jpg',115,'Gastroenterology',7,'MBBS, MD Gastro','Consultant',NOW(),NOW()),
+(216,'doc16.jpg',116,'Gastroenterology',13,'MBBS, MD Gastro','Senior Doctor',NOW(),NOW()),
+(217,'doc17.jpg',117,'ENT',3,'MBBS, MS ENT','ENT Specialist',NOW(),NOW()),
+(218,'doc18.jpg',118,'ENT',8,'MBBS, MS ENT','Consultant',NOW(),NOW()),
+(219,'doc19.jpg',119,'Oncology',9,'MBBS, MD Oncology','Cancer Specialist',NOW(),NOW()),
+(220,'doc20.jpg',120,'Oncology',16,'MBBS, MD Oncology','Senior Specialist',NOW(),NOW());
+(221,'doc21.jpg',121,'Bariatrics',4,'MBBS, MS Bariatrics','Weight Loss Specialist',NOW(),NOW()),
+(222,'doc22.jpg',122,'Endocrinology',9,'MBBS, MD Endocrinology','Hormone Specialist',NOW(),NOW()),
+(223,'doc23.jpg',123,'Urology',11,'MBBS, MS Urology','Urologist',NOW(),NOW()),
+(225,'doc25.jpg',125,'Cardiac Sciences',15,'MBBS, MD Cardiology','Senior Cardiologist',NOW(),NOW()),
+(226,'doc26.jpg',126,'Dermatology',2,'MBBS, MD Dermatology','Skin Specialist',NOW(),NOW()),
+(227,'doc27.jpg',127,'Pediatrics',7,'MBBS, MD Pediatrics','Child Specialist',NOW(),NOW()),
+(228,'doc28.jpg',128,'Orthopedic',13,'MBBS, MS Orthopedic','Orthopedic Surgeon',NOW(),NOW()),
+(229,'doc29.jpg',129,'Neurology',5,'MBBS, MD Neurology','Consultant Neurologist',NOW(),NOW()),
+(230,'doc30.jpg',130,'Psychiatry',16,'MBBS, MD Psychiatry','Senior Psychiatrist',NOW(),NOW());

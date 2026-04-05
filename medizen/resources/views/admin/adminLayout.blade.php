@@ -3,9 +3,9 @@
 <!--<< Header Area >>-->
 
 
-<!-- Mirrored from etorisoft.com/html/medizen/{{ url('index') }} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
+<!-- Mirrored from etorisoft.com/html/medizen/{{ url('Admin/AdminDashboard') }} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Sep 2025 03:58:23 GMT -->
 
-<!-- Mirrored from thememxpro.com/demo/medizen/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:09:51 GMT -->
+<!-- Mirrored from thememxpro.com/demo/medizen/Admin/AdminDashboard.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:09:51 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
@@ -106,7 +106,7 @@
                 <div class="header-main style-2">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="{{ url('index') }}" class="header-logo">
+                            <a href="{{ url('Admin/AdminDashboard') }}" class="header-logo">
                                 <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
                             </a>
                         </div>
@@ -174,7 +174,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-7">
                             <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.4s">
                                 <div class="widget-head">
-                                    <a href="{{ url('index') }}">
+                                    <a href="{{ url('Admin/AdminDashboard') }}">
                                         <img src="{{ asset('assets/img/logo/logo-white.png') }}" alt="logo-img">
                                     </a>
                                 </div>
@@ -300,7 +300,7 @@
                 <div class="offcanvas__content">
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
-                            <a href="{{ url('index') }}">
+                            <a href="{{ url('Admin/AdminDashboard') }}">
                                 <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
                             </a>
                         </div>
@@ -410,6 +410,6 @@
 </body>
 
 
-<!-- Mirrored from thememxpro.com/demo/medizen/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:10:12 GMT -->
+<!-- Mirrored from thememxpro.com/demo/medizen/Admin/AdminDashboard.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Feb 2026 14:10:12 GMT -->
 
 </html>
