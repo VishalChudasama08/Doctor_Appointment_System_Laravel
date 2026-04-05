@@ -27,8 +27,6 @@ CSS TABLE OF CONTENTS
 	("use strict");
 
 	$(document).ready(function () {
-
-
 		loadFilterToOffcanvas();
 		loadFiltersFromURL();
 

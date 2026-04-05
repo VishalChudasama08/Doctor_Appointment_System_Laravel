@@ -2,9 +2,7 @@
 
 @section('admin-content')
     <div class="container">
-        <section>
-            <h3>Admin Panel</h3>
-            {{-- {{auth()->user()->name}} --}}
+        <section class="my-3">
             <a href="{{ url('Admin/DoctorRegister') }}" class="btn btn-small btn-success">New Doctor Register</a>
         </section>
 

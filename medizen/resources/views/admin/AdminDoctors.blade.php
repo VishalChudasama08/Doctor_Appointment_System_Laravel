@@ -1,21 +1,12 @@
 @extends('admin/AdminLayout')
 
 @section('admin-content')
-    <section class="container">
-        <h3>Admin Panel</h3>
-        {{-- {{auth()->user()->name}} --}}
-    </section>
-
     {{-- Doctor's --}}
     <section class="container">
         <div>
             @if (session('DoctorDeletedDone'))
                 <div style="color: green; margin: 10px;">{{ session('DoctorDeletedDone') }}</div>
             @endif
-            <div class="d-flex justify-content-between">
-                <h3>Doctors</h3>
-                <h6>Total: {{ $doctors->count() }}</h6>
-            </div>
             <div class="table-responsive">
                 <table class="table table-bordered align-middle">
                     <thead>
@@ -62,7 +53,10 @@
                     </tbody>
                 </table>
             </div>
-            {{ $doctors->links() }}
+            <div class="d-flex justify-content-between">
+                {{ $doctors->links() }}
+                <h6>Total: {{ $doctors->count() }}</h6>
+            </div>
         </div>
     </section>
 @endsection

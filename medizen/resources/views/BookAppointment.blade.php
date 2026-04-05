@@ -16,6 +16,8 @@
 
                     <form action="{{ url('BookAppointmentNow') }}" method="POST" class="appoentment-forms">
                         @csrf
+                        <input type="hidden" name="userId" value="{{ auth()->user()->id }}">
+                        <input type="hidden" name="doctorId" value="{{ $doctor->id }}">
                         <div class="section-title mb-30">
                             <span class="cmn-tag p1-bg heading-font">
                                 <h3 class="wow fadeInUp black" data-wow-delay=".3s">
@@ -25,23 +27,67 @@
                         </div>
                         <div class="row g-lg-4 g-3">
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Your Name">
+                                <input type="text" placeholder="Your Name" name="name"
+                                    value="{{ auth()->user()->name }}" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Phone Number">
+                                <input type="tel" placeholder="Phone Number" name="number"
+                                    value="{{ auth()->user()->number }}" required>
                             </div>
-                            <div class="col-lg-6">
-                                <select placeholder="Your Email">
-                                    <option value="Monday">Monday</option>
-                                    <option value="Tuesday">Tuesday</option>
-                                    <option value="Wednesday">Wednesday</option>
-                                    <option value="Thursday">Thursday</option>
-                                    <option value="Friday">Friday</option>
+                            <div class="col-lg-6 px-5 py-3" style="background: ghostwhite;border-radius: 19px;">
+                                <select name="day" required>
+                                    @foreach ($doctor->schedules as $schedule)
+                                        <option value="{{ $schedule->day }}">{{ $schedule->day }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-lg-6">
-                                <input type="date" placeholder="date">
+                                <input type="date" name="date" id="appointmentDate" placeholder="date" required>
                             </div>
+                            <div class="col-lg-12">
+                                <label class="mb-2">Select Time</label>
+
+                                <div class="d-flex flex-wrap gap-2">
+
+                                    @php
+                                        $start = \Carbon\Carbon::parse($doctor->schedules[0]['start_time']);
+                                        $end = \Carbon\Carbon::parse($doctor->schedules[0]['end_time']);
+                                        $first = true;
+                                    @endphp
+
+                                    @while ($start->copy()->addMinutes(90) <= $end)
+                                        <input type="radio" class="btn-check" name="time"
+                                            id="time_{{ $start->format('H_i') }}" value="{{ $start->format('H:i') }}"
+                                            {{ $first ? 'required' : '' }} autocomplete="off">
+
+                                        <label class="btn btn-outline-primary" for="time_{{ $start->format('H_i') }}">
+                                            {{ $start->format('h:i A') }}
+                                        </label>
+
+                                        @php
+                                            $first = false;
+                                            $start->addMinutes(90);
+                                        @endphp
+                                    @endwhile
+
+                                </div>
+                            </div>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    const input = document.getElementById("appointmentDate");
+                                    const today = new Date();
+                                    // Format date to YYYY-MM-DD
+                                    function formatDate(date) {
+                                        return date.toISOString().split('T')[0];
+                                    }
+                                    // Min = today
+                                    input.min = formatDate(today);
+                                    // Max = today + 20 days
+                                    let maxDate = new Date();
+                                    maxDate.setDate(today.getDate() + 20);
+                                    input.max = formatDate(maxDate);
+                                });
+                            </script>
                             <div class="col-lg-12">
                                 <textarea name="message" placeholder="Message" rows="5"></textarea>
                             </div>

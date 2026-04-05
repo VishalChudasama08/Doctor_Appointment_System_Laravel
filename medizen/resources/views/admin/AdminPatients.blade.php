@@ -1,18 +1,9 @@
 @extends('admin/AdminLayout')
 
 @section('admin-content')
-    <section class="container">
-        <h3>Admin Panel</h3>
-        {{-- {{auth()->user()->name}} --}}
-    </section>
-
     {{-- Patients --}}
     <section class="container">
         <div>
-            <div class="d-flex justify-content-between">
-                <h3>Patients</h3>
-                <h6>Total: {{ $patients->count() }}</h6>
-            </div>
             <div class="table-responsive">
                 <table class="table table-bordered align-middle">
                     <thead>
@@ -58,7 +49,10 @@
                     </tbody>
                 </table>
             </div>
-            {{ $patients->links() }}
+            <div class="d-flex justify-content-between">
+                {{ $patients->links() }}
+                <h6>Total: {{ $patients->count() }}</h6>
+            </div>
         </div>
     </section>
 @endsection

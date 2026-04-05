@@ -2,6 +2,9 @@
 
 @section('main-content')
     <!-- Helth Compassionate -->
+    @if (session('done'))
+        <div style="color: green; margin: 10px;">{{ session('done') }}</div>
+    @endif
     <section class="helth-compassionate cmn-bg my-5">
         <div class="container">
             <div class="row g-4 justify-content-between align-items-center mb-5">
@@ -23,11 +26,12 @@
                             <h4 class="black mb-md-3 mb-2">Compassionate Care There Health First</h4>
                             <p class="black mb-40 pb-2">Health care is a vital aspect of maintaining overall well-being
                                 encompassing a range of services from preventive</p>
-                            <a href="{{ url('FilterDoctors') }}" onclick="userExist()"
+                            <button
+                                onclick="@if (!auth()->user()) userExist() @else window.location.href=href='/FilterDoctors' @endif"
                                 class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
                                 Book An Appointment
                                 <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
-                            </a>
+                            </button>
                         </div>
                         <div class="thumb d-md-block d-none">
                             <img src="{{ asset('assets/img/global/compassionate.png') }}" alt="img">
@@ -75,6 +79,15 @@
         </div>
     </section>
 
+    <script>
+        function userExist() {
+            if (confirm('Please register or login for Book Appointment!')) {
+                window.location.href = '/login'
+            } else {
+                return 0;
+            }
+        }
+    </script>
 
     <!-- Servie Section Start -->
     <section class="services-section main-style cmn-bg fix p-4">
@@ -427,14 +440,4 @@
             </div>
         </div>
     </section>
-
-    <script>
-        function userExist() {
-            @if (!Auth::check())
-                if (confirm("Please register or login for Book Appointment!")) {
-                    window.location.href = 'login'
-                }
-            @endif
-        }
-    </script>
 @endsection

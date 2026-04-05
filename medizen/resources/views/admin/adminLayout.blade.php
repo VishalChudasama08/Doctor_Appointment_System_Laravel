@@ -98,8 +98,94 @@
     </div> -->
     <!-- End Cursor Pointer -->
 
+    <!-- ================== MAIN WRAPPER START ================== -->
+    <div id="main-wrapper" class="d-flex">
 
-    <!-- Header Section Start -->
+        <!-- ================== LEFT SIDEBAR ================== -->
+        <aside style="width:260px; min-height:100vh; background:#2a3b57;">
+
+            <div class="p-3 text-center">
+                <a href="{{ url('Admin/AdminDashboard') }}">
+                    <img src="{{ asset('assets/img/logo/logo-white.png') }}" style="max-width:140px;">
+                </a>
+            </div>
+
+            <nav class="px-3">
+                <ul class="nav flex-column">
+
+                    <li class="nav-item mb-2">
+                        <a href="{{ url('Admin/AdminDashboard') }}" class="nav-link text-white">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item mb-2">
+                        <a href="{{ url('Admin/Patients') }}" class="nav-link text-white">
+                            <i class="bi bi-people"></i> Patients
+                        </a>
+                    </li>
+
+                    <li class="nav-item mb-2">
+                        <a href="{{ url('Admin/Doctors') }}" class="nav-link text-white">
+                            <i class="bi bi-person-badge"></i> Doctors
+                        </a>
+                    </li>
+
+                    <li class="nav-item mt-4">
+                        <a href="{{ url('logout') }}" class="nav-link text-danger">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </aside>
+        <!-- ================== END SIDEBAR ================== -->
+
+
+        <!-- ================== RIGHT CONTENT ================== -->
+        <div class="flex-grow-1">
+
+            <!-- ================== TOPBAR (NEW LIKE TEMPLATE) ================== -->
+            <div class="d-flex justify-content-between align-items-center p-3 bg-white shadow-sm">
+
+                <h5 class="mb-0" id="current">Admin Dashboard</h5>
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <!-- Search -->
+                    <input type="text" class="form-control" placeholder="Search..." style="width:200px;">
+
+                    <!-- User -->
+                    <span>{{ auth()->user()->name ?? 'Admin' }}</span>
+
+                </div>
+            </div>
+
+            <!-- ================== MAIN CONTENT ================== -->
+            <div class="container-fluid p-4">
+
+                @if (Auth::check() && auth()->user()->user_type == 'Admin')
+                    @yield('admin-content')
+                @else
+                    <div class="text-center py-5">
+                        <h3 style="color:red;">
+                            <i class="bi bi-exclamation-circle"></i>
+                            Admin login required
+                        </h3>
+                    </div>
+                @endif
+
+            </div>
+
+        </div>
+        <!-- ================== END CONTENT ================== -->
+
+    </div>
+    <!-- ================== END MAIN WRAPPER ================== -->
+
+    {{-- <!-- Header Section Start -->
     <header id="header-sticky" class="header-1 header-style2">
         <div class="container">
             <div class="mega-menu-wrapper">
@@ -162,7 +248,7 @@
                 </div>
             </div>
         @endif
-    @endif
+    @endif --}}
 
     {{-- </div> --}}
     <!--<< Footer Section Start >>-->
@@ -407,6 +493,15 @@
     <script src="{{ asset('assets/js/vanilla-tilt.min.js') }}"></script>
     <!--<< Main.js >>-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            let title = window.location.pathname.split('/').filter(Boolean).pop();
+            if (title == "AdminDashboard") {
+                title = "Admin Dashboard";
+            }
+            document.getElementById('current').innerHTML = title;
+        });
+    </script>
 </body>
 
 

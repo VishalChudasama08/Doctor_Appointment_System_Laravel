@@ -237,17 +237,21 @@
                                 <div style="color:#28a745; font-weight:500;">Available: 11:30 - 16:00 • Sat</div>
 
                             </div>
-
+                            <form action="getAppointment" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $d['id'] }}">
+                                <button type="submit"
+                                    class="common-btn box-style p2-bg text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight my-1 mx-3"
+                                    data-wow-delay="0.8s" style="padding: 10px 15px">
+                                    Book An Appointment
+                                    <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
+                                </button>
+                            </form>
                         </div>
-                        <a href="{{ url('Appointment') }}"
-                            class="common-btn box-style p2-bg text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight my-1 mx-3"
-                            data-wow-delay="0.8s" style="padding: 10px 15px">
-                            Book An Appointment
-                            <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
-                        </a>
                         <hr class="my-2">
                     @endforeach
                 </div>
+                {{-- {{ $users->links() }} --}}
 
             </div>
 

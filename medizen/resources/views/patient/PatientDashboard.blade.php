@@ -1,6 +1,91 @@
 @extends('patient.PatientLayout')
 
 @section('patient-content')
+    <!-- Helth Compassionate -->
+    <section class="helth-compassionate cmn-bg my-5">
+        <div class="container">
+            <div class="row g-4 justify-content-between align-items-center mb-5">
+                <div class="col-xxl-7 col-xl-8 col-lg-8">
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp black mb-2" data-wow-delay=".3s">Consult top doctors online for any health
+                            concern</h3>
+                        <p class="pra mb-2">Private online consultations with verified doctors in all specialists</p>
+                    </div>
+                </div>
+                <div class="col-xxl-2 col-xl-2 col-lg-2">
+                    <span class="cmn-tag p1-bg heading-font mb-3">All Specialities</span>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-7 h-100">
+                    <div class="compassionate-left-content">
+                        <div class="box">
+                            <h4 class="black mb-md-3 mb-2">Compassionate Care There Health First</h4>
+                            <p class="black mb-40 pb-2">Health care is a vital aspect of maintaining overall well-being
+                                encompassing a range of services from preventive</p>
+                            <button
+                                onclick="@if (!auth()->user()) userExist() @else window.location.href='/FilterDoctors' @endif"
+                                class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
+                                Book An Appointment
+                                <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
+                            </button>
+                        </div>
+                        <div class="thumb d-md-block d-none">
+                            <img src="{{ asset('assets/img/global/compassionate.png') }}" alt="img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 h-100">
+                    <div class="compassionate-right">
+                        <div class="compassionate-item">
+                            <div class="icon d-center rounded-circle"><img src="{{ asset('assets/img/icon/compasi1.png') }}"
+                                    alt="icon"></div>
+                            <div class="cont">
+                                <h4 class="white mb-2">Your health our priority</h4>
+                                <p class="white">
+                                    Medical care encompasses a range of services aimed at the a promoting health,
+                                    preventing
+                                </p>
+                            </div>
+                        </div>
+                        <div class="compassionate-item">
+                            <div class="icon d-center rounded-circle"><img src="{{ asset('assets/img/icon/compasi2.png') }}"
+                                    alt="icon"></div>
+                            <div class="cont">
+                                <h4 class="white mb-2">wellness Healing with heart</h4>
+                                <p class="white">
+                                    Medical care encompasses a range of services aimed at the a promoting health,
+                                    preventing
+                                </p>
+                            </div>
+                        </div>
+                        <div class="compassionate-item">
+                            <div class="icon d-center rounded-circle"><img src="{{ asset('assets/img/icon/compasi3.png') }}"
+                                    alt="icon"></div>
+                            <div class="cont">
+                                <h4 class="white mb-2">Care Point Health Institute</h4>
+                                <p class="white">
+                                    Medical care encompasses a range of services aimed at the a promoting health,
+                                    preventing
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function userExist() {
+            if (confirm('Please register or login for Book Appointment!')) {
+                window.location.href = '/login'
+            } else {
+                return 0;
+            }
+        }
+    </script>
+
     <!-- Servie Section Start -->
     <section class="services-section main-style cmn-bg fix p-4">
         <div class="container">
@@ -83,7 +168,8 @@
                                 </div>
                                 <h5 class="black">Pediatric Care</h4>
                             </div>
-                            <p class="pra">Dedicated healthcare services for infants, children, and adolescents including
+                            <p class="pra">Dedicated healthcare services for infants, children, and adolescents
+                                including
                                 routine and emergency visits.</p>
                         </div>
                     </a>
@@ -148,68 +234,6 @@
         </div>
     </section>
 
-    <!-- Helth Compassionate -->
-    <section class="helth-compassionate cmn-bg section-padding">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-7 h-100">
-                    <div class="compassionate-left-content">
-                        <div class="box">
-                            <h4 class="black mb-md-3 mb-2">Compassionate Care There Health First</h4>
-                            <p class="black mb-40 pb-2">Health care is a vital aspect of maintaining overall well-being
-                                encompassing a range of services from preventive</p>
-                            <a href="doctor-details.html"
-                                class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
-                                Book An Appointment
-                                <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
-                            </a>
-                        </div>
-                        <div class="thumb d-md-block d-none">
-                            <img src="{{ asset('assets/img/global/compassionate.png') }}" alt="img">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 h-100">
-                    <div class="compassionate-right">
-                        <div class="compassionate-item">
-                            <div class="icon d-center rounded-circle"><img
-                                    src="{{ asset('assets/img/icon/compasi1.png') }}" alt="icon"></div>
-                            <div class="cont">
-                                <h4 class="white mb-2">Your health our priority</h4>
-                                <p class="white">
-                                    Medical care encompasses a range of services aimed at the a promoting health,
-                                    preventing
-                                </p>
-                            </div>
-                        </div>
-                        <div class="compassionate-item">
-                            <div class="icon d-center rounded-circle"><img
-                                    src="{{ asset('assets/img/icon/compasi2.png') }}" alt="icon"></div>
-                            <div class="cont">
-                                <h4 class="white mb-2">wellness Healing with heart</h4>
-                                <p class="white">
-                                    Medical care encompasses a range of services aimed at the a promoting health,
-                                    preventing
-                                </p>
-                            </div>
-                        </div>
-                        <div class="compassionate-item">
-                            <div class="icon d-center rounded-circle"><img
-                                    src="{{ asset('assets/img/icon/compasi3.png') }}" alt="icon"></div>
-                            <div class="cont">
-                                <h4 class="white mb-2">Care Point Health Institute</h4>
-                                <p class="white">
-                                    Medical care encompasses a range of services aimed at the a promoting health,
-                                    preventing
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Appointment Section Start -->
     <section class="appoentment-section fix mb-30">
         <div class="container">
@@ -266,21 +290,21 @@
         <div class="banner-adjust-thumb">
             <div class="container">
                 <!-- <div class="row g-4">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="adjust-category-items">
-                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
-                                                    <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
-                                                        Healing with heart</h4>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="adjust-category-items">
-                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
-                                                    <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
-                                                        Where health meets hope</h5>
-                                                </div>
-                                            </div>
-                                        </div> -->
+                                                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                <div class="adjust-category-items">
+                                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
+                                                                    <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
+                                                                        Healing with heart</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                <div class="adjust-category-items">
+                                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
+                                                                    <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
+                                                                        Where health meets hope</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
                 <div class="hero-thumbs1 position-relative w-100 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="{{ asset('assets/img/banner/hero1-thumb.jpg') }}" alt="img" class="rounded-4 w-100">
                     <!-- Circle -->
