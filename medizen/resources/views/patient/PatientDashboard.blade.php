@@ -23,12 +23,11 @@
                             <h4 class="black mb-md-3 mb-2">Compassionate Care There Health First</h4>
                             <p class="black mb-40 pb-2">Health care is a vital aspect of maintaining overall well-being
                                 encompassing a range of services from preventive</p>
-                            <button
-                                onclick="@if (!auth()->user()) userExist() @else window.location.href='/FilterDoctors' @endif"
+                            <a href="{{ url('/FilterDoctors') }}"
                                 class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
                                 Book An Appointment
                                 <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
-                            </button>
+                            </a>
                         </div>
                         <div class="thumb d-md-block d-none">
                             <img src="{{ asset('assets/img/global/compassionate.png') }}" alt="img">
@@ -75,16 +74,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-        function userExist() {
-            if (confirm('Please register or login for Book Appointment!')) {
-                window.location.href = '/login'
-            } else {
-                return 0;
-            }
-        }
-    </script>
 
     <!-- Servie Section Start -->
     <section class="services-section main-style cmn-bg fix p-4">
@@ -290,21 +279,21 @@
         <div class="banner-adjust-thumb">
             <div class="container">
                 <!-- <div class="row g-4">
-                                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                                <div class="adjust-category-items">
-                                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
-                                                                    <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
-                                                                        Healing with heart</h4>
+                                                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                    <div class="adjust-category-items">
+                                                                        <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
+                                                                        <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
+                                                                            Healing with heart</h4>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                                <div class="adjust-category-items">
-                                                                    <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
-                                                                    <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
-                                                                        Where health meets hope</h5>
+                                                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                    <div class="adjust-category-items">
+                                                                        <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
+                                                                        <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
+                                                                            Where health meets hope</h5>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div> -->
+                                                            </div> -->
                 <div class="hero-thumbs1 position-relative w-100 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="{{ asset('assets/img/banner/hero1-thumb.jpg') }}" alt="img" class="rounded-4 w-100">
                     <!-- Circle -->
@@ -508,7 +497,3 @@
         </div>
     </section>
 @endsection
-<!-- <h1>User Panel {{ auth()->user()->name }} {{ auth()->user()->user_type }}</h1>
- <a href="{{ url('logout') }}">Logout</a>
-</body>
-</html> -->

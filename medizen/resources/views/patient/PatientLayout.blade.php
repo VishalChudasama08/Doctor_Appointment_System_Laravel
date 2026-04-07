@@ -162,14 +162,14 @@
                                         <li><a href="{{ url('about') }}">About Us</a></li>
                                         <li><a href="{{ url('doctors') }}">Doctor</a></li>
                                         <li><a href="{{ url('contact') }}">Contact</a></li>
-                                        @if (Auth::check())
-                                            <li class="has-dropdown"><a href="{{ url('logout') }}"
-                                                    style="color:#f98c8c">Logout</a></li>
-                                        @else
+                                        {{-- @if (Auth::check()) --}}
+                                        <li class="has-dropdown"><a href="{{ url('logout') }}"
+                                                style="color:#f98c8c">Logout</a></li>
+                                        {{-- @else
                                             <li class="has-dropdown"><a href="{{ url('login') }}">Login</a></li>
                                             <li class="has-dropdown dark"><a href="{{ url('register') }}">Register</a>
                                             </li>
-                                        @endif
+                                        @endif --}}
                                     </ul>
                                 </nav>
                             </div>

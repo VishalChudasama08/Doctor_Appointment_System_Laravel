@@ -119,14 +119,14 @@
                                         <li><a href="{{ url('Doctor/DoctorDashboard') }}">Home</a></li>
                                         <li><a href="{{ url('Doctor/MyProfile') }}">Profile</a></li>
                                         <li><a href="{{ url('Doctor/Schedule') }}">Schedule</a></li>
-                                        @if (Auth::check())
-                                            <li class="has-dropdown"><a href="{{ url('logout') }}"
-                                                    style="color:#f98c8c">Logout</a></li>
-                                        @else
+                                        {{-- @if (Auth::check()) --}}
+                                        <li class="has-dropdown"><a href="{{ url('logout') }}"
+                                                style="color:#f98c8c">Logout</a></li>
+                                        {{-- @else
                                             <li class="has-dropdown"><a href="{{ url('login') }}">Login</a></li>
                                             <li class="has-dropdown dark"><a href="{{ url('register') }}">Register</a>
                                             </li>
-                                        @endif
+                                        @endif --}}
                                     </ul>
                                 </nav>
                             </div>
@@ -365,22 +365,7 @@
             </div>
         </div>
     </div>
-    {{-- @if (auth()->user())
-        <div class="profile-wrap">
-            <div class="profile-inner">
-                <i class="fas fa-times profile-close"></i>
 
-                <div class="profile-content">
-                    <h3>{{ auth()->user()->name }}</h3>
-                    <p>Email: {{ auth()->user()->email }}</p>
-                    <a href="{{ url('Patient/EditProfile', auth()->user()->id) }}"
-                        class="btn btn-small btn-success">Edit Profile</a>
-                    <!-- <a href="#" class="btn btn-primary">View Profile</a>
-    <a href="#" class="btn btn-danger">Logout</a> -->
-                </div>
-            </div>
-        </div>
-    @endif --}}
     <!--<< All JS Plugins >>-->
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <!--<< Viewport Js >>-->

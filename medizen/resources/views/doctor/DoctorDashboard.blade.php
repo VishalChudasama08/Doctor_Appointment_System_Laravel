@@ -5,7 +5,35 @@
         @if (session('infoSave'))
             <div style="color: green; margin: 10px;">{{ session('infoSave') }}</div>
         @endif
+
         <ul class="doctor-professional">
+            <table>
+
+           <tbody>
+            <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Date & Time</th>
+            <th>Message</th>
+            <th>Status</th>
+            </tr>
+           </tbody>
+           <tbody>
+        @foreach($doctor->appointment as $a)
+        <tr>
+            <td>{{$a->id}}</td>
+            <td>{{$a->name}}</td>
+            <td>{{$a->number}}</td>
+            <td>{{$a->date}} | {{$a->time}} | {{$a->day}}</td>
+            <td>{{$a->message}}</td>
+            <td>{{$a->status}}</td>
+            </tr>
+        @endforeach 
+        </tbody>
+    </table>
+</ul>
+        <!-- <ul class="doctor-professional">
             <li class="d-flex align-items-center">
                 <span class="names shift-colon">Name</span>
                 <span class="pra ms-3">{{ $user->name }}</span>
@@ -69,6 +97,6 @@
                 <span class="names shift-colon">Available Time</span>
                 <span class="pra ms-3">{{ $data['available_time'] }}</span>
             </li> --}}
-        </ul>
+        </ul> -->
     </section>
 @endsection

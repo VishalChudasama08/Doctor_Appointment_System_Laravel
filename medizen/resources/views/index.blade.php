@@ -27,7 +27,8 @@
                             <p class="black mb-40 pb-2">Health care is a vital aspect of maintaining overall well-being
                                 encompassing a range of services from preventive</p>
                             <button
-                                onclick="@if (!auth()->user()) userExist() @else window.location.href=href='/FilterDoctors' @endif"
+                                onclick="return confirm('Please register or login for Book Appointment!') ? window.location.href = '/login' : 0"
+                                {{-- onclick="@if (!auth()->user()) userExist() @else window.location.href=href='/FilterDoctors' @endif" --}}
                                 class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
                                 Book An Appointment
                                 <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
@@ -79,7 +80,7 @@
         </div>
     </section>
 
-    <script>
+    {{-- <script>
         function userExist() {
             if (confirm('Please register or login for Book Appointment!')) {
                 window.location.href = '/login'
@@ -87,7 +88,7 @@
                 return 0;
             }
         }
-    </script>
+    </script> --}}
 
     <!-- Servie Section Start -->
     <section class="services-section main-style cmn-bg fix p-4">

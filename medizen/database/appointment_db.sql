@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2026 at 12:23 PM
+-- Generation Time: Apr 06, 2026 at 04:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `appointment_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointments`
+--
+
+CREATE TABLE `appointments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `doctor_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `number` varchar(20) NOT NULL,
+  `day` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `message` text DEFAULT NULL,
+  `status` enum('pending','approved','rejected','completed') NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `user_id`, `doctor_id`, `name`, `number`, `day`, `date`, `time`, `message`, `status`, `created_at`, `updated_at`) VALUES
+(1, 2, 3, 'Piyush', '1234567890', 'Wednesday', '2026-04-08', '14:00:00', 'first', 'pending', '2026-04-05 14:23:53', '2026-04-05 14:23:53');
 
 -- --------------------------------------------------------
 
@@ -70,10 +98,20 @@ CREATE TABLE `doctors` (
 INSERT INTO `doctors` (`id`, `image`, `user_id`, `expertise`, `experience`, `education`, `profession`, `created_at`, `updated_at`) VALUES
 (3, '1774723250.jpg', 22, 'Dermatologist', 7, 'MBBS, MD Dermatology', 'Skin Specialist', '2026-03-28 13:10:50', '2026-03-28 13:10:50'),
 (4, '1774769386.jpg', 8, 'Cardiologist', 9, 'MBBS, MD Cardiology', 'Senior Doctor', '2026-03-29 01:59:46', '2026-03-29 01:59:46'),
-(5, '1774769999.jpg', 9, 'Dentist', 5, 'BDS', 'Junior Doctor', '2026-03-29 02:09:59', '2026-03-29 02:09:59'),
+(5, '1774769999.jpg', 9, 'Dentist', 5, 'BDS', 'Dentist', '2026-03-29 02:09:59', '2026-03-29 02:09:59'),
 (6, '1774771061.png', 10, 'Neurologist', 8, 'MBBS, MD Neurology', 'Consultant', '2026-03-29 02:27:41', '2026-03-29 02:27:41'),
 (7, '1774771198.png', 11, 'Orthopedic', 12, 'MBBS, MS Orthopedics', 'Senior Specialist', '2026-03-29 02:29:58', '2026-03-29 02:29:58'),
-(8, '1774771310.png', 12, 'Pediatrician', 6, 'MBBS, MD Pediatrics', 'Child Specialist', '2026-03-29 02:31:50', '2026-03-29 02:31:50');
+(8, '1774771310.png', 12, 'Pediatrician', 6, 'MBBS, MD Pediatrics', 'Child Specialist', '2026-03-29 02:31:50', '2026-03-29 02:31:50'),
+(10, '1775382556.png', 27, 'Dermatology', 6, 'MBBS, MD Dermatology', 'Skin Specialist', '2026-04-05 04:19:16', '2026-04-05 04:19:16'),
+(11, '1775382770.jpg', 28, 'Dermatology', 8, 'MBBS, MD Dermatology', 'Consultant', '2026-04-05 04:22:50', '2026-04-05 04:22:50'),
+(12, '1775383285.jpg', 29, 'Cardiac Sciences', 12, 'MBBS, MD Cardiology', 'Senior Doctor', '2026-04-05 04:31:25', '2026-04-05 04:31:25'),
+(13, '1775383431.png', 30, 'Cardiac Sciences', 6, 'MBBS, MD Cardiology', 'Consultant', '2026-04-05 04:33:51', '2026-04-05 04:33:51'),
+(14, '1775383694.jpg', 31, 'Dentist', 2, 'BDS', 'Dentist', '2026-04-05 04:38:14', '2026-04-05 04:38:14'),
+(15, '1775383802.jpg', 32, 'Dentist', 7, 'BDS', 'Dentist', '2026-04-05 04:40:02', '2026-04-05 04:40:02'),
+(16, '1775383942.jpg', 33, 'Neurologist', 10, 'MBBS, MD Neurology', 'Neurologist', '2026-04-05 04:42:22', '2026-04-05 04:42:22'),
+(17, '1775384163.jpg', 34, 'Neurologist', 15, 'MBBS, MD Neurology', 'Neurologist', '2026-04-05 04:46:03', '2026-04-05 04:46:03'),
+(18, '1775384295.jpg', 35, 'Orthopedic', 5, 'MBBS, MS Orthopedics', 'Consultant', '2026-04-05 04:48:15', '2026-04-05 04:48:15'),
+(19, '1775384425.jpg', 36, 'Orthopedic', 20, '\'MBBS, MS Orthopedics', 'Senior Specialist', '2026-04-05 04:50:25', '2026-04-05 04:50:25');
 
 -- --------------------------------------------------------
 
@@ -124,7 +162,39 @@ INSERT INTO `doctor_schedules` (`id`, `doctor_id`, `day`, `start_time`, `end_tim
 (34, 8, 'Wednesday', '10:00:00', '15:30:00', '2026-03-29 02:31:50', '2026-03-29 02:31:50'),
 (35, 8, 'Thursday', '10:00:00', '15:30:00', '2026-03-29 02:31:50', '2026-03-29 02:31:50'),
 (36, 8, 'Friday', '10:00:00', '15:30:00', '2026-03-29 02:31:50', '2026-03-29 02:31:50'),
-(37, 8, 'Saturday', '10:00:00', '15:30:00', '2026-03-29 02:31:50', '2026-03-29 02:31:50');
+(37, 8, 'Saturday', '10:00:00', '15:30:00', '2026-03-29 02:31:50', '2026-03-29 02:31:50'),
+(45, 10, 'Monday', '10:00:00', '16:00:00', '2026-04-05 04:19:16', '2026-04-05 04:19:16'),
+(46, 10, 'Wednesday', '10:00:00', '16:00:00', '2026-04-05 04:19:16', '2026-04-05 04:19:16'),
+(47, 10, 'Friday', '10:00:00', '16:00:00', '2026-04-05 04:19:16', '2026-04-05 04:19:16'),
+(48, 11, 'Saturday', '09:00:00', '13:30:00', '2026-04-05 04:22:50', '2026-04-05 04:22:50'),
+(49, 11, 'Sunday', '09:00:00', '13:30:00', '2026-04-05 04:22:50', '2026-04-05 04:22:50'),
+(50, 12, 'Monday', '10:30:00', '16:30:00', '2026-04-05 04:31:25', '2026-04-05 04:31:25'),
+(51, 12, 'Tuesday', '10:30:00', '16:30:00', '2026-04-05 04:31:25', '2026-04-05 04:31:25'),
+(52, 12, 'Thursday', '10:30:00', '16:30:00', '2026-04-05 04:31:25', '2026-04-05 04:31:25'),
+(53, 12, 'Friday', '10:30:00', '16:30:00', '2026-04-05 04:31:25', '2026-04-05 04:31:25'),
+(54, 13, 'Wednesday', '12:30:00', '18:30:00', '2026-04-05 04:33:51', '2026-04-05 04:33:51'),
+(55, 13, 'Thursday', '12:30:00', '18:30:00', '2026-04-05 04:33:51', '2026-04-05 04:33:51'),
+(56, 13, 'Friday', '12:30:00', '18:30:00', '2026-04-05 04:33:51', '2026-04-05 04:33:51'),
+(57, 14, 'Monday', '09:30:00', '16:30:00', '2026-04-05 04:38:14', '2026-04-05 04:38:14'),
+(58, 14, 'Tuesday', '09:30:00', '16:30:00', '2026-04-05 04:38:14', '2026-04-05 04:38:14'),
+(59, 14, 'Wednesday', '09:30:00', '16:30:00', '2026-04-05 04:38:14', '2026-04-05 04:38:14'),
+(60, 15, 'Thursday', '09:00:00', '16:00:00', '2026-04-05 04:40:02', '2026-04-05 04:40:02'),
+(61, 15, 'Friday', '09:00:00', '16:00:00', '2026-04-05 04:40:02', '2026-04-05 04:40:02'),
+(62, 15, 'Saturday', '09:00:00', '16:00:00', '2026-04-05 04:40:02', '2026-04-05 04:40:02'),
+(63, 16, 'Monday', '11:00:00', '18:00:00', '2026-04-05 04:42:22', '2026-04-05 04:42:22'),
+(64, 16, 'Tuesday', '11:00:00', '18:00:00', '2026-04-05 04:42:22', '2026-04-05 04:42:22'),
+(65, 16, 'Saturday', '11:00:00', '18:00:00', '2026-04-05 04:42:22', '2026-04-05 04:42:22'),
+(66, 16, 'Sunday', '11:00:00', '18:00:00', '2026-04-05 04:42:22', '2026-04-05 04:42:22'),
+(67, 17, 'Monday', '09:00:00', '13:00:00', '2026-04-05 04:46:04', '2026-04-05 04:46:04'),
+(68, 17, 'Tuesday', '09:00:00', '13:00:00', '2026-04-05 04:46:04', '2026-04-05 04:46:04'),
+(69, 17, 'Thursday', '09:00:00', '13:00:00', '2026-04-05 04:46:04', '2026-04-05 04:46:04'),
+(70, 17, 'Friday', '09:00:00', '13:00:00', '2026-04-05 04:46:04', '2026-04-05 04:46:04'),
+(71, 18, 'Friday', '16:00:00', '20:00:00', '2026-04-05 04:48:15', '2026-04-05 04:48:15'),
+(72, 18, 'Saturday', '16:00:00', '20:00:00', '2026-04-05 04:48:15', '2026-04-05 04:48:15'),
+(73, 18, 'Sunday', '16:00:00', '20:00:00', '2026-04-05 04:48:15', '2026-04-05 04:48:15'),
+(74, 19, 'Monday', '09:00:00', '13:00:00', '2026-04-05 04:50:25', '2026-04-05 04:50:25'),
+(75, 19, 'Tuesday', '09:00:00', '13:00:00', '2026-04-05 04:50:25', '2026-04-05 04:50:25'),
+(76, 19, 'Wednesday', '09:00:00', '13:00:00', '2026-04-05 04:50:25', '2026-04-05 04:50:25');
 
 -- --------------------------------------------------------
 
@@ -198,7 +268,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '0001_01_01_000001_create_cache_table', 1),
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (6, '2026_03_25_175802_create_doctors_table', 2),
-(9, '2026_03_28_155153_create_doctor_schedules_table', 3);
+(9, '2026_03_28_155153_create_doctor_schedules_table', 3),
+(10, '2026_04_05_184353_create_appointments_table', 4);
 
 -- --------------------------------------------------------
 
@@ -232,7 +303,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('cW1fYoW0NZQRlDPq7sELUwfXhZz7yRqgIWeZZO2H', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoid3dRSjFwTjhnUTIyVFI3eU5CV1pKTGw0Z2hwWU9UTmtOYWN0Y1hsUCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kb2N0b3JEZXRhaWxzLzkiO3M6NToicm91dGUiO047fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==', 1774779645);
+('4fsz8R2cs0czr5jObvN0Ez1hhnsSn2QrRTOOE32A', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYVp1U1g1VklJeGJtS3J1ajQ5WWJZNERiS2RpUkN0d0RISGw3U0pjMCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9pbmRleCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1775418834);
 
 -- --------------------------------------------------------
 
@@ -266,11 +337,29 @@ INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `user_type`, `
 (10, 'Dr. Dhruv Mehta', 'dhruv.mehta@gmail.com', '9876543211', '$2y$12$YPzGhnaom0N8Zxtp2TePmuovD5Bqubf3cqb79.Gixiev3/9SrWvUS', 'Doctor', NULL, '2026-03-25 13:57:30', '2026-03-25 13:57:30'),
 (11, 'Dr. Yash Joshi', 'yash.joshi@gmail.com', '9876543213', '$2y$12$bTglgzu2JpoKjcL8Ztd78OoPBwBcGorwc4Yd5CjAcUfofQdNT7h5e', 'Doctor', NULL, '2026-03-25 14:09:37', '2026-03-25 14:09:37'),
 (12, 'Dr. Harsh Trivedi', 'harsh.trivedi@gmail.com', '9876543215', '$2y$12$I1Re9oz8kELYYndqjlnIWekJWBl26nI252zCnPVxyDFqG/h6Au3.m', 'Doctor', NULL, '2026-03-25 14:10:49', '2026-03-25 14:10:49'),
-(22, 'Dr. Nirav Desai', 'nirav.desai@gmail.com', '9876543216', '$2y$12$CCk77L2pZcw8tC2Owid0jOAcuzWdgj8AOPi/Zd7HA7aFDxxWB4CzS', 'Doctor', NULL, '2026-03-26 04:29:15', '2026-03-26 04:29:15');
+(22, 'Dr. Nirav Desai', 'nirav.desai@gmail.com', '9876543216', '$2y$12$CCk77L2pZcw8tC2Owid0jOAcuzWdgj8AOPi/Zd7HA7aFDxxWB4CzS', 'Doctor', NULL, '2026-03-26 04:29:15', '2026-03-26 04:29:15'),
+(27, 'Dr. Amit Shah', 'amit1@mail.com', '9990000001', '$2y$12$l/MO7IRBVEBnFr2fwBnZXudSVrwROw3lG/.Dt1pno.aVSzjoTzzqy', 'Doctor', NULL, '2026-04-05 04:16:55', '2026-04-05 04:16:55'),
+(28, 'Dr. Neha Patel', 'neha2@mail.com', '9990000002', '$2y$12$2LN11IbhTvP8buZlYvPs1O6HnnJgyWcLm1HDaqQlFXtXMZeOcrDIS', 'Doctor', NULL, '2026-04-05 04:21:32', '2026-04-05 04:21:32'),
+(29, 'Dr. Raj Mehta', 'raj3@mail.com', '9990000003', '$2y$12$xLAOguuEodPcAN8Vb36Lxu6wmm05qI7Sh/n1JyhKCe7eK.zjz.lH2', 'Doctor', NULL, '2026-04-05 04:23:57', '2026-04-05 04:23:57'),
+(30, 'Dr. Pooja Desai', 'pooja4@mail.com', '9990000004', '$2y$12$9Q8TKAtXRxLE0ZMRDieDIO4CtXm2n6VrTkb/MkxJ052uchbL7YxIy', 'Doctor', NULL, '2026-04-05 04:32:15', '2026-04-05 04:32:15'),
+(31, 'Dr. Kiran Joshi', 'kiran5@mail.com', '9990000005', '$2y$12$G4zQGdYdrECvDpWZzI58f.0XIpNV3V9hzeGsz19Su8ySt24.T3g9i', 'Doctor', NULL, '2026-04-05 04:34:27', '2026-04-05 04:34:27'),
+(32, 'Dr. Sneha Shah', 'sneha6@mail.com', '9990000006', '$2y$12$j5hSHIbNROnLG8j70C156.L2/Kf9O.P7mIIbq647b0YR/pKZRxuOe', 'Doctor', NULL, '2026-04-05 04:38:54', '2026-04-05 04:38:54'),
+(33, 'Dr. Vivek Patel', 'vivek7@mail.com', '9990000007', '$2y$12$Su2iNknQ3cXxIWvSeF.XzeQwJDZ9lVhvVXbhqyHVImd5q3Ksjbh0q', 'Doctor', NULL, '2026-04-05 04:40:50', '2026-04-05 04:40:50'),
+(34, 'Dr. Rina Mehta', 'rina8@mail.com', '9990000008', '$2y$12$fL..6XdEHzueG86HYZb2S.zoFTEEmU5vZbosFLFkb4798i6VI2o76', 'Doctor', NULL, '2026-04-05 04:44:26', '2026-04-05 04:44:26'),
+(35, 'Dr. Hardik Shah', 'hardik9@mail.com', '9990000009', '$2y$12$23ZwMYbGgeUj/60EjNq0/.3q.7CTrWVZpfO91UNNHG6psfYNh7N3O', 'Doctor', NULL, '2026-04-05 04:46:37', '2026-04-05 04:46:37'),
+(36, 'Dr. Aarti Patel', 'aarti10@mail.com', '9990000010', '$2y$12$g9FBLR4DdbkrnyToAbtdRuZeADq7nb8i2bgrG5JcScELl3ksG2FYq', 'Doctor', NULL, '2026-04-05 04:48:55', '2026-04-05 04:48:55');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `appointments_user_id_foreign` (`user_id`),
+  ADD KEY `appointments_doctor_id_foreign` (`doctor_id`);
 
 --
 -- Indexes for table `cache`
@@ -352,16 +441,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `doctor_schedules`
 --
 ALTER TABLE `doctor_schedules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -379,17 +474,24 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD CONSTRAINT `appointments_doctor_id_foreign` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `appointments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `doctors`
@@ -407,11 +509,6 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-
-
-
 
 
 

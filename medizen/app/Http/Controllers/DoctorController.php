@@ -13,8 +13,11 @@ class DoctorController extends Controller
     public function dashboard()
     {
         $user = Auth::user(); // logged-in user 
-        $doctor = Doctor::with('schedules')->where('user_id', $user->id)->first();
+        $doctor = Doctor::with('schedules','appointment')->where('user_id', $user->id)->first();
         // echo "<pre>";
+        // echo $doctor->id;
+        // print_r($doctor->appointment->toArray());
+        // print_r($doctor->appointment[0]->day);
         // print_r($doctor->toArray());
         // die;
 
@@ -77,6 +80,8 @@ class DoctorController extends Controller
         // echo "<pre>";
         // print_r($doctor->toArray());
         // die;
+
+        
         return view('doctor.DoctorProfile', compact('user', 'doctor'));
     }
 

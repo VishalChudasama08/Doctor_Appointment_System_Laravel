@@ -166,16 +166,16 @@
             <!-- ================== MAIN CONTENT ================== -->
             <div class="container-fluid p-4">
 
-                @if (Auth::check() && auth()->user()->user_type == 'Admin')
-                    @yield('admin-content')
-                @else
+                {{-- @if (Auth::check() && auth()->user()->user_type == 'Admin') --}}
+                @yield('admin-content')
+                {{-- @else
                     <div class="text-center py-5">
                         <h3 style="color:red;">
                             <i class="bi bi-exclamation-circle"></i>
                             Admin login required
                         </h3>
                     </div>
-                @endif
+                @endif --}}
 
             </div>
 
@@ -185,72 +185,6 @@
     </div>
     <!-- ================== END MAIN WRAPPER ================== -->
 
-    {{-- <!-- Header Section Start -->
-    <header id="header-sticky" class="header-1 header-style2">
-        <div class="container">
-            <div class="mega-menu-wrapper">
-                <div class="header-main style-2">
-                    <div class="header-left">
-                        <div class="logo">
-                            <a href="{{ url('Admin/AdminDashboard') }}" class="header-logo">
-                                <img src="{{ asset('assets/img/logo/logo.png') }}" alt="logo-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="header-right d-flex justify-content-end align-items-center">
-                        <div class="mean__menu-wrapper">
-                            <div class="main-menu">
-                                <nav id="mobile-menu">
-                                    <ul>
-                                        <li><a href="{{ url('Admin/AdminDashboard') }}">Home</a></li>
-                                        <li><a href="{{ url('Admin/Patients') }}">Patients</a></li>
-                                        <li><a href="{{ url('Admin/Doctors') }}">Doctors</a></li>
-                                        @if (Auth::check())
-                                            @if (auth()->user()->user_type == 'Admin')
-                                                <li class="has-dropdown"><a href="{{ url('logout') }}"
-                                                        style="color:#f98c8c">Logout</a></li>
-                                            @else
-                                                <li class="has-dropdown"><a href="{{ url('login') }}">Login</a>
-                                                </li>
-                                                <li class="has-dropdown dark"><a
-                                                        href="{{ url('register') }}">Register</a>
-                                                </li>
-                                            @endif
-                                        @endif
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
-                                class="fal fa-search"></i></a>
-                        <div class="header__hamburger d-xl-none my-auto">
-                            <div class="sidebar__toggle">
-                                <img src="{{ asset('assets/img/icon/menu.png') }}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <hr style="margin: 0;">
-    @if (Auth::check())
-        @if (auth()->user()->user_type == 'Admin')
-            @yield('admin-content')
-        @else
-            <div class="footer-bottom text-center">
-                <div class="container">
-                    <h3 style="color: red;" class="body-font text-center py-4">
-                        <i class="bi bi-exclamation-circle"></i>
-                        Admin login required
-                    </h3>
-                </div>
-            </div>
-        @endif
-    @endif --}}
-
-    {{-- </div> --}}
     <!--<< Footer Section Start >>-->
     <footer class="footer-section z-1 position-relative blackbg fix">
         <div class="container pt-5">
