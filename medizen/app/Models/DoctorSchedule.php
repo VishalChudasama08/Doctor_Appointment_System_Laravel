@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Doctor;
+use App\Models\Doctor;
 
 class DoctorSchedule extends Model
 {

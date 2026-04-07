@@ -15,6 +15,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Number</th>
+                            <th class="text-center" style="width: 1%;">Status</th>
                             <th class="text-center" style="width: 1%;">Delete</th>
                             <th class="text-center" style="width: 1%;">Profile</th>
                         </tr>
@@ -26,6 +27,7 @@
                                 <td>{{ $d['name'] }}</td>
                                 <td>{{ $d['email'] }}</td>
                                 <td>{{ $d['number'] }}</td>
+                                <td>{{ $d->doctorDetails->status }}</td>
 
                                 <td class="text-center text-nowrap">
                                     <a href="{{ url('Admin/Doctor/DeleteThis', $d['id']) }}"

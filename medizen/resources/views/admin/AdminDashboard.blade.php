@@ -2,128 +2,88 @@
 
 @section('admin-content')
     <div class="container">
-        <section class="my-3">
-            <a href="{{ url('Admin/DoctorRegister') }}" class="btn btn-small btn-success">New Doctor Register</a>
-        </section>
 
-        {{-- Doctor's --}}
-        <section class="container">
-            <div>
-                @if (session('doctorDetailsAddOkay'))
-                    <div style="color: green; margin: 10px;">{{ session('doctorDetailsAddOkay') }}</div>
-                @endif
-                @if (session('DoctorDeletedDone'))
-                    <div style="color: green; margin: 10px;">{{ session('DoctorDeletedDone') }}</div>
-                @endif
-                <div class="d-flex justify-content-between">
-                    <h3>Doctors</h3>
-                    <h6>Total: {{ $doctors->count() }}</h6>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered align-middle">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Number</th>
-                                <th class="text-center" style="width: 1%;">Delete</th>
-                                <th class="text-center" style="width: 1%;">Profile</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($doctors as $index => $d)
-                                <tr>
-                                    <th>{{ $index + 1 }}</th>
-                                    <td>{{ $d['name'] }}</td>
-                                    <td>{{ $d['email'] }}</td>
-                                    <td>{{ $d['number'] }}</td>
-
-                                    <td class="text-center text-nowrap">
-                                        <a href="{{ url('Admin/Doctor/DeleteThis', $d['id']) }}"
-                                            onclick="return confirm('Are you sure? You want to delete {{ $d['name'] }} account?')">
-                                            <i class="bi bi-trash"
-                                                style="color:#6c757d; display:contents; position:absolute; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;"
-                                                onmouseover="this.style.color='red'; this.style.fontSize='22px'"
-                                                onmouseout="this.style.color='#6c757d'; this.style.fontSize='18px'">
-                                            </i>
-                                        </a>
-                                    </td>
-
-                                    <td class="text-center text-nowrap">
-                                        {{-- <a href="{{ url('Admin/AdminDoctorDetailsForm', $d['id']) }}"> --}}
-                                        <a href="{{ url('Admin/DoctorProfile', $d['id']) }}">
-                                            <i class="bi bi-person-lines-fill"
-                                                style="color:#6c757d; cursor:pointer; display:contents; position:absolute; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;"
-                                                onmouseover="this.style.color='green'; this.style.fontSize='22px'"
-                                                onmouseout="this.style.color='#6c757d'; this.style.fontSize='18px'">
-                                            </i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                {{ $doctors->links() }}
+        <!-- Appointments Table -->
+        <div class="card shadow">
+            <div class="card-header bg-dark d-flex justify-content-between align-items-center">
+                <h5 class="mb-0  text-white">Appointments</h5>
+                <span class=" text-white">Total: {{ $appointments->count() }}</span>
             </div>
-        </section>
 
-        {{-- Patients --}}
-        <section class="container">
-            <div>
-                <div class="d-flex justify-content-between">
-                    <h3>Patients</h3>
-                    <h6>Total: {{ $patients->count() }}</h6>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered align-middle">
-                        <thead>
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover align-middle text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Day</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @forelse ($appointments as $index => $app)
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Number</th>
-                                <th class="text-center" style="width: 1%;">Delete</th>
-                                <th class="text-center" style="width: 1%;">Activity</th>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $app->name }}</td>
+                                <td>{{ $app->doctor->user->name }}</td>
+                                <td>{{ $app->day }}</td>
+                                <td>{{ $app->date }}</td>
+                                <td>{{ \Carbon\Carbon::parse($app->time)->format('h:i A') }}</td>
+
+                                <!-- Status Badge -->
+                                <td>
+                                    @if ($app->status == 'Pending')
+                                        <span class="badge bg-warning text-black">Pending</span>
+                                    @elseif($app->status == 'Approved')
+                                        <span class="badge bg-success">Approved</span>
+                                    @elseif($app->status == 'Rejected')
+                                        <span class="badge bg-danger">Rejected</span>
+                                    @else
+                                        <span class="badge bg-primary">Completed</span>
+                                    @endif
+                                </td>
+
+                                <!-- Action Buttons -->
+                                <td>
+                                    @if ($app->status == 'Pending')
+                                        <form action="{{ url('appointment/updateStatus', $app->id) }}" method="POST"
+                                            class="d-flex gap-1 justify-content-center">
+                                            @csrf
+                                            <button name="status" value="Approved" class="btn btn-success btn-sm">
+                                                ✔ Approve
+                                            </button>
+
+                                            <button name="status" value="Rejected" class="btn btn-danger btn-sm">
+                                                ✖ Reject
+                                            </button>
+                                        </form>
+                                    @elseif($app->status == 'Approved')
+                                        <form action="{{ url('appointment/updateStatus', $app->id) }}" method="POST">
+                                            @csrf
+                                            <button name="status" value="Completed" class="btn btn-primary btn-sm">
+                                                ✔ Complete
+                                            </button>
+                                        </form>
+                                    @else
+                                        <span class="text-muted">No Action</span>
+                                    @endif
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($patients as $index => $p)
-                                <tr>
-                                    <th>{{ $index + 1 }}</th>
-                                    <td>{{ $p['name'] }}</td>
-                                    <td>{{ $p['email'] }}</td>
-                                    <td>{{ $p['number'] }}</td>
-
-                                    <td class="text-center text-nowrap">
-                                        <a href="{{ url('Admin/Patient/DeleteThis', $p['id']) }}"
-                                            onclick="return confirm('Are you sure? You want to delete {{ $p['name'] }} account?')">
-                                            <i class="bi bi-trash"
-                                                style="color:#6c757d; display:contents; position:absolute; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;"
-                                                onmouseover="this.style.color='red'; this.style.fontSize='22px'"
-                                                onmouseout="this.style.color='#6c757d'; this.style.fontSize='18px'">
-                                            </i>
-                                        </a>
-                                    </td>
-
-                                    <td class="text-center text-nowrap">
-                                        <a href="#">
-                                            <i class="bi bi-activity"
-                                                style="color:#6c757d; display:contents; position:absolute; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;"
-                                                onmouseover="this.style.color='green'; this.style.fontSize='22px'"
-                                                onmouseout="this.style.color='#6c757d'; this.style.fontSize='18px'">
-                                            </i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                {{ $patients->links() }}
+                        @empty
+                            <tr>
+                                <td colspan="8">No appointments found</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
-        </section>
+
+        </div>
 
     </div>
 @endsection

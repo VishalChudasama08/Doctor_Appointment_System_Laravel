@@ -112,31 +112,31 @@
 
             <nav class="px-3">
                 <ul class="nav flex-column">
-
                     <li class="nav-item mb-2">
                         <a href="{{ url('Admin/AdminDashboard') }}" class="nav-link text-white">
                             <i class="bi bi-speedometer2"></i> Dashboard
                         </a>
                     </li>
-
                     <li class="nav-item mb-2">
                         <a href="{{ url('Admin/Patients') }}" class="nav-link text-white">
                             <i class="bi bi-people"></i> Patients
                         </a>
                     </li>
-
                     <li class="nav-item mb-2">
                         <a href="{{ url('Admin/Doctors') }}" class="nav-link text-white">
                             <i class="bi bi-person-badge"></i> Doctors
                         </a>
                     </li>
-
+                    <li class="nav-item mb-2">
+                        <a href="{{ url('Admin/DoctorRegister') }}" class="nav-link text-white">
+                            <i class="bi bi-person-plus"></i> New Doctor Register
+                        </a>
+                    </li>
                     <li class="nav-item mt-4">
                         <a href="{{ url('logout') }}" class="nav-link text-danger">
                             <i class="bi bi-box-arrow-right"></i> Logout
                         </a>
                     </li>
-
                 </ul>
             </nav>
 
@@ -149,17 +149,12 @@
 
             <!-- ================== TOPBAR (NEW LIKE TEMPLATE) ================== -->
             <div class="d-flex justify-content-between align-items-center p-3 bg-white shadow-sm">
-
                 <h5 class="mb-0" id="current">Admin Dashboard</h5>
-
                 <div class="d-flex align-items-center gap-3">
-
                     <!-- Search -->
                     <input type="text" class="form-control" placeholder="Search..." style="width:200px;">
-
                     <!-- User -->
                     <span>{{ auth()->user()->name ?? 'Admin' }}</span>
-
                 </div>
             </div>
 
@@ -178,10 +173,8 @@
                 @endif --}}
 
             </div>
-
         </div>
         <!-- ================== END CONTENT ================== -->
-
     </div>
     <!-- ================== END MAIN WRAPPER ================== -->
 

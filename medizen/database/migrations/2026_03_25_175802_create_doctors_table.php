@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('experience');
             $table->string('education');
             $table->string('profession');
+            $table->enum('status', ['Active', 'Inactive'])->default('Active');
             // $table->string('available_days');
             // $table->string('available_time');
 

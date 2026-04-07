@@ -18,6 +18,7 @@
                         @csrf
                         <input type="hidden" name="userId" value="{{ auth()->user()->id }}">
                         <input type="hidden" name="doctorId" value="{{ $doctor->id }}">
+                        <input type="hidden" name="day" id="selectedDay">
                         <div class="section-title mb-30">
                             <span class="cmn-tag p1-bg heading-font">
                                 <h3 class="wow fadeInUp black" data-wow-delay=".3s">
@@ -34,15 +35,17 @@
                                 <input type="tel" placeholder="Phone Number" name="number"
                                     value="{{ auth()->user()->number }}" required>
                             </div>
-                            <div class="col-lg-6 px-5 py-3" style="background: ghostwhite;border-radius: 19px;">
+                            {{-- <div class="col-lg-6 px-5 py-3" style="background: ghostwhite;border-radius: 19px;">
                                 <select name="day" required>
                                     @foreach ($doctor->schedules as $schedule)
                                         <option value="{{ $schedule->day }}">{{ $schedule->day }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-6">
-                                <input type="date" name="date" id="appointmentDate" placeholder="date" required>
+                                <input type="text" name="date" id="appointmentDate" placeholder="Select Date"
+                                    required>
+                                {{-- <input type="date" name="date" id="appointmentDate" placeholder="date" required> --}}
                             </div>
                             <div class="col-lg-12">
                                 <label class="mb-2">Select Time</label>
@@ -73,20 +76,193 @@
                                 </div>
                             </div>
                             <script>
+                                const availableDays = @json($doctor->schedules->pluck('day'));
                                 document.addEventListener("DOMContentLoaded", function() {
-                                    const input = document.getElementById("appointmentDate");
-                                    const today = new Date();
-                                    // Format date to YYYY-MM-DD
-                                    function formatDate(date) {
-                                        return date.toISOString().split('T')[0];
-                                    }
-                                    // Min = today
-                                    input.min = formatDate(today);
-                                    // Max = today + 20 days
-                                    let maxDate = new Date();
-                                    maxDate.setDate(today.getDate() + 20);
-                                    input.max = formatDate(maxDate);
+
+                                    const daysMap = {
+                                        "Sunday": 0,
+                                        "Monday": 1,
+                                        "Tuesday": 2,
+                                        "Wednesday": 3,
+                                        "Thursday": 4,
+                                        "Friday": 5,
+                                        "Saturday": 6
+                                    };
+
+                                    // Convert available days → numbers
+                                    const allowedDays = availableDays.map(day => daysMap[day]);
+
+                                    flatpickr("#appointmentDate", {
+                                        dateFormat: "Y-m-d",
+
+                                        // ✅ Only next 20 days
+                                        minDate: "today",
+                                        maxDate: new Date().fp_incr(20),
+
+                                        // ✅ Disable all except allowed days
+                                        disable: [
+                                            function(date) {
+                                                return !allowedDays.includes(date.getDay());
+                                            }
+                                        ],
+
+                                        // ✅ When date selected
+                                        onChange: function(selectedDates, dateStr, instance) {
+                                            if (selectedDates.length > 0) {
+                                                const selectedDate = selectedDates[0];
+                                                const dayName = selectedDate.toLocaleString('en-US', {
+                                                    weekday: 'long'
+                                                });
+
+                                                document.getElementById("selectedDay").value = dayName;
+                                            }
+                                        }
+                                    });
+
                                 });
+                                // $(document).ready(function() {
+
+                                //     const input = $("#appointmentDate");
+                                //     const hiddenDay = $("#selectedDay");
+
+                                //     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+                                //     function formatDate(date) {
+                                //         return date.toISOString().split('T')[0];
+                                //     }
+
+                                //     function getDayName(date) {
+                                //         return days[date.getDay()];
+                                //     }
+
+                                //     // ✅ Set min/max
+                                //     let today = new Date();
+                                //     input.attr("min", formatDate(today));
+
+                                //     let maxDate = new Date();
+                                //     maxDate.setDate(today.getDate() + 20);
+                                //     input.attr("max", formatDate(maxDate));
+
+                                //     // ✅ When user selects date
+                                //     input.on("change", function() {
+
+                                //         let selected = new Date(this.value);
+
+                                //         // 🔥 Loop until valid day found
+                                //         while (!availableDays.includes(getDayName(selected))) {
+                                //             selected.setDate(selected.getDate() + 1);
+                                //         }
+
+                                //         // ✅ Set corrected date
+                                //         let validDate = formatDate(selected);
+                                //         input.val(validDate);
+
+                                //         // ✅ Set hidden day
+                                //         hiddenDay.val(getDayName(selected));
+                                //     });
+
+                                // });
+                                // document.addEventListener("DOMContentLoaded", function() {
+
+                                //     const input = document.getElementById("appointmentDate");
+                                //     const hiddenDay = document.getElementById("selectedDay");
+
+                                //     const availableDays = @json($doctor->schedules->pluck('day'));
+
+                                //     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+                                //     function formatDate(date) {
+                                //         return date.toISOString().split('T')[0];
+                                //     }
+
+                                //     function getDayName(date) {
+                                //         return days[date.getDay()];
+                                //     }
+
+                                //     let today = new Date();
+                                //     input.min = formatDate(today);
+
+                                //     let maxDate = new Date();
+                                //     maxDate.setDate(today.getDate() + 20);
+                                //     input.max = formatDate(maxDate);
+
+                                //     let lastValidDate = "";
+
+                                //     input.addEventListener("change", function() {
+
+                                //         let selected = new Date(this.value);
+                                //         let selectedDay = getDayName(selected);
+
+                                //         // ❌ If day not available → revert (like disabled)
+                                //         if (!availableDays.includes(selectedDay)) {
+                                //             this.value = lastValidDate; // revert back
+                                //             return;
+                                //         }
+
+                                //         // ✅ valid → save
+                                //         lastValidDate = this.value;
+                                //         hiddenDay.value = selectedDay;
+                                //     });
+
+                                // });
+                                // document.addEventListener("DOMContentLoaded", function() {
+
+                                //     const input = document.getElementById("appointmentDate");
+                                //     const hiddenDay = document.getElementById("selectedDay");
+
+                                //     const today = new Date();
+
+                                //     function formatDate(date) {
+                                //         return date.toISOString().split('T')[0];
+                                //     }
+
+                                //     // ✅ Set min & max
+                                //     input.min = formatDate(today);
+
+                                //     let maxDate = new Date();
+                                //     maxDate.setDate(today.getDate() + 20);
+                                //     input.max = formatDate(maxDate);
+
+                                //     // ✅ Convert date → day name
+                                //     function getDayName(dateString) {
+                                //         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                                //         const date = new Date(dateString);
+                                //         return days[date.getDay()];
+                                //     }
+
+                                //     // ✅ Validate date selection
+                                //     input.addEventListener("change", function() {
+
+                                //         const selectedDate = input.value;
+                                //         const selectedDayName = getDayName(selectedDate);
+
+                                //         // ❌ If not available
+                                //         if (!availableDays.includes(selectedDayName)) {
+                                //             alert("Doctor is not available on " + selectedDayName);
+
+                                //             input.value = "";
+                                //             hiddenDay.value = "";
+                                //         } else {
+                                //             // ✅ Save day in hidden field
+                                //             hiddenDay.value = selectedDayName;
+                                //         }
+                                //     });
+
+                                // });
+                                // document.addEventListener("DOMContentLoaded", function() {
+                                //     const input = document.getElementById("appointmentDate");
+                                //     const today = new Date();
+                                //     // Format date to YYYY-MM-DD
+                                //     function formatDate(date) {
+                                //         return date.toISOString().split('T')[0];
+                                //     }
+                                //     // Min = today
+                                //     input.min = formatDate(today);
+                                //     // Max = today + 20 days
+                                //     let maxDate = new Date();
+                                //     maxDate.setDate(today.getDate() + 20);
+                                //     input.max = formatDate(maxDate);
+                                // });
                             </script>
                             <div class="col-lg-12">
                                 <textarea name="message" placeholder="Message" rows="5"></textarea>

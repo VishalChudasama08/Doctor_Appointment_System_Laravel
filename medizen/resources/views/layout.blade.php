@@ -42,6 +42,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    {{-- flatpickr.min.css for date picker --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/flatpickr.min.css') }}">
+
     <style>
         /* FILTER OFFCANVAS SAME AS NAV */
         .filter__info {
@@ -432,21 +435,6 @@
         </div>
     </div>
 
-    {{-- @if (auth()->user())
-        <div class="profile-wrap">
-            <div class="profile-inner">
-                <i class="fas fa-times profile-close"></i>
-
-                <div class="profile-content">
-                    <h3>{{ auth()->user()->name }}</h3>
-                    <p>Email: {{ auth()->user()->email }}</p>
-
-                    <!-- <a href="#" class="btn btn-primary">View Profile</a>
-    <a href="#" class="btn btn-danger">Logout</a> -->
-                </div>
-            </div>
-        </div>
-    @endif --}}
     <!--<< All JS Plugins >>-->
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <!--<< Viewport Js >>-->
@@ -481,6 +469,9 @@
     <script src="{{ asset('assets/js/vanilla-tilt.min.js') }}"></script>
     <!--<< Main.js >>-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    {{-- flatpickr for date picker --}}
+    <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
+
 </body>
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointments;
 use App\Models\Doctor;
 use App\Models\DoctorSchedule;
 use App\Models\User;
@@ -13,14 +14,16 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        $doctors = User::where('user_type', 'Doctor')->paginate(8);
-        $patients = User::where('user_type', 'Patient')->paginate(8);
+        // $doctors = User::where('user_type', 'Doctor')->paginate(8);
+        // $patients = User::where('user_type', 'Patient')->paginate(8);
+
+        $appointments = Appointments::with(['patient', 'doctor.user'])->get();
 
         // echo "<pre>";
-        // print_r($data);
+        // print_r($appointments->toArray());
         // die;
 
-        return view('admin.AdminDashboard', compact('doctors', 'patients'));
+        return view('admin.AdminDashboard', compact('appointments'));
     }
 
 
@@ -65,7 +68,12 @@ class AdminController extends Controller
 
     public function doctorsList()
     {
-        $doctors = User::where('user_type', 'Doctor')->paginate(8);
+        // $doctors = User::where('user_type', 'Doctor')->paginate(8);
+        $doctors = User::with(['doctorDetails:user_id,status'])->where('user_type', 'Doctor')->paginate(8);
+        // echo "<pre>";
+        // echo $doctors[0]->doctorDetails->status;
+        // print_r($doctors->toArray());
+        // die;
         return view('admin.AdminDoctors', compact('doctors'));
     }
 
