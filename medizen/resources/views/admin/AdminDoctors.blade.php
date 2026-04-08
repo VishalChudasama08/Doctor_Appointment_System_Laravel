@@ -3,21 +3,26 @@
 @section('admin-content')
     {{-- Doctor's --}}
     <section class="container">
-        <div>
+        <div class="card shadow">
+            <div class="card-header bg-dark d-flex justify-content-between align-items-center">
+                <h5 class="mb-0  text-white">Doctor's</h5>
+                <span class=" text-white">Total: {{ $doctors->count() }}</span>
+            </div>
+
             @if (session('DoctorDeletedDone'))
                 <div style="color: green; margin: 10px;">{{ session('DoctorDeletedDone') }}</div>
             @endif
-            <div class="table-responsive">
-                <table class="table table-bordered align-middle">
+            <div class="card-body table-responsive p-0">
+                <table class="table table-bordered table-hover align-middle text-center m-0">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Number</th>
-                            <th class="text-center" style="width: 1%;">Status</th>
-                            <th class="text-center" style="width: 1%;">Delete</th>
-                            <th class="text-center" style="width: 1%;">Profile</th>
+                            <th>Status</th>
+                            <th>Delete</th>
+                            <th>Profile</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,7 +32,21 @@
                                 <td>{{ $d['name'] }}</td>
                                 <td>{{ $d['email'] }}</td>
                                 <td>{{ $d['number'] }}</td>
-                                <td>{{ $d->doctorDetails->status }}</td>
+
+                                <td>
+                                    <form action="{{ url('Admin/Doctor/updateStatus') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $d->doctorDetails->id }}">
+                                        <input type="hidden" name="name" value="{{ $d['name'] }}">
+                                        <button type="submit" name="status" value="{{ $d->doctorDetails->status }}"
+                                            class="btn btn-sm {{ $d->doctorDetails->status == 'Active' ? 'btn-success' : 'btn-danger' }}"
+                                            style="transition: all 0.2s ease;"
+                                            onmouseover="this.style.transform='scale(1.1)';"
+                                            onmouseout="this.style.transform='scale(1)';">
+                                            {{ $d->doctorDetails->status }}
+                                        </button>
+                                    </form>
+                                </td>
 
                                 <td class="text-center text-nowrap">
                                     <a href="{{ url('Admin/Doctor/DeleteThis', $d['id']) }}"
@@ -55,10 +74,10 @@
                     </tbody>
                 </table>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="card-footer d-flex justify-content-between">
                 {{ $doctors->links() }}
-                <h6>Total: {{ $doctors->count() }}</h6>
             </div>
         </div>
+
     </section>
 @endsection

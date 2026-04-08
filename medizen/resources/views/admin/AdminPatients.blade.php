@@ -3,9 +3,13 @@
 @section('admin-content')
     {{-- Patients --}}
     <section class="container">
-        <div>
-            <div class="table-responsive">
-                <table class="table table-bordered align-middle">
+        <div class="card shadow">
+            <div class="card-header bg-dark d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 text-white">Patients</h5>
+                <span class=" text-white">Total: {{ $patients->count() }}</span>
+            </div>
+            <div class="card-body table-responsive p-0">
+                <table class="table table-bordered align-middle m-0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -49,9 +53,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="card-footer d-flex justify-content-between">
                 {{ $patients->links() }}
-                <h6>Total: {{ $patients->count() }}</h6>
             </div>
         </div>
     </section>

@@ -44,6 +44,10 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('Admin/AddThisDoctorDetailsNow', [AdminController::class, 'saveDoctorDetails']);
     Route::get('Admin/Doctor/EditThisProfile/{id}', [AdminController::class, 'getAdminEditDoctorDetailsFormData']);
     Route::post('Admin/Doctor/SaveThisEditedDetailsNow', [AdminController::class, 'saveThisDoctorDetails']);
+    Route::post('Admin/Doctor/updateStatus', [AdminController::class, 'updateDoctorStatus']);
+
+    // ------ Admin Appointment Control Router's ------
+    Route::post('Admin/Appointment/UpdateStatus', [AdminController::class, 'updateAppointmentStatus']);
 });
 
 Route::middleware(['isDoctor'])->group(function () {
@@ -54,6 +58,7 @@ Route::middleware(['isDoctor'])->group(function () {
     Route::get('Doctor/EditProfile/{id}', [DoctorController::class, 'getEditDoctorForm']);
     Route::post('Doctor/SaveEditedInformationNow', [DoctorController::class, 'saveEditedDoctorDetails']);
     Route::get('Doctor/Delete/{id}', [DoctorController::class, 'deleteDoctor']);
+    Route::post('Doctor/Appointment/UpdateStatus', [DoctorController::class, 'updateAppointmentStatus']);
 });
 
 Route::middleware(['isPatient'])->group(function () {
@@ -63,6 +68,7 @@ Route::middleware(['isPatient'])->group(function () {
     Route::post('Patient/EditThisProfile', [PatientController::class, 'editPatient']);
     Route::get('Patient/Delete/{id}', [PatientController::class, 'deletePatient']);
 });
+
 // views routers 
 Route::get('/doctors', [LocalController::class, 'getDoctorsList']);
 Route::get('/doctorDetails/{id}', [LocalController::class, 'getThisDoctorDetails']);

@@ -111,53 +111,6 @@
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        {{-- <li class="has-dropdown active menu-thumb">
-                                            <a href="{{ url('Patient/PatientDashboard') }}">
-                                                Home
-                                                <i class="fas fa-angle-down"></i>
-                                            </a>
-                                            <ul class="submenu has-homemenu">
-                                                <li>
-                                                    <div class="homemenu-items">
-                                                        <div class="homemenu">
-                                                            <a href="{{ url('Patient/PatientDashboard') }}"
-                                                                class="homemenu-thumb">
-                                                                <img src="{{ asset('assets/img/header/home-1.jpg') }}"
-                                                                    alt="img">
-                                                                <span class="demo-button">
-                                                                    <span class="theme-btn p1-bg box-style first-box">
-                                                                        <span class="black">Home 01</span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <a href="{{ url('index2') }}" class="homemenu-thumb mb-15">
-                                                                <img src="{{ asset('assets/img/header/home-2.jpg') }}"
-                                                                    alt="img">
-                                                                <span class="demo-button">
-                                                                    <span class="theme-btn p1-bg box-style first-box">
-                                                                        <span class="black">Home 02</span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <a href="{{ url('index3') }}"
-                                                                class="homemenu-thumb mb-15">
-                                                                <img src="{{ asset('assets/img/header/home-3.jpg') }}"
-                                                                    alt="img">
-                                                                <span class="demo-button">
-                                                                    <span class="theme-btn p1-bg box-style first-box">
-                                                                        <span class="black">Home 03</span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li> --}}
                                         <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
                                         <li><a href="{{ url('about') }}">About Us</a></li>
                                         <li><a href="{{ url('doctors') }}">Doctor</a></li>

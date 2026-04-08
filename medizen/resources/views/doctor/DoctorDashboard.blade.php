@@ -37,22 +37,22 @@
                     </thead>
 
                     <tbody>
-                        @forelse ($doctor->appointment as $index => $appt)
+                        @forelse ($doctor->appointment as $index => $app)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $appt->name }}</td>
-                                <td>{{ $appt->number }}</td>
-                                <td>{{ $appt->day }}</td>
-                                <td>{{ $appt->date }}</td>
+                                <td>{{ $app->name }}</td>
+                                <td>{{ $app->number }}</td>
+                                <td>{{ $app->day }}</td>
+                                <td>{{ $app->date }}</td>
                                 <td>{{ \Carbon\Carbon::parse($app->time)->format('h:i A') }}</td>
 
                                 <!-- Status Badge -->
                                 <td>
-                                    @if ($appt->status == 'Pending')
+                                    @if ($app->status == 'Pending')
                                         <span class="badge bg-warning text-black">Pending</span>
-                                    @elseif($appt->status == 'Approved')
+                                    @elseif($app->status == 'Approved')
                                         <span class="badge bg-success">Approved</span>
-                                    @elseif($appt->status == 'Rejected')
+                                    @elseif($app->status == 'Rejected')
                                         <span class="badge bg-danger">Rejected</span>
                                     @else
                                         <span class="badge bg-primary">Completed</span>
@@ -61,10 +61,11 @@
 
                                 <!-- Action Buttons -->
                                 <td>
-                                    @if ($appt->status == 'Pending')
-                                        <form action="{{ url('appointment/updateStatus', $appt->id) }}" method="POST"
+                                    @if ($app->status == 'Pending')
+                                        <form action="{{ url('Doctor/Appointment/UpdateStatus') }}" method="POST"
                                             class="d-flex gap-1 justify-content-center">
                                             @csrf
+                                            <input type="hidden" name="id" value="{{ $app->id }}">
                                             <button name="status" value="Approved" class="btn btn-success btn-sm">
                                                 ✔ Approve
                                             </button>
@@ -73,10 +74,11 @@
                                                 ✖ Reject
                                             </button>
                                         </form>
-                                    @elseif($appt->status == 'Approved')
-                                        <form action="{{ url('appointment/updateStatus', $appt->id) }}" method="POST">
+                                    @elseif($app->status == 'Approved')
+                                        <form action="{{ url('Doctor/Appointment/UpdateStatus') }}" method="POST">
                                             @csrf
-                                            <button name="status" value="completed" class="btn btn-primary btn-sm">
+                                            <input type="hidden" name="id" value="{{ $app->id }}">
+                                            <button name="status" value="Completed" class="btn btn-primary btn-sm">
                                                 ✔ Complete
                                             </button>
                                         </form>

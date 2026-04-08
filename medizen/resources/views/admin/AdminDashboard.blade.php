@@ -10,8 +10,8 @@
                 <span class=" text-white">Total: {{ $appointments->count() }}</span>
             </div>
 
-            <div class="card-body table-responsive">
-                <table class="table table-bordered table-hover align-middle text-center">
+            <div class="card-body table-responsive p-0">
+                <table class="table table-bordered table-hover align-middle text-center m-0">
                     <thead class="table-light">
                         <tr>
                             <th>#</th>
@@ -51,9 +51,10 @@
                                 <!-- Action Buttons -->
                                 <td>
                                     @if ($app->status == 'Pending')
-                                        <form action="{{ url('appointment/updateStatus', $app->id) }}" method="POST"
+                                        <form action="{{ url('Admin/Appointment/UpdateStatus') }}" method="POST"
                                             class="d-flex gap-1 justify-content-center">
                                             @csrf
+                                            <input type="hidden" name="id" value="{{ $app->id }}">
                                             <button name="status" value="Approved" class="btn btn-success btn-sm">
                                                 ✔ Approve
                                             </button>
@@ -63,8 +64,9 @@
                                             </button>
                                         </form>
                                     @elseif($app->status == 'Approved')
-                                        <form action="{{ url('appointment/updateStatus', $app->id) }}" method="POST">
+                                        <form action="{{ url('Admin/Appointment/UpdateStatus') }}" method="POST">
                                             @csrf
+                                            <input type="hidden" name="id" value="{{ $app->id }}">
                                             <button name="status" value="Completed" class="btn btn-primary btn-sm">
                                                 ✔ Complete
                                             </button>
@@ -82,7 +84,9 @@
                     </tbody>
                 </table>
             </div>
-
+            <div class="card-footer d-flex justify-content-between">
+                {{ $appointments->links() }}
+            </div>
         </div>
 
     </div>

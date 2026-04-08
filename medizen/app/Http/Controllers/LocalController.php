@@ -98,13 +98,19 @@ class LocalController extends Controller
         }
 
         // $users = $query->paginate(3);
-        $users = $query->get();
+        $users = $query->whereHas('doctorDetails', function ($q) {
+            $q->whereIn('status', ["Active"]); // remove Inactive doctors
+        })->get();
+
+        // echo "<pre>";
+        // print_r($users->toArray());
+        // die;
 
         $doctors = [];
 
         foreach ($users as $i => $u) {
 
-            $details = $u->doctorDetails->first();
+            $details = $u->doctorDetails;
 
             if (!$details) continue;
 
@@ -115,6 +121,7 @@ class LocalController extends Controller
             $doctors[$i]['experience'] = $details->experience;
             $doctors[$i]['education'] = $details->education;
             $doctors[$i]['profession'] = $details->profession;
+            // print_r($doctors[$i]);
         }
 
 

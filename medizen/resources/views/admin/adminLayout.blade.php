@@ -17,7 +17,7 @@
     <meta name="author" content="authorName">
     <meta name="description" content="MediZen - Health & Medical HTML Template">
     <!-- ======== Page title ============ -->
-    <title>Home || Medizen || Medizen PHP Template</title>
+    <title>Admin || Medizen </title>
 
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="{{ asset('assets/img/logo/favs.png') }}">

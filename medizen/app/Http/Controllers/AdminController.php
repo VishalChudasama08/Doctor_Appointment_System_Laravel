@@ -14,10 +14,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        // $doctors = User::where('user_type', 'Doctor')->paginate(8);
-        // $patients = User::where('user_type', 'Patient')->paginate(8);
-
-        $appointments = Appointments::with(['patient', 'doctor.user'])->get();
+        $appointments = Appointments::with(['patient', 'doctor.user'])->paginate(8);
 
         // echo "<pre>";
         // print_r($appointments->toArray());
@@ -26,6 +23,20 @@ class AdminController extends Controller
         return view('admin.AdminDashboard', compact('appointments'));
     }
 
+    // ============= Appointment Control =============
+
+    public function updateAppointmentStatus(Request $req)
+    {
+        $appointment = Appointments::find($req->id);
+        // echo "<pre>";
+        // print_r($req->all());
+        // print_r($appointment->toArray());
+        // die;
+
+        $appointment->status = $req->status;
+        $appointment->save();
+        return redirect('Admin/AdminDashboard');
+    }
 
 
     // ============= Patient Control =============
@@ -69,11 +80,12 @@ class AdminController extends Controller
     public function doctorsList()
     {
         // $doctors = User::where('user_type', 'Doctor')->paginate(8);
-        $doctors = User::with(['doctorDetails:user_id,status'])->where('user_type', 'Doctor')->paginate(8);
+        $doctors = User::with(['doctorDetails:id,user_id,status'])->where('user_type', 'Doctor')->paginate(8);
         // echo "<pre>";
         // echo $doctors[0]->doctorDetails->status;
         // print_r($doctors->toArray());
         // die;
+
         return view('admin.AdminDoctors', compact('doctors'));
     }
 
@@ -92,6 +104,25 @@ class AdminController extends Controller
             // echo 'Not Null';
             return view('admin.AdminDoctorProfile', compact('user', 'doctor'));
         }
+    }
+
+    public function updateDoctorStatus(Request $req)
+    {
+        $doctor = Doctor::find($req->id);
+        // echo "<pre>";
+        // print_r($req->all());
+        // print_r($doctor->toArray());
+        // echo $doctor->status;
+        // die;
+
+        if ($req->status == "Active") {
+            $doctor->status = "Inactive";
+        } else {
+            $doctor->status = "Active";
+        }
+        $doctor->save();
+
+        return redirect("Admin/Doctors")->with('statusUpdate', $req->name . 'Doctor Status Updated Successfully');
     }
 
     public function deleteThisDoctor($id)

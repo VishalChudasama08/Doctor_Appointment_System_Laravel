@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointments;
 use App\Models\Doctor;
 use App\Models\DoctorSchedule;
 use App\Models\User;
@@ -26,6 +27,19 @@ class DoctorController extends Controller
         } else {
             return view('doctor.DoctorDashboard', compact('user', 'doctor'));
         }
+    }
+
+    public function updateAppointmentStatus(Request $req)
+    {
+        $appointment = Appointments::find($req->id);
+        // echo "<pre>";
+        // print_r($req->all());
+        // print_r($appointment->toArray());
+        // die;
+
+        $appointment->status = $req->status;
+        $appointment->save();
+        return redirect('Doctor/DoctorDashboard');
     }
 
     public function doctorCollectDataForm()

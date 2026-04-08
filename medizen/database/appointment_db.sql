@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2026 at 08:47 PM
+-- Generation Time: Apr 08, 2026 at 07:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,7 +37,7 @@ CREATE TABLE `appointments` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `message` text DEFAULT NULL,
-  `status` enum('pending','approved','rejected','completed') NOT NULL DEFAULT 'pending',
+  `status` enum('Pending','Approved','Rejected','Completed') DEFAULT 'Pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -47,7 +47,10 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `user_id`, `doctor_id`, `name`, `number`, `day`, `date`, `time`, `message`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 3, 'Piyush', '1234567890', 'Wednesday', '2026-04-08', '14:00:00', 'first', 'pending', '2026-04-05 08:53:53', '2026-04-05 08:53:53');
+(1, 2, 3, 'Piyush', '1234567890', 'Wednesday', '2026-04-08', '14:00:00', 'first', 'Approved', '2026-04-05 08:53:53', '2026-04-08 12:06:45'),
+(2, 3, 3, 'ajay', '1234567890', 'Thursday', '2026-04-09', '15:30:00', NULL, 'Pending', '2026-04-07 13:28:50', '2026-04-08 12:06:41'),
+(3, 4, 10, 'raju', '1234567890', 'Wednesday', '2026-04-15', '13:00:00', NULL, 'Pending', '2026-04-07 15:15:44', '2026-04-07 15:15:44'),
+(4, 4, 6, 'raju', '1234567890', 'Saturday', '2026-04-18', '12:00:00', NULL, 'Pending', '2026-04-07 15:41:54', '2026-04-07 15:41:54');
 
 -- --------------------------------------------------------
 
@@ -87,7 +90,7 @@ CREATE TABLE `doctors` (
   `experience` int(11) NOT NULL,
   `education` varchar(255) NOT NULL,
   `profession` varchar(255) NOT NULL,
-  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `status` enum('Active','Inactive') DEFAULT 'Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -97,22 +100,22 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `image`, `user_id`, `expertise`, `experience`, `education`, `profession`, `status`, `created_at`, `updated_at`) VALUES
-(3, '1774723250.jpg', 22, 'Dermatologist', 7, 'MBBS, MD Dermatology', 'Skin Specialist', 'active', '2026-03-28 07:40:50', '2026-03-28 07:40:50'),
-(4, '1774769386.jpg', 8, 'Cardiologist', 9, 'MBBS, MD Cardiology', 'Senior Doctor', 'active', '2026-03-28 20:29:46', '2026-03-28 20:29:46'),
-(5, '1774769999.jpg', 9, 'Dentist', 5, 'BDS', 'Dentist', 'active', '2026-03-28 20:39:59', '2026-03-28 20:39:59'),
-(6, '1774771061.png', 10, 'Neurologist', 8, 'MBBS, MD Neurology', 'Consultant', 'active', '2026-03-28 20:57:41', '2026-03-28 20:57:41'),
-(7, '1774771198.png', 11, 'Orthopedic', 12, 'MBBS, MS Orthopedics', 'Senior Specialist', 'active', '2026-03-28 20:59:58', '2026-03-28 20:59:58'),
-(8, '1774771310.png', 12, 'Pediatrician', 6, 'MBBS, MD Pediatrics', 'Child Specialist', 'active', '2026-03-28 21:01:50', '2026-03-28 21:01:50'),
-(10, '1775382556.png', 27, 'Dermatology', 6, 'MBBS, MD Dermatology', 'Skin Specialist', 'active', '2026-04-04 22:49:16', '2026-04-04 22:49:16'),
-(11, '1775382770.jpg', 28, 'Dermatology', 8, 'MBBS, MD Dermatology', 'Consultant', 'active', '2026-04-04 22:52:50', '2026-04-04 22:52:50'),
-(12, '1775383285.jpg', 29, 'Cardiac Sciences', 12, 'MBBS, MD Cardiology', 'Senior Doctor', 'active', '2026-04-04 23:01:25', '2026-04-04 23:01:25'),
-(13, '1775383431.png', 30, 'Cardiac Sciences', 6, 'MBBS, MD Cardiology', 'Consultant', 'active', '2026-04-04 23:03:51', '2026-04-04 23:03:51'),
-(14, '1775383694.jpg', 31, 'Dentist', 2, 'BDS', 'Dentist', 'active', '2026-04-04 23:08:14', '2026-04-04 23:08:14'),
-(15, '1775383802.jpg', 32, 'Dentist', 7, 'BDS', 'Dentist', 'active', '2026-04-04 23:10:02', '2026-04-04 23:10:02'),
-(16, '1775383942.jpg', 33, 'Neurologist', 10, 'MBBS, MD Neurology', 'Neurologist', 'active', '2026-04-04 23:12:22', '2026-04-04 23:12:22'),
-(17, '1775384163.jpg', 34, 'Neurologist', 15, 'MBBS, MD Neurology', 'Neurologist', 'active', '2026-04-04 23:16:03', '2026-04-04 23:16:03'),
-(18, '1775384295.jpg', 35, 'Orthopedic', 5, 'MBBS, MS Orthopedics', 'Consultant', 'active', '2026-04-04 23:18:15', '2026-04-04 23:18:15'),
-(19, '1775384425.jpg', 36, 'Orthopedic', 20, 'MBBS, MS Orthopedics', 'Senior Specialist', 'active', '2026-04-04 23:20:25', '2026-04-04 23:20:25');
+(3, '1774723250.jpg', 22, 'Dermatologist', 7, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-03-28 07:40:50', '2026-03-28 07:40:50'),
+(4, '1774769386.jpg', 8, 'Cardiologist', 9, 'MBBS, MD Cardiology', 'Senior Doctor', 'Active', '2026-03-28 20:29:46', '2026-04-08 11:23:06'),
+(5, '1774769999.jpg', 9, 'Dentist', 5, 'BDS', 'Dentist', 'Active', '2026-03-28 20:39:59', '2026-04-08 11:23:03'),
+(6, '1774771061.png', 10, 'Neurologist', 8, 'MBBS, MD Neurology', 'Consultant', 'Active', '2026-03-28 20:57:41', '2026-04-08 11:23:09'),
+(7, '1774771198.png', 11, 'Orthopedic', 12, 'MBBS, MS Orthopedics', 'Senior Specialist', 'Active', '2026-03-28 20:59:58', '2026-03-28 20:59:58'),
+(8, '1774771310.png', 12, 'Pediatrician', 6, 'MBBS, MD Pediatrics', 'Child Specialist', 'Active', '2026-03-28 21:01:50', '2026-04-08 10:11:31'),
+(10, '1775382556.png', 27, 'Dermatology', 6, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-04-04 22:49:16', '2026-04-04 22:49:16'),
+(11, '1775382770.jpg', 28, 'Dermatology', 8, 'MBBS, MD Dermatology', 'Consultant', 'Active', '2026-04-04 22:52:50', '2026-04-04 22:52:50'),
+(12, '1775383285.jpg', 29, 'Cardiac Sciences', 12, 'MBBS, MD Cardiology', 'Senior Doctor', 'Active', '2026-04-04 23:01:25', '2026-04-08 10:28:52'),
+(13, '1775383431.png', 30, 'Cardiac Sciences', 6, 'MBBS, MD Cardiology', 'Consultant', 'Active', '2026-04-04 23:03:51', '2026-04-04 23:03:51'),
+(14, '1775383694.jpg', 31, 'Dentist', 2, 'BDS', 'Dentist', 'Inactive', '2026-04-04 23:08:14', '2026-04-08 11:38:01'),
+(15, '1775383802.jpg', 32, 'Dentist', 7, 'BDS', 'Dentist', 'Active', '2026-04-04 23:10:02', '2026-04-04 23:10:02'),
+(16, '1775383942.jpg', 33, 'Neurologist', 10, 'MBBS, MD Neurology', 'Neurologist', 'Active', '2026-04-04 23:12:22', '2026-04-04 23:12:22'),
+(17, '1775384163.jpg', 34, 'Neurologist', 15, 'MBBS, MD Neurology', 'Neurologist', 'Active', '2026-04-04 23:16:03', '2026-04-04 23:16:03'),
+(18, '1775384295.jpg', 35, 'Orthopedic', 5, 'MBBS, MS Orthopedics', 'Consultant', 'Active', '2026-04-04 23:18:15', '2026-04-04 23:18:15'),
+(19, '1775384425.jpg', 36, 'Orthopedic', 20, 'MBBS, MS Orthopedics', 'Senior Specialist', 'Active', '2026-04-04 23:20:25', '2026-04-08 10:41:22');
 
 -- --------------------------------------------------------
 
@@ -304,7 +307,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2cYrUFbqpniIMkdFeLvqBbnr4V1h88bXH67FygfG', 22, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNmhyZUhuRDVkdnJaV3ZqS3JhTGFTSjJXcTNadmc2czJETUkxR3RjYyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9Eb2N0b3IvRG9jdG9yRGFzaGJvYXJkIjtzOjU6InJvdXRlIjtOO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyMjt9', 1775587604);
+('hfK6pMBXt2U4vmgqKcf3cERcezfDE1g0YOyebVzk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUURoWWVXVU14RVh5Y0pRTThRUHpHT3ZlOWVkZ1ROUUdTU2dkQnN5YSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1775670142);
 
 -- --------------------------------------------------------
 
@@ -445,7 +448,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `doctors`
