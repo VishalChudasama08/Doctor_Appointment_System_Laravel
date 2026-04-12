@@ -22,6 +22,21 @@
                                 <div>{{ session('loginFail') }}</div>
                             </div>
                         @endif
+                        @if (session('success'))
+                            <div id="passwordReset" class="alert alert-danger d-flex align-items-center" role="alert">
+                                <i class="bi bi-exclamation-square-fill me-3"></i>
+                                <div>{{ session('success') }}</div>
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form action="{{ url('loginNow') }}" method="post" class="appointment-forms">
                             @csrf
                             <div class="row g-lg-3 g-3">
@@ -40,6 +55,7 @@
                                         <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
                                     </button>
                                 </div>
+                                <a href="/forgot-password">Forgot Password?</a>
                             </div>
                         </form>
                     </div>

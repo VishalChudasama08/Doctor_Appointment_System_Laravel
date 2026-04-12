@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\PatientController;
 
@@ -25,6 +26,17 @@ Route::get('/Admin/AdminDashboard', [AdminController::class, 'dashboard'])->midd
 Route::get('/Patient/PatientDashboard', [PatientController::class, 'dashboard'])->middleware(['isPatient']);
 Route::get('/Doctor/DoctorDashboard', [DoctorController::class, 'dashboard'])->middleware(['isDoctor']);
 Route::get('/logout', [AuthController::class, 'logoutProcess']);
+
+
+// Forgot Password
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
+
+// Reset Password
+Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
+
+
 
 Route::middleware(['isAdmin'])->group(function () {
     // ================ Admin Router's ================
