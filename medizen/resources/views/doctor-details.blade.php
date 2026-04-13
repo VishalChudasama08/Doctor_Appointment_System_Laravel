@@ -10,10 +10,8 @@
                 class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
                 <h2 class="black">Doctor Details</h2>
                 <ul class="d-flex align-items-center gap-3">
-                    @if (Auth::check())
+                    @if (auth()->user() && auth()->user()->user_type == 'Patient')
                         <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
-                        {{-- @if (auth()->user()->user_type == 'Patient')
-                        @endif --}}
                     @else
                         <li><a href="{{ url('index') }}">Home</a></li>
                     @endif
@@ -28,13 +26,25 @@
         <img src="{{ asset('assets/img/about/breadcrumnd-shap.png') }}" alt="img" class="bread-ele">
     </section>
     <!-- === doctor details Section === -->
-    <section class="doctor-details-section py-5">
+    <section class="doctor-details-section py-4">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-8">
                     <div class="doctor-details-wraping">
                         <div class="mb-40">
-                            <h2 class="black mb-1">{{ $user->name }}</h2>
+                            <div class="d-flex justify-content-between">
+                                <h2 class="black mb-1">{{ $user->name }}</h2>
+                                <form action="{{ url('getAppointment') }}" method="post" class="my-auto">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $user->id }}">
+                                    <button type="submit"
+                                        class="common-btn box-style p2-bg text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight my-1 mx-3"
+                                        data-wow-delay="0.8s" style="padding: 10px 15px">
+                                        Get Appointment
+                                        <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
+                                    </button>
+                                </form>
+                            </div>
                             <p class="pt-xl-3 pt-2">
                                 Medical services are an essential part of our lives, offering care and treatment for
                                 various health conditions. Th
@@ -122,58 +132,7 @@
         </div>
     </section>
 
-    <!-- Appointment Section Start -->
-    <section class="appoentment-section fix space-bottom">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6 order-lg-0 order-1">
-                    <div class="apoentment-thumb">
-                        <img src="{{ asset('assets/img/service/sub-contact.jpg') }}" alt="img" class="rounded-4">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <form action="#" class="appoentment-forms">
-                        <div class="section-title mb-60">
-                            <span class="cmn-tag p1-bg heading-font">Contact Us</span>
-                            <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
-                                Get an
-                                <span class="position-relative z-1">
-                                    Appointment
-                                    <img src="{{ asset('assets/img/element/title-badge1.png') }}" alt="img"
-                                        class="title-badge1 d-md-block d-none w-100">
-                                </span>
-                            </h2>
-                        </div>
-                        <div class="row g-lg-4 g-3">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Your Name">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="email" placeholder="Your Email">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Phone Number">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Subject">
-                            </div>
-                            <div class="col-lg-12">
-                                <textarea name="message" placeholder="Message" rows="5"></textarea>
-                            </div>
-                            <div class="col-lg-12">
-                                <a href="{{ url('doctorDetails') }}"
-                                    class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight"
-                                    data-wow-delay="0.8s">
-                                    Book An Appointment
-                                    <img src="{{ asset('assets/img/icon/arrow-right-white.png') }}" alt="icon">
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 
 

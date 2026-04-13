@@ -17,7 +17,7 @@
                             <th>Email</th>
                             <th>Number</th>
                             <th class="text-center" style="width: 1%;">Delete</th>
-                            <th class="text-center" style="width: 1%;">Activity</th>
+                            {{-- <th class="text-center" style="width: 1%;">Activity</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +39,7 @@
                                     </a>
                                 </td>
 
-                                <td class="text-center text-nowrap">
+                                {{-- <td class="text-center text-nowrap">
                                     <a href="#">
                                         <i class="bi bi-activity"
                                             style="color:#6c757d; display:contents; position:absolute; font-size:18px; font-weight:bold; cursor:pointer; transition:0.2s;"
@@ -47,7 +47,7 @@
                                             onmouseout="this.style.color='#6c757d'; this.style.fontSize='18px'">
                                         </i>
                                     </a>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>

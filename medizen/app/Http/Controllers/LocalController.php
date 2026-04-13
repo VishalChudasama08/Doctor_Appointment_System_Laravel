@@ -4,36 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointments;
 use App\Models\Doctor;
+use App\Models\DoctorSchedule;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class LocalController extends Controller
 {
 
     public function getDoctorsList()
     {
-        $user = User::with(['doctorDetails:user_id,expertise,experience'])->where('user_type', 'Doctor')->get();
+        $doctors = Doctor::with(['user'])->where('status', 'Active')->paginate(5);
         // echo "<pre>";
-        // print_r($user->toArray());
-
-        $doctors = [];
-        $i = 0;
-        foreach ($user as $u) {
-            // print_r($u->id);
-            // echo "\t";
-            // print_r($u->name);
-            // echo "\t\t";
-            // print_r($u->doctorDetails->first()->expertise);
-            // echo "<br>";
-            $doctors[$i]['id'] = $u->id;
-            $doctors[$i]['name'] = $u->name;
-            $doctors[$i]['expertise'] = $u->doctorDetails->first()->expertise;
-            $doctors[$i]['experience'] = $u->doctorDetails->first()->experience;
-            $i++;
-        }
-        // echo "<pre>";
-        // print_r($doctors);
+        // print_r($doctors->toArray());
         // die;
+
         return view('doctors', compact('doctors'));
     }
 
@@ -78,7 +63,7 @@ class LocalController extends Controller
                 $q->where(function ($sub) use ($req) {
                     foreach ($req->experience as $exp) {
                         if ($exp == "0-5") {
-                            $sub->orWhereBetween('experience', [0, 5]);
+                            $sub->orWhere('experience', '<=', 5);
                         } elseif ($exp == "6-10") {
                             $sub->orWhereBetween('experience', [6, 10]);
                         } elseif ($exp == "11-15") {
@@ -100,6 +85,7 @@ class LocalController extends Controller
         // $users = $query->paginate(3);
         $users = $query->whereHas('doctorDetails', function ($q) {
             $q->whereIn('status', ["Active"]); // remove Inactive doctors
+            // })->paginate(6);
         })->get();
 
         // echo "<pre>";
@@ -112,23 +98,43 @@ class LocalController extends Controller
 
             $details = $u->doctorDetails;
 
+            $schedules = DoctorSchedule::where('doctor_id', $details->id)->get();
+            // print_r($schedules->toArray());
+
+            $days = [];
+            $j = 0;
+            foreach ($schedules as $s) {
+                $days[$j] = $s['day'];
+                $j++;
+            }
+            // print_r($days);
+            // echo $schedules->first()->start_time;
+            // echo "<br>";
+            // echo $schedules->first()->end_time;
+            // echo "<br><br>";
+
             if (!$details) continue;
 
             $doctors[$i]['id'] = $u->id;
+            $doctors[$i]['doctor_id'] = $details->id;
             $doctors[$i]['name'] = $u->name;
             $doctors[$i]['image'] = $details->image;
             $doctors[$i]['expertise'] = $details->expertise;
             $doctors[$i]['experience'] = $details->experience;
             $doctors[$i]['education'] = $details->education;
             $doctors[$i]['profession'] = $details->profession;
+            $doctors[$i]['days'] = $days;
+            $doctors[$i]['start_time'] = $schedules->first()->start_time;
+            $doctors[$i]['end_time'] = $schedules->first()->end_time;
+
             // print_r($doctors[$i]);
         }
 
 
         // echo "<pre>";
-        // print_r($doctors->toArray());
+        // print_r($doctors);
         // die;
-        return view('FilterDoctors', compact('doctors'));
+        return view('FilterDoctors', compact('doctors', 'users'));
         // return view('FilterDoctors', compact('doctors', 'users'));
     }
 
@@ -139,6 +145,10 @@ class LocalController extends Controller
         // print_r($req->toArray());
         // echo $req->id;
         // die;
+
+        if (!Auth::user()) {
+            return redirect('login')->with("loginFail", "Please register or login for Appointment Booking!");
+        }
 
         $user = User::find($req->id);
         $doctor = Doctor::with('schedules')->where('user_id', $req->id)->first();

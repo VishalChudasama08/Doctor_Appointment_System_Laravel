@@ -89,6 +89,9 @@ Route::get('FilterDoctors', [LocalController::class, 'getDoctorListForFilter']);
 Route::post('getAppointment', [LocalController::class, 'getAppointmentForm']);
 Route::post('BookAppointmentNow', [LocalController::class, 'saveAppointment']);
 // Route::get('Appointment', [LocalController::class, 'getDoctorListForFilter']);
+
+
+
 Route::get('/', function () {
     return view('index');
 });

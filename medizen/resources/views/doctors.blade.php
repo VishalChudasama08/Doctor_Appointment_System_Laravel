@@ -7,10 +7,8 @@
                 class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
                 <h2 class="black">Doctors</h2>
                 <ul class="d-flex align-items-center gap-3">
-                    @if (Auth::check())
+                    @if (auth()->user() && auth()->user()->user_type == 'Patient')
                         <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
-                        {{-- @if (auth()->user()->user_type == 'Patient')
-                        @endif --}}
                     @else
                         <li><a href="{{ url('index') }}">Home</a></li>
                     @endif
@@ -31,14 +29,14 @@
                     @foreach ($doctors as $d)
                         <div class="ins d-flex flex-column" style="width: 80%">
                             <div class="line my-3"></div>
-                            <a href="{{ url('doctorDetails', $d['id']) }}" class="m-0 p-0">
+                            <a href="{{ url('doctorDetails', $d->user->id) }}" class="m-0 p-0">
                                 <div class="feature-items">
                                     <div
                                         class="feature-left d-lg-flex d-grid flex-lg-nowrap flex-wrap justify-content-between align-items-center">
-                                        <h4>{{ $d['name'] }}</h4>
+                                        <h4>{{ $d->user->name }}</h4>
                                         <ul class="feature-list d-flex flex-column gap-1">
-                                            <li class="text-nowrap">{{ $d['expertise'] }}</li>
-                                            <li class="text-nowrap">{{ $d['experience'] }} Years Of Experience</li>
+                                            <li class="text-nowrap">{{ $d->expertise }}</li>
+                                            <li class="text-nowrap">{{ $d->experience }} Years Of Experience</li>
                                         </ul>
                                         <p class="pra fs-seven"></p>
                                         {{-- 
@@ -58,6 +56,9 @@
                     @endforeach
                     <div class="line my-3"></div>
 
+                </div>
+                <div class="mb-5">
+                    {{ $doctors->links() }}
                 </div>
             </div>
         </div>

@@ -52,7 +52,7 @@ class ForgotPasswordController extends Controller
         );
 
         return $status == Password::PASSWORD_RESET
-            ? redirect('/login')->with('success', 'Password reset success')
+            ? redirect('/login')->with('success', 'Password reset successfully')
             : back()->withErrors(['email' => 'Error resetting password']);
     }
 }

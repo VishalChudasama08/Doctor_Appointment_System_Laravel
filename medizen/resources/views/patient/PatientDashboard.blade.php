@@ -279,21 +279,21 @@
         <div class="banner-adjust-thumb">
             <div class="container">
                 <!-- <div class="row g-4">
-                                                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                                                    <div class="adjust-category-items">
-                                                                        <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
-                                                                        <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
-                                                                            Healing with heart</h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                                                    <div class="adjust-category-items">
-                                                                        <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
-                                                                        <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
-                                                                            Where health meets hope</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div> -->
+                                                                                        <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                                            <div class="adjust-category-items">
+                                                                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
+                                                                                                <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
+                                                                                                    Healing with heart</h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                                            <div class="adjust-category-items">
+                                                                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
+                                                                                                <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
+                                                                                                    Where health meets hope</h5>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div> -->
                 <div class="hero-thumbs1 position-relative w-100 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="{{ asset('assets/img/banner/hero1-thumb.jpg') }}" alt="img" class="rounded-4 w-100">
                     <!-- Circle -->
@@ -317,7 +317,7 @@
     </section>
 
     <!-- Feature Section Start -->
-    <section class="feature-section fix mb-30">
+    <section class="feature-section fix space-top">
         <div class="container">
             <div class="featue-wrapper position-relative white-bg">
                 <div class="section-title mb-60">
@@ -340,8 +340,9 @@
                                 <div class="icons d-center rounded-circle p1-bg">
                                     <img src="{{ asset('assets/img/icon/f-icon1.png') }}" alt="icon">
                                 </div>
-                                <h4>Quality Care <br> Exceptional
-                                    Service</a></h4>
+                                <h4><a href="doctor.html" class="black fw_600">Quality Care <br> Exceptional
+                                        Service</a>
+                                </h4>
                             </div>
                             <ul class="feature-list d-flex flex-column gap-1">
                                 <li>
@@ -352,8 +353,13 @@
                                 </li>
                             </ul>
                         </div>
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
+                        </a>
                         <!-- Extra Hover -->
-                        <img src="{{ asset('assets/img/choose/feature1.jpg') }}" alt="img" class="extra-feature">
+                        {{-- <img src="{{ asset('assets/img/choose/feature1.jpg') }}" alt="img" class="extra-feature"> --}}
                     </div>
                     <div class="line"></div>
                     <div class="feature-items">
@@ -363,8 +369,8 @@
                                 <div class="icons d-center rounded-circle p1-bg">
                                     <img src="{{ asset('assets/img/icon/f-icon2.png') }}" alt="icon">
                                 </div>
-                                <h4>Healing Lives One <br> Patient
-                                    at a Time</h4>
+                                <h4><a href="doctor.html" class="black fw_600">Healing Lives One <br> Patient at a
+                                        Time</a></h4>
                             </div>
                             <ul class="feature-list d-flex flex-column gap-1">
                                 <li>
@@ -375,8 +381,13 @@
                                 </li>
                             </ul>
                         </div>
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
+                        </a>
                         <!-- Extra Hover -->
-                        <img src="{{ asset('assets/img/choose/feature2.jpg') }}" alt="img" class="extra-feature">
+                        {{-- <img src="{{ asset('assets/img/choose/feature2.jpg') }}" alt="img" class="extra-feature"> --}}
                     </div>
                     <div class="line"></div>
                     <div class="feature-items">
@@ -386,8 +397,8 @@
                                 <div class="icons d-center rounded-circle p1-bg">
                                     <img src="{{ asset('assets/img/icon/f-icon3.png') }}" alt="icon">
                                 </div>
-                                <h4>Caring for You Caring <br> for
-                                    Tomorrow</h4>
+                                <h4><a href="doctor.html" class="black fw_600">Caring for You Caring <br> for
+                                        Tomorrow</a></h4>
                             </div>
                             <ul class="feature-list d-flex flex-column gap-1">
                                 <li>
@@ -398,11 +409,20 @@
                                 </li>
                             </ul>
                         </div>
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
+                        </a>
                         <!-- Extra Hover -->
-                        <img src="{{ asset('assets/img/choose/feature3.jpg') }}" alt="img" class="extra-feature">
+                        {{-- <img src="{{ asset('assets/img/choose/feature3.jpg') }}" alt="img" class="extra-feature"> --}}
                     </div>
                     <div class="line"></div>
                 </div>
+                <!-- Element-->
+                <a href="doctor.html" class="feature-element">
+                    <img src="{{ asset('assets/img/element/feature-element.png') }}" alt="img" class="rounded-4">
+                </a>
             </div>
         </div>
     </section>

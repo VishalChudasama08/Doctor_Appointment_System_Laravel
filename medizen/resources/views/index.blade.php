@@ -27,7 +27,7 @@
                             <p class="black mb-40 pb-2">Health care is a vital aspect of maintaining overall well-being
                                 encompassing a range of services from preventive</p>
                             <button
-                                onclick="return confirm('Please register or login for Book Appointment!') ? window.location.href = '/login' : 0"
+                                onclick="return confirm('Please register or login for Appointment Booking!') ? window.location.href = '/login' : 0"
                                 {{-- onclick="@if (!auth()->user()) userExist() @else window.location.href=href='/FilterDoctors' @endif" --}}
                                 class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100">
                                 Book An Appointment
@@ -82,7 +82,7 @@
 
     {{-- <script>
         function userExist() {
-            if (confirm('Please register or login for Book Appointment!')) {
+            if (confirm('Please register or login for Appointment Booking!')) {
                 window.location.href = '/login'
             } else {
                 return 0;
@@ -262,7 +262,7 @@
     </section>
 
     <!-- Feature Section Start -->
-    <section class="feature-section fix mb-30">
+    <section class="feature-section fix space-top">
         <div class="container">
             <div class="featue-wrapper position-relative white-bg">
                 <div class="section-title mb-60">
@@ -285,8 +285,9 @@
                                 <div class="icons d-center rounded-circle p1-bg">
                                     <img src="{{ asset('assets/img/icon/f-icon1.png') }}" alt="icon">
                                 </div>
-                                <h4>Quality Care <br> Exceptional
-                                    Service</a></h4>
+                                <h4><a href="doctor.html" class="black fw_600">Quality Care <br> Exceptional
+                                        Service</a>
+                                </h4>
                             </div>
                             <ul class="feature-list d-flex flex-column gap-1">
                                 <li>
@@ -297,8 +298,13 @@
                                 </li>
                             </ul>
                         </div>
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
+                        </a>
                         <!-- Extra Hover -->
-                        <img src="{{ asset('assets/img/choose/feature1.jpg') }}" alt="img" class="extra-feature">
+                        {{-- <img src="{{ asset('assets/img/choose/feature1.jpg') }}" alt="img" class="extra-feature"> --}}
                     </div>
                     <div class="line"></div>
                     <div class="feature-items">
@@ -308,8 +314,8 @@
                                 <div class="icons d-center rounded-circle p1-bg">
                                     <img src="{{ asset('assets/img/icon/f-icon2.png') }}" alt="icon">
                                 </div>
-                                <h4>Healing Lives One <br> Patient
-                                    at a Time</h4>
+                                <h4><a href="doctor.html" class="black fw_600">Healing Lives One <br> Patient at a
+                                        Time</a></h4>
                             </div>
                             <ul class="feature-list d-flex flex-column gap-1">
                                 <li>
@@ -320,8 +326,13 @@
                                 </li>
                             </ul>
                         </div>
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
+                        </a>
                         <!-- Extra Hover -->
-                        <img src="{{ asset('assets/img/choose/feature2.jpg') }}" alt="img" class="extra-feature">
+                        {{-- <img src="{{ asset('assets/img/choose/feature2.jpg') }}" alt="img" class="extra-feature"> --}}
                     </div>
                     <div class="line"></div>
                     <div class="feature-items">
@@ -331,8 +342,8 @@
                                 <div class="icons d-center rounded-circle p1-bg">
                                     <img src="{{ asset('assets/img/icon/f-icon3.png') }}" alt="icon">
                                 </div>
-                                <h4>Caring for You Caring <br> for
-                                    Tomorrow</h4>
+                                <h4><a href="doctor.html" class="black fw_600">Caring for You Caring <br> for
+                                        Tomorrow</a></h4>
                             </div>
                             <ul class="feature-list d-flex flex-column gap-1">
                                 <li>
@@ -343,11 +354,20 @@
                                 </li>
                             </ul>
                         </div>
+                        <a href="doctor.html"
+                            class="common-btn cmn-border text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold black overflow-hidden rounded100 wow fadeInRight"
+                            data-wow-delay="0.8s">
+                            <img src="{{ asset('assets/img/icon/arrow-right-black.png') }}" alt="icon">
+                        </a>
                         <!-- Extra Hover -->
-                        <img src="{{ asset('assets/img/choose/feature3.jpg') }}" alt="img" class="extra-feature">
+                        {{-- <img src="{{ asset('assets/img/choose/feature3.jpg') }}" alt="img" class="extra-feature"> --}}
                     </div>
                     <div class="line"></div>
                 </div>
+                <!-- Element-->
+                <a href="doctor.html" class="feature-element">
+                    <img src="{{ asset('assets/img/element/feature-element.png') }}" alt="img" class="rounded-4">
+                </a>
             </div>
         </div>
     </section>
@@ -405,6 +425,7 @@
             </div>
         </div>
     </section>
+
     <!-- Counter Care Section Start -->
     <section class="care-counter fix mb-30">
         <div class="container">

@@ -8,12 +8,10 @@
                 class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
                 <h2 class="black">Contact Details</h2>
                 <ul class="d-flex align-items-center gap-3">
-                    @if (Auth::check())
-                        @if (auth()->user()->user_type == 'Patient')
-                            <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
-                        @else
-                            <li><a href="{{ url('index') }}">Home</a></li>
-                        @endif
+                    @if (auth()->user() && auth()->user()->user_type == 'Patient')
+                        <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
+                    @else
+                        <li><a href="{{ url('index') }}">Home</a></li>
                     @endif
                     <li>/</li>
                     <li>Contact Details</li>

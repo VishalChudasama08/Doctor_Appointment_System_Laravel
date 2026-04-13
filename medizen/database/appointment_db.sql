@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2026 at 07:43 PM
+-- Generation Time: Apr 13, 2026 at 04:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -100,22 +100,22 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `image`, `user_id`, `expertise`, `experience`, `education`, `profession`, `status`, `created_at`, `updated_at`) VALUES
-(3, '1774723250.jpg', 22, 'Dermatologist', 7, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-03-28 07:40:50', '2026-03-28 07:40:50'),
-(4, '1774769386.jpg', 8, 'Cardiologist', 9, 'MBBS, MD Cardiology', 'Senior Doctor', 'Active', '2026-03-28 20:29:46', '2026-04-08 11:23:06'),
-(5, '1774769999.jpg', 9, 'Dentist', 5, 'BDS', 'Dentist', 'Active', '2026-03-28 20:39:59', '2026-04-08 11:23:03'),
-(6, '1774771061.png', 10, 'Neurologist', 8, 'MBBS, MD Neurology', 'Consultant', 'Active', '2026-03-28 20:57:41', '2026-04-08 11:23:09'),
-(7, '1774771198.png', 11, 'Orthopedic', 12, 'MBBS, MS Orthopedics', 'Senior Specialist', 'Active', '2026-03-28 20:59:58', '2026-03-28 20:59:58'),
-(8, '1774771310.png', 12, 'Pediatrician', 6, 'MBBS, MD Pediatrics', 'Child Specialist', 'Active', '2026-03-28 21:01:50', '2026-04-08 10:11:31'),
-(10, '1775382556.png', 27, 'Dermatology', 6, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-04-04 22:49:16', '2026-04-04 22:49:16'),
-(11, '1775382770.jpg', 28, 'Dermatology', 8, 'MBBS, MD Dermatology', 'Consultant', 'Active', '2026-04-04 22:52:50', '2026-04-04 22:52:50'),
-(12, '1775383285.jpg', 29, 'Cardiac Sciences', 12, 'MBBS, MD Cardiology', 'Senior Doctor', 'Active', '2026-04-04 23:01:25', '2026-04-08 10:28:52'),
-(13, '1775383431.png', 30, 'Cardiac Sciences', 6, 'MBBS, MD Cardiology', 'Consultant', 'Active', '2026-04-04 23:03:51', '2026-04-04 23:03:51'),
-(14, '1775383694.jpg', 31, 'Dentist', 2, 'BDS', 'Dentist', 'Inactive', '2026-04-04 23:08:14', '2026-04-08 11:38:01'),
-(15, '1775383802.jpg', 32, 'Dentist', 7, 'BDS', 'Dentist', 'Active', '2026-04-04 23:10:02', '2026-04-04 23:10:02'),
-(16, '1775383942.jpg', 33, 'Neurologist', 10, 'MBBS, MD Neurology', 'Neurologist', 'Active', '2026-04-04 23:12:22', '2026-04-04 23:12:22'),
-(17, '1775384163.jpg', 34, 'Neurologist', 15, 'MBBS, MD Neurology', 'Neurologist', 'Active', '2026-04-04 23:16:03', '2026-04-04 23:16:03'),
-(18, '1775384295.jpg', 35, 'Orthopedic', 5, 'MBBS, MS Orthopedics', 'Consultant', 'Active', '2026-04-04 23:18:15', '2026-04-04 23:18:15'),
-(19, '1775384425.jpg', 36, 'Orthopedic', 20, 'MBBS, MS Orthopedics', 'Senior Specialist', 'Active', '2026-04-04 23:20:25', '2026-04-08 10:41:22');
+(3, '1774723250.jpg', 22, 'Dermatology', 15, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-03-28 07:40:50', '2026-03-28 07:40:50'),
+(4, '1774769386.jpg', 8, 'Cardiology', 13, 'MBBS, MD Cardiology', 'Heart Specialist', 'Active', '2026-03-28 20:29:46', '2026-04-08 11:23:06'),
+(5, '1774769999.jpg', 9, 'Dentistry', 14, 'BDS', 'Dentist', 'Active', '2026-03-28 20:39:59', '2026-04-08 11:23:03'),
+(6, '1774771061.png', 10, 'Neurology', 8, 'MBBS, MD Neurology', 'Consultant', 'Active', '2026-03-28 20:57:41', '2026-04-08 11:23:09'),
+(7, '1774771198.png', 11, 'Orthopedics', 12, 'MBBS, MS Orthopedics', 'Bone Specialist', 'Active', '2026-03-28 20:59:58', '2026-03-28 20:59:58'),
+(8, '1774771310.png', 12, 'Pediatrics', 18, 'MBBS, MD Pediatrics', 'Child Specialist', 'Active', '2026-03-28 21:01:50', '2026-04-08 10:11:31'),
+(10, '1775382556.png', 27, 'Dermatology', 22, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-04-04 22:49:16', '2026-04-04 22:49:16'),
+(11, '1775382770.jpg', 28, 'Oncology', 8, 'MBBS, MD Oncology', 'Cancer Specialist', 'Active', '2026-04-04 22:52:50', '2026-04-04 22:52:50'),
+(12, '1775383285.jpg', 29, 'Cardiology', 12, 'MBBS, MD Cardiology', 'Heart Specialist', 'Active', '2026-04-04 23:01:25', '2026-04-08 10:28:52'),
+(13, '1775383431.png', 30, 'Cardiology', 5, 'MBBS, MD Cardiology', 'Child Specialist', 'Active', '2026-04-04 23:03:51', '2026-04-04 23:03:51'),
+(14, '1775383694.jpg', 31, 'Dentistry', 4, 'BDS', 'Consultant', 'Inactive', '2026-04-04 23:08:14', '2026-04-08 11:38:01'),
+(15, '1775383802.jpg', 32, 'Dentistry', 7, 'BDS', 'Dentist', 'Active', '2026-04-04 23:10:02', '2026-04-04 23:10:02'),
+(16, '1775383942.jpg', 33, 'Neurology', 10, 'MBBS, MD Neurology', 'Brain Specialist', 'Active', '2026-04-04 23:12:22', '2026-04-04 23:12:22'),
+(17, '1775384163.jpg', 34, 'Neurology', 15, 'MBBS, MD Neurology', 'Brain Specialist', 'Active', '2026-04-04 23:16:03', '2026-04-04 23:16:03'),
+(18, '1775384295.jpg', 35, 'Orthopedics', 23, 'MBBS, MS Orthopedics', 'Bone Specialist', 'Active', '2026-04-04 23:18:15', '2026-04-04 23:18:15'),
+(19, '1775384425.jpg', 36, 'Endocrinology', 20, 'MBBS, MS Endocrinology', 'Weight Loss Specialist', 'Active', '2026-04-04 23:20:25', '2026-04-08 10:41:22');
 
 -- --------------------------------------------------------
 
@@ -307,7 +307,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('hfK6pMBXt2U4vmgqKcf3cERcezfDE1g0YOyebVzk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUURoWWVXVU14RVh5Y0pRTThRUHpHT3ZlOWVkZ1ROUUdTU2dkQnN5YSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1775670142);
+('2afKb46HGuk0uuZizPhTreNxHFKtasNNohNRFln9', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiajdzOFVJYTdldnh5ZUpTVWVuOWdmMnlmOGQxWVB4M3A0b3d3emprWSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9BZG1pbi9Eb2N0b3JSZWdpc3RlciI7czo1OiJyb3V0ZSI7Tjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1776091018);
 
 -- --------------------------------------------------------
 
@@ -351,7 +351,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `user_type`, `
 (33, 'Dr. Vivek Patel', 'vivek7@mail.com', '9990000007', '$2y$12$Su2iNknQ3cXxIWvSeF.XzeQwJDZ9lVhvVXbhqyHVImd5q3Ksjbh0q', 'Doctor', NULL, '2026-04-04 23:10:50', '2026-04-04 23:10:50'),
 (34, 'Dr. Rina Mehta', 'rina8@mail.com', '9990000008', '$2y$12$fL..6XdEHzueG86HYZb2S.zoFTEEmU5vZbosFLFkb4798i6VI2o76', 'Doctor', NULL, '2026-04-04 23:14:26', '2026-04-04 23:14:26'),
 (35, 'Dr. Hardik Shah', 'hardik9@mail.com', '9990000009', '$2y$12$23ZwMYbGgeUj/60EjNq0/.3q.7CTrWVZpfO91UNNHG6psfYNh7N3O', 'Doctor', NULL, '2026-04-04 23:16:37', '2026-04-04 23:16:37'),
-(36, 'Dr. Aarti Patel', 'aarti10@mail.com', '9990000010', '$2y$12$g9FBLR4DdbkrnyToAbtdRuZeADq7nb8i2bgrG5JcScELl3ksG2FYq', 'Doctor', NULL, '2026-04-04 23:18:55', '2026-04-04 23:18:55');
+(36, 'Dr. Aarti Patel', 'aarti10@mail.com', '9990000010', '$2y$12$g9FBLR4DdbkrnyToAbtdRuZeADq7nb8i2bgrG5JcScELl3ksG2FYq', 'Doctor', NULL, '2026-04-04 23:18:55', '2026-04-04 23:18:55'),
+(37, 'vishal', 'chudasamavishal183@gmail.com', '8888888888', '$2y$12$isgAugji8JtVUU.R7U/gNen5ZR0AxNyDXDmT0449DArI0KYx4LVfq', 'Patient', 'QfIMIFu8ZpEm2tdrd7QDZgvnJGLqYSt5dvvssTcTtfaQkRuY6x1YQ854Mlnj', '2026-04-12 02:35:15', '2026-04-12 04:05:43');
 
 --
 -- Indexes for dumped tables
@@ -484,7 +485,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables

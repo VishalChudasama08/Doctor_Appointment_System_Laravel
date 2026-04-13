@@ -28,7 +28,7 @@
                             <input type="password" id="c_password" name="password_confirmation"
                                 placeholder="Confirm Password" required>
                         </div>
-                        <div id="password_okay"></div>
+                        <div class="col-lg-12" id="password_okay"></div>
                         <div class="col-lg-12">
                             <button type="submit"
                                 class="common-btn box-style p2-bg w-100 text-nowrap d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded100 wow fadeInRight"

@@ -141,17 +141,15 @@
                                 <nav id="mobile-menu">
                                     <ul>
 
-                                        @if (Auth::check())
+                                        @if (auth()->user() && auth()->user()->user_type == 'Patient')
                                             <li><a href="{{ url('Patient/PatientDashboard') }}">Home</a></li>
-                                            {{-- @if (auth()->user()->user_type == 'Patient')
-                                            @endif --}}
                                         @else
                                             <li><a href="{{ url('index') }}">Home</a></li>
                                         @endif
                                         <li><a href="{{ url('doctors') }}">Doctor</a></li>
                                         <li><a href="{{ url('contact') }}">Contact</a></li>
                                         <li><a href="{{ url('about') }}">About Us</a></li>
-                                        @if (Auth::check())
+                                        @if (auth()->user())
                                             <li class="has-dropdown"><a href="{{ url('logout') }}"
                                                     style="color:#f98c8c">Logout</a></li>
                                         @else
@@ -163,9 +161,9 @@
                                 </nav>
                             </div>
                         </div>
-                        <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
-                                class="fal fa-search"></i></a>
-                        @if (Auth::check())
+                        {{-- <a href="#0" class="search-trigger search-icon d-none d-xl-block"><i
+                                class="fal fa-search"></i></a> --}}
+                        @if (auth()->user())
                             <a href="{{ url('Patient/MyProfile') }}" class="profile-icon"><i
                                     class="fas fa-user"></i></a>
                         @endif
@@ -198,104 +196,22 @@
                                         <img src="{{ asset('assets/img/logo/logo-white.png') }}" alt="logo-img">
                                     </a>
                                 </div>
-                                <div class="footer-content">
-                                    <p class="pra2">
-                                        Medical services are an essential part of our lives, offering care and treatment
-                                        for various health conditions
-                                    </p>
-                                    <div class="social-wrapper d-flex align-items-center">
-                                        <a href="#" class=" black"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#" class=" black"><i class="fa-brands fa-linkedin-in"></i></a>
-                                        <a href="#" class=" black"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class=" black"><i class="fa-brands fa-x"></i></a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-5 d-flex justify-content-lg-center">
-                            <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.6s">
-                                <div class="widget-head">
-                                    <h4 class="white fw_600">Page</h4>
-                                </div>
-                                <ul class="list-area">
-                                    <li>
-                                        <a href="{{ url('about') }}">
-                                            About Us
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('contact') }}">
-                                            Why Chose Us
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="doctor.html">
-                                            Doctors
-                                        </a>
-                                    </li>
-                                </ul>
+                        <div class="col-lg-3 col-md-6 col-sm-7">
+                            <div class="footer-content">
+                                <p class="pra2">
+                                    Medical services are an essential part of our lives, offering care and treatment
+                                    for various health conditions
+                                </p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-center">
-                            <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.6s">
-                                <div class="widget-head">
-                                    <h4 class="white fw_600">Link</h4>
-                                </div>
-                                <ul class="list-area">
-                                    <li>
-                                        <a href="{{ url('contact') }}">
-                                            Trems & Condition
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('contact') }}">
-                                            Privacy Policy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('contact') }}">
-                                            Contact Us
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('contact') }}">
-                                            Treams Of Use
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-5 d-flex justify-content-lg-center">
-                            <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.7s">
-                                <div class="widget-head">
-                                    <h4 class="white">Contact</h4>
-                                </div>
-                                <ul class="footer-info d-flex flex-column gpa-xxl-4 gap-3">
-                                    <li class="d-flex align-items-center gap-xl-3 gap-2">
-                                        <span class="icon d-center"><i class="fa-solid fa-location-dot"></i></span>
-                                        <div class="cont">
-                                            <span class="pra fs-seven d-block">Address</span>
-                                            <a href="javascript:void(0)" class="fs-six fw_500 white sub-font">66
-                                                Broklyant,India</a>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex align-items-center gap-xl-3 gap-2">
-                                        <span class="icon d-center"><i class="fa-solid fa-phone"></i></span>
-                                        <div class="cont">
-                                            <span class="pra fs-seven d-block">Phone Number</span>
-                                            <a href="javascript:void(0)" class="fs-six fw_500 white sub-font">012 345
-                                                678 9101</a>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex align-items-center gap-xl-3 gap-2">
-                                        <span class="icon d-center"><i class="fa-solid fa-envelope"></i></span>
-                                        <div class="cont">
-                                            <span class="pra fs-seven d-block">Email</span>
-                                            <a href="javascript:void(0)"
-                                                class="fs-six fw_500 white sub-font">abcd@gmail.com</a>
-                                        </div>
-                                    </li>
-                                </ul>
+                        <div class="col-lg-3 col-md-6 col-sm-7">
+                            <div class="social-wrapper d-flex align-items-center">
+                                <a href="#" class=" black"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class=" black"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" class=" black"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class=" black"><i class="fa-brands fa-x"></i></a>
                             </div>
                         </div>
                     </div>

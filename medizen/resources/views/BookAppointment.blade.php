@@ -2,7 +2,7 @@
 
 @section('main-content')
     <!-- Appointment Section Start -->
-    <section class="appoentment-section fix my-5 py-4">
+    <section class="appoentment-section fix my-2 py-4">
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-5 order-lg-0 order-1">
@@ -28,12 +28,30 @@
                         </div>
                         <div class="row g-lg-4 g-3">
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Your Name" name="name"
+                                <label for="name" class="ps-3 fw-bold">Patient Name: </label>
+                                <input type="text" id="name" placeholder="Your Name" name="name" class="py-2"
                                     value="{{ auth()->user()->name }}" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="tel" placeholder="Phone Number" name="number"
-                                    value="{{ auth()->user()->number }}" required>
+                                <label for="number" class="ps-3 fw-bold">Mobile Number: </label>
+                                <input type="tel" placeholder="Phone Number" name="number" id="number"
+                                    class="py-2" value="{{ auth()->user()->number }}" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="appointmentDate" class="ps-3 fw-bold">Select Appointment Date: </label>
+                                <input type="text" name="date" id="appointmentDate" placeholder="Select Date"
+                                    class="py-2" required>
+                                {{-- <input type="date" name="date" id="appointmentDate" placeholder="date" required> --}}
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="day" class="ps-3 fw-bold">Available Days: </label><br>
+                                {{-- @foreach ($doctor->schedules as $s)
+                                    {{ $s->day[0] . $s->day[1] . $s->day[2] }},
+                                @endforeach --}}
+                                <input type="text" id="day" class="py-2"
+                                    value="@foreach ($doctor->schedules as $s){{ substr($s->day, 0, 3) . ',' }} @endforeach"
+                                    disabled>
+
                             </div>
                             {{-- <div class="col-lg-6 px-5 py-3" style="background: ghostwhite;border-radius: 19px;">
                                 <select name="day" required>
@@ -42,13 +60,8 @@
                                     @endforeach
                                 </select>
                             </div> --}}
-                            <div class="col-lg-6">
-                                <input type="text" name="date" id="appointmentDate" placeholder="Select Date"
-                                    required>
-                                {{-- <input type="date" name="date" id="appointmentDate" placeholder="date" required> --}}
-                            </div>
-                            <div class="col-lg-12">
-                                <label class="mb-2">Select Time</label>
+                            <div class="col-lg-12 ps-3">
+                                <label class="mb-2 ps-2 fw-bold">Select Time</label>
 
                                 <div class="d-flex flex-wrap gap-2">
 
