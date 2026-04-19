@@ -1,6 +1,12 @@
 @extends('patient.PatientLayout')
 
 @section('patient-content')
+    @if (session('done'))
+        <div class="container m-4">
+            <h4 id="remove-msg" style="color: green;">{{ session('done') }}</h4>
+            <p id="remove-sub" class="text-muted">view in profile</p>
+        </div>
+    @endif
     <!-- Helth Compassionate -->
     <section class="helth-compassionate cmn-bg my-5">
         <div class="container">
@@ -279,21 +285,21 @@
         <div class="banner-adjust-thumb">
             <div class="container">
                 <!-- <div class="row g-4">
-                                                                                        <div class="col-lg-4 col-md-6 col-sm-6">
-                                                                                            <div class="adjust-category-items">
-                                                                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
-                                                                                                <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
-                                                                                                    Healing with heart</h4>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-lg-4 col-md-6 col-sm-6">
-                                                                                            <div class="adjust-category-items">
-                                                                                                <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
-                                                                                                <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
-                                                                                                    Where health meets hope</h5>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div> -->
+                                                                                                                                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                                                                                                        <div class="adjust-category-items">
+                                                                                                                                                            <div class="icon"><img src="{{ asset('assets/img/icon/f-icon6.png') }}" alt="icon"></div>
+                                                                                                                                                            <h4 class="black fw_600 wow fadeInUp" data-wow-delay="0.4s">Your health our priority wellness
+                                                                                                                                                                Healing with heart</h4>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                                                                                                                                        <div class="adjust-category-items">
+                                                                                                                                                            <div class="icon"><img src="{{ asset('assets/img/icon/f-icon4.png') }}" alt="icon"></div>
+                                                                                                                                                            <h5 class="black fw_600 wow fadeInUp" data-wow-delay="0.6s">A healthy tomorrow starts today
+                                                                                                                                                                Where health meets hope</h5>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                </div> -->
                 <div class="hero-thumbs1 position-relative w-100 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="{{ asset('assets/img/banner/hero1-thumb.jpg') }}" alt="img" class="rounded-4 w-100">
                     <!-- Circle -->

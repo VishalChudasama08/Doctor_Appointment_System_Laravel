@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2026 at 04:41 PM
+-- Generation Time: Apr 19, 2026 at 03:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,7 +37,7 @@ CREATE TABLE `appointments` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `message` text DEFAULT NULL,
-  `status` enum('Pending','Approved','Rejected','Completed') DEFAULT 'Pending',
+  `status` enum('Pending','Approved','Rejected','Cancel','Completed') NOT NULL DEFAULT 'Pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -47,10 +47,14 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `user_id`, `doctor_id`, `name`, `number`, `day`, `date`, `time`, `message`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 3, 'Piyush', '1234567890', 'Wednesday', '2026-04-08', '14:00:00', 'first', 'Approved', '2026-04-05 08:53:53', '2026-04-08 12:06:45'),
-(2, 3, 3, 'ajay', '1234567890', 'Thursday', '2026-04-09', '15:30:00', NULL, 'Pending', '2026-04-07 13:28:50', '2026-04-08 12:06:41'),
-(3, 4, 10, 'raju', '1234567890', 'Wednesday', '2026-04-15', '13:00:00', NULL, 'Pending', '2026-04-07 15:15:44', '2026-04-07 15:15:44'),
-(4, 4, 6, 'raju', '1234567890', 'Saturday', '2026-04-18', '12:00:00', NULL, 'Pending', '2026-04-07 15:41:54', '2026-04-07 15:41:54');
+(1, 2, 3, 'Piyush', '1234567890', 'Wednesday', '2026-04-08', '14:00:00', 'first', 'Approved', '2026-04-05 03:23:53', '2026-04-08 06:36:45'),
+(2, 3, 3, 'ajay', '1234567890', 'Thursday', '2026-04-09', '15:30:00', NULL, 'Pending', '2026-04-07 07:58:50', '2026-04-08 06:36:41'),
+(3, 4, 10, 'raju', '1234567890', 'Wednesday', '2026-04-15', '13:00:00', NULL, 'Approved', '2026-04-07 09:45:44', '2026-04-19 07:01:44'),
+(4, 4, 6, 'raju', '1234567890', 'Saturday', '2026-04-18', '12:00:00', NULL, 'Cancel', '2026-04-07 10:11:54', '2026-04-19 07:14:43'),
+(5, 38, 13, 'hardik', '1234567777', 'Wednesday', '2026-04-22', '17:00:00', 'see you soon', 'Approved', '2026-04-17 22:14:20', '2026-04-17 22:15:35'),
+(6, 4, 17, 'raju', '1234567890', 'Thursday', '2026-04-30', '10:30:00', NULL, 'Pending', '2026-04-19 07:36:58', '2026-04-19 07:36:58'),
+(7, 4, 3, 'raju', '1234567890', 'Tuesday', '2026-04-28', '15:30:00', NULL, 'Pending', '2026-04-19 07:40:22', '2026-04-19 07:40:22'),
+(8, 4, 12, 'raju', '1234567890', 'Thursday', '2026-04-23', '13:30:00', NULL, 'Pending', '2026-04-19 07:52:31', '2026-04-19 07:52:31');
 
 -- --------------------------------------------------------
 
@@ -102,14 +106,14 @@ CREATE TABLE `doctors` (
 INSERT INTO `doctors` (`id`, `image`, `user_id`, `expertise`, `experience`, `education`, `profession`, `status`, `created_at`, `updated_at`) VALUES
 (3, '1774723250.jpg', 22, 'Dermatology', 15, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-03-28 07:40:50', '2026-03-28 07:40:50'),
 (4, '1774769386.jpg', 8, 'Cardiology', 13, 'MBBS, MD Cardiology', 'Heart Specialist', 'Active', '2026-03-28 20:29:46', '2026-04-08 11:23:06'),
-(5, '1774769999.jpg', 9, 'Dentistry', 14, 'BDS', 'Dentist', 'Active', '2026-03-28 20:39:59', '2026-04-08 11:23:03'),
+(5, '1774769999.jpg', 9, 'Dentistry', 14, 'BDS', 'Dentist', 'Active', '2026-03-28 20:39:59', '2026-04-18 03:51:05'),
 (6, '1774771061.png', 10, 'Neurology', 8, 'MBBS, MD Neurology', 'Consultant', 'Active', '2026-03-28 20:57:41', '2026-04-08 11:23:09'),
 (7, '1774771198.png', 11, 'Orthopedics', 12, 'MBBS, MS Orthopedics', 'Bone Specialist', 'Active', '2026-03-28 20:59:58', '2026-03-28 20:59:58'),
 (8, '1774771310.png', 12, 'Pediatrics', 18, 'MBBS, MD Pediatrics', 'Child Specialist', 'Active', '2026-03-28 21:01:50', '2026-04-08 10:11:31'),
 (10, '1775382556.png', 27, 'Dermatology', 22, 'MBBS, MD Dermatology', 'Skin Specialist', 'Active', '2026-04-04 22:49:16', '2026-04-04 22:49:16'),
 (11, '1775382770.jpg', 28, 'Oncology', 8, 'MBBS, MD Oncology', 'Cancer Specialist', 'Active', '2026-04-04 22:52:50', '2026-04-04 22:52:50'),
 (12, '1775383285.jpg', 29, 'Cardiology', 12, 'MBBS, MD Cardiology', 'Heart Specialist', 'Active', '2026-04-04 23:01:25', '2026-04-08 10:28:52'),
-(13, '1775383431.png', 30, 'Cardiology', 5, 'MBBS, MD Cardiology', 'Child Specialist', 'Active', '2026-04-04 23:03:51', '2026-04-04 23:03:51'),
+(13, '1775383431.png', 30, 'Cardiology', 5, 'MBBS, MD Cardiology', 'Child Specialist', 'Active', '2026-04-04 23:03:51', '2026-04-18 03:47:32'),
 (14, '1775383694.jpg', 31, 'Dentistry', 4, 'BDS', 'Consultant', 'Inactive', '2026-04-04 23:08:14', '2026-04-08 11:38:01'),
 (15, '1775383802.jpg', 32, 'Dentistry', 7, 'BDS', 'Dentist', 'Active', '2026-04-04 23:10:02', '2026-04-04 23:10:02'),
 (16, '1775383942.jpg', 33, 'Neurology', 10, 'MBBS, MD Neurology', 'Brain Specialist', 'Active', '2026-04-04 23:12:22', '2026-04-04 23:12:22'),
@@ -273,7 +277,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (4, '2026_03_25_175802_create_doctors_table', 1),
 (5, '2026_03_28_155153_create_doctor_schedules_table', 1),
-(6, '2026_04_05_184353_create_appointments_table', 1);
+(7, '2026_04_05_184353_create_appointments_table', 2);
 
 -- --------------------------------------------------------
 
@@ -286,6 +290,13 @@ CREATE TABLE `password_reset_tokens` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_reset_tokens`
+--
+
+INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
+('hardikshingadiya2005@gmail.com', '$2y$12$7yTG//A0tx0iBaA.EakgCu9uIh4/oI9xod1vQpZsF7.UDG6wlnnra', '2026-04-18 03:42:17');
 
 -- --------------------------------------------------------
 
@@ -307,7 +318,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2afKb46HGuk0uuZizPhTreNxHFKtasNNohNRFln9', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiajdzOFVJYTdldnh5ZUpTVWVuOWdmMnlmOGQxWVB4M3A0b3d3emprWSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9BZG1pbi9Eb2N0b3JSZWdpc3RlciI7czo1OiJyb3V0ZSI7Tjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1776091018);
+('HgnVwkwFoynWhFl1OwKEbFkNGN1KE8wnEEJiQ6GP', 4, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMFpFNUdUQjl6QkYzVVA1ZmF6ZGJoOEN6NFV6aXp2T0gzS1FkVDFKaSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9QYXRpZW50L1BhdGllbnREYXNoYm9hcmQiO3M6NToicm91dGUiO047fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ7fQ==', 1776604952);
 
 -- --------------------------------------------------------
 
@@ -352,7 +363,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `user_type`, `
 (34, 'Dr. Rina Mehta', 'rina8@mail.com', '9990000008', '$2y$12$fL..6XdEHzueG86HYZb2S.zoFTEEmU5vZbosFLFkb4798i6VI2o76', 'Doctor', NULL, '2026-04-04 23:14:26', '2026-04-04 23:14:26'),
 (35, 'Dr. Hardik Shah', 'hardik9@mail.com', '9990000009', '$2y$12$23ZwMYbGgeUj/60EjNq0/.3q.7CTrWVZpfO91UNNHG6psfYNh7N3O', 'Doctor', NULL, '2026-04-04 23:16:37', '2026-04-04 23:16:37'),
 (36, 'Dr. Aarti Patel', 'aarti10@mail.com', '9990000010', '$2y$12$g9FBLR4DdbkrnyToAbtdRuZeADq7nb8i2bgrG5JcScELl3ksG2FYq', 'Doctor', NULL, '2026-04-04 23:18:55', '2026-04-04 23:18:55'),
-(37, 'vishal', 'chudasamavishal183@gmail.com', '8888888888', '$2y$12$isgAugji8JtVUU.R7U/gNen5ZR0AxNyDXDmT0449DArI0KYx4LVfq', 'Patient', 'QfIMIFu8ZpEm2tdrd7QDZgvnJGLqYSt5dvvssTcTtfaQkRuY6x1YQ854Mlnj', '2026-04-12 02:35:15', '2026-04-12 04:05:43');
+(37, 'vishal', 'chudasamavishal183@gmail.com', '8888888888', '$2y$12$/NJJYE5HBMvj1EXmw3VnQOQSaWcEAleMU6ubCyUEBxLnAj/Kgsute', 'Patient', '9yLUzXintTetkTnX0QIQNcpHZVXAelHEQ7H9mSjGJIXHYjEfYBSHADcLeuoX', '2026-04-12 02:35:15', '2026-04-19 05:38:54'),
+(38, 'hardik', 'hardikshingadiya2005@gmail.com', '1234567777', '$2y$12$Xro.HctNNBiKH.CJiSt.8uSKaU2yeLM3hE1iXChIXm2T6TJA/VJmq', 'Patient', NULL, '2026-04-18 03:41:52', '2026-04-18 03:41:52');
 
 --
 -- Indexes for dumped tables
@@ -449,7 +461,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -479,13 +491,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables

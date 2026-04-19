@@ -115,14 +115,14 @@
                                         <li><a href="{{ url('about') }}">About Us</a></li>
                                         <li><a href="{{ url('doctors') }}">Doctor</a></li>
                                         <li><a href="{{ url('contact') }}">Contact</a></li>
-                                        {{-- @if (auth()->user()) --}}
-                                        <li class="has-dropdown"><a href="{{ url('logout') }}"
-                                                style="color:#f98c8c">Logout</a></li>
-                                        {{-- @else
+                                        @if (auth()->user())
+                                            <li class="has-dropdown"><a href="{{ url('logout') }}"
+                                                    style="color:#f98c8c">Logout</a></li>
+                                        @else
                                             <li class="has-dropdown"><a href="{{ url('login') }}">Login</a></li>
                                             <li class="has-dropdown dark"><a href="{{ url('register') }}">Register</a>
                                             </li>
-                                        @endif --}}
+                                        @endif
                                     </ul>
                                 </nav>
                             </div>
@@ -337,6 +337,14 @@
     <script src="{{ asset('assets/js/vanilla-tilt.min.js') }}"></script>
     <!--<< Main.js >>-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#remove-msg').fadeOut(500);
+                $('#remove-sub').fadeOut(500);
+            }, 6000);
+        });
+    </script>
 </body>
 
 

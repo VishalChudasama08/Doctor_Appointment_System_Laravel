@@ -54,6 +54,8 @@
                                         <span class="badge bg-success">Approved</span>
                                     @elseif($app->status == 'Rejected')
                                         <span class="badge bg-danger">Rejected</span>
+                                    @elseif($app['status'] == 'Cancel')
+                                        <span class="badge bg-info">Cancel</span>
                                     @else
                                         <span class="badge bg-primary">Completed</span>
                                     @endif

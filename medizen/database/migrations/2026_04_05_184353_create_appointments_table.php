@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->text('message')->nullable();
 
-            $table->enum('status', ['Pending', 'Approved', 'Rejected', 'Completed'])->default('Pending');
+            $table->enum('status', ['Pending', 'Approved', 'Rejected', 'Cancel', 'Completed'])->default('Pending');
             $table->timestamps();
         });
     }

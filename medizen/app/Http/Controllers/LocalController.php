@@ -181,7 +181,7 @@ class LocalController extends Controller
             'time' => $req->time,
             'message' => $req->message
         ]);
-        return redirect('index')->with('done', "Your appointment booked successfully!");
+        return redirect('Patient/PatientDashboard')->with('done', "Your appointment booked successfully!");
     }
     public function getThisDoctorDetails($id)
     {

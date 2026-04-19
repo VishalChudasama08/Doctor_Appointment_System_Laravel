@@ -23,7 +23,7 @@
                             </div>
                         @endif
                         @if (session('success'))
-                            <div id="passwordReset" class="alert alert-danger d-flex align-items-center" role="alert">
+                            <div id="passwordReset" class="alert alert-success d-flex align-items-center" role="alert">
                                 <i class="bi bi-exclamation-square-fill me-3"></i>
                                 <div>{{ session('success') }}</div>
                             </div>

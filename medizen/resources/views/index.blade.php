@@ -2,9 +2,6 @@
 
 @section('main-content')
     <!-- Helth Compassionate -->
-    @if (session('done'))
-        <div style="color: green; margin: 10px;">{{ session('done') }}</div>
-    @endif
     <section class="helth-compassionate cmn-bg my-5">
         <div class="container">
             <div class="row g-4 justify-content-between align-items-center mb-5">
