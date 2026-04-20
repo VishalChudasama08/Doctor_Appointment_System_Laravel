@@ -14,17 +14,33 @@ class AdminController extends Controller
 
     public function dashboard()
     {
+        $total_doctor = User::where("user_type", 'Doctor')->count();
+        $total_patient = User::where("user_type", 'Patient')->count();
+        $total_apt = Appointments::count();
+
+        // echo "<pre>";
+        // echo $d;
+        // echo "<br>";
+        // echo $p;
+        // echo "<br>";
+        // echo $a;
+        // die;
+
+        return view('admin.AdminDashboard', compact('total_doctor', 'total_patient', 'total_apt'));
+    }
+
+    // ============= Appointment Control =============
+
+    public function getAppointmentPage()
+    {
         $appointments = Appointments::with(['patient', 'doctor.user'])->paginate(8);
 
         // echo "<pre>";
         // print_r($appointments->toArray());
         // die;
 
-        return view('admin.AdminDashboard', compact('appointments'));
+        return view('admin.AdminAppointments', compact('appointments'));
     }
-
-    // ============= Appointment Control =============
-
     public function updateAppointmentStatus(Request $req)
     {
         $appointment = Appointments::find($req->id);

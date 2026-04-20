@@ -118,13 +118,18 @@
                         </a>
                     </li>
                     <li class="nav-item mb-2">
+                        <a href="{{ url('Admin/Appointments') }}" class="nav-link text-white">
+                            <i class="bi bi-calender-event"></i><i class="bi bi-calender-check"></i> Appointments
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
                         <a href="{{ url('Admin/Patients') }}" class="nav-link text-white">
-                            <i class="bi bi-people"></i> Patients
+                            <i class="bi bi-people"></i><i class="bi bi-person"></i> Patients
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="{{ url('Admin/Doctors') }}" class="nav-link text-white">
-                            <i class="bi bi-person-badge"></i> Doctors
+                            <i class="bi bi-person-badge"></i><i class="bi bi-heart-pulse"></i> Doctors
                         </a>
                     </li>
                     <li class="nav-item mb-2">

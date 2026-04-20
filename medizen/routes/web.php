@@ -57,6 +57,8 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('Admin/Doctor/EditThisProfile/{id}', [AdminController::class, 'getAdminEditDoctorDetailsFormData']);
     Route::post('Admin/Doctor/SaveThisEditedDetailsNow', [AdminController::class, 'saveThisDoctorDetails']);
     Route::post('Admin/Doctor/updateStatus', [AdminController::class, 'updateDoctorStatus']);
+    Route::get('Admin/Appointments', [AdminController::class, 'getAppointmentPage']);
+
 
     // ------ Admin Appointment Control Router's ------
     Route::post('Admin/Appointment/UpdateStatus', [AdminController::class, 'updateAppointmentStatus']);

@@ -22,29 +22,6 @@ class LocalController extends Controller
         return view('doctors', compact('doctors'));
     }
 
-    // // echo "<pre>";
-    // // print_r($req->toArray());
-    // // die;
-    // $user = User::with(['doctorDetails:user_id,image,expertise,experience,education,profession'])->where('user_type', 'Doctor')->get();
-    // // echo "<pre>";
-    // // print_r($user->toArray());
-    // // die;
-    // $doctors = [];
-    // $i = 0;
-    // foreach ($user as $u) {
-    //     $doctors[$i]['id'] = $u->id;
-    //     $doctors[$i]['name'] = $u->name;
-    //     $doctors[$i]['image'] = $u->doctorDetails->first()->image;
-    //     $doctors[$i]['expertise'] = $u->doctorDetails->first()->expertise;
-    //     $doctors[$i]['experience'] = $u->doctorDetails->first()->experience;
-    //     $doctors[$i]['education'] = $u->doctorDetails->first()->education;
-    //     $doctors[$i]['profession'] = $u->doctorDetails->first()->profession;
-    //     $i++;
-    // }
-    // // echo "<pre>";
-    // // print_r($doctors);
-    // // die;
-    // return view('FilterDoctors', compact('doctors'));
     public function getDoctorListForFilter(Request $req)
     {
         // echo "<pre>";

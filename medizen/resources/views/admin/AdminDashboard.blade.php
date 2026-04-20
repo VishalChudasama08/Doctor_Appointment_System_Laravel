@@ -1,93 +1,116 @@
 @extends('admin/AdminLayout')
 
 @section('admin-content')
-    <div class="container">
+    <style>
+        .dashbord-tables {
+            animation: transitionIn-Y-over 0.5s;
+        }
 
-        <!-- Appointments Table -->
-        <div class="card shadow">
-            <div class="card-header bg-dark d-flex justify-content-between align-items-center">
-                <h5 class="mb-0  text-white">Appointments</h5>
-                <span class=" text-white">Total: {{ $appointments->count() }}</span>
-            </div>
+        .filter-container {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
 
-            <div class="card-body table-responsive p-0">
-                <table class="table table-bordered table-hover align-middle text-center m-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th>#</th>
-                            <th>Patient</th>
-                            <th>Doctor</th>
-                            <th>Day</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+        .sub-table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
 
-                    <tbody>
-                        @forelse ($appointments as $index => $app)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $app->name }}</td>
-                                <td>{{ $app->doctor->user->name }}</td>
-                                <td>{{ $app->day }}</td>
-                                <td>{{ $app->date }}</td>
-                                <td>{{ \Carbon\Carbon::parse($app->time)->format('h:i A') }}</td>
 
-                                <td>
-                                    @if ($app->status == 'Pending')
-                                        <span class="badge bg-warning text-black">Pending</span>
-                                    @elseif($app->status == 'Approved')
-                                        <span class="badge bg-success">Approved</span>
-                                    @elseif($app->status == 'Rejected')
-                                        <span class="badge bg-danger">Rejected</span>
-                                    @elseif($app['status'] == 'Cancel')
-                                        <span class="badge bg-info">Cancel</span>
-                                    @else
-                                        <span class="badge bg-primary">Completed</span>
-                                    @endif
-                                </td>
+        .dashboard-items {
+            border: 2px solid #c9cbce9f;
+            border-radius: 7px;
+            color: #0A76D8;
+            background-color: #d8ebfa25;
+            box-shadow: 0 3px 5px 0 rgba(95, 95, 97, 0.3);
+        }
 
-                                <td>
-                                    @if ($app->status == 'Pending')
-                                        <form action="{{ url('Admin/Appointment/UpdateStatus') }}" method="POST"
-                                            class="d-flex gap-1 justify-content-center">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $app->id }}">
-                                            <button name="status" value="Approved" class="btn btn-success btn-sm">
-                                                ✔ Approve
-                                            </button>
+        .h1-dashboard {
+            margin: 0;
+            padding: 0;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 0;
+            padding-top: 20px;
+        }
 
-                                            <button name="status" value="Rejected" class="btn btn-danger btn-sm">
-                                                ✖ Reject
-                                            </button>
-                                        </form>
-                                    @elseif($app->status == 'Approved')
-                                        <form action="{{ url('Admin/Appointment/UpdateStatus') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $app->id }}">
-                                            <button name="status" value="Completed" class="btn btn-primary btn-sm">
-                                                ✔ Complete
-                                            </button>
-                                        </form>
-                                    @else
-                                        <span class="text-muted">No Action</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="8">No appointments found</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                {{ $appointments->links() }}
+        .h3-dashboard {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-weight: 500;
+            color: #212529e3;
+        }
+
+        .dashboard-icons {
+            background-color: rgba(184, 184, 184, 0.247);
+            /* padding: inherit; */
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-radius: 7px;
+            margin-left: 40px;
+            margin-right: 0px;
+            width: 80%;
+        }
+
+        .dashboard-icons-setting {
+
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-radius: 7px;
+            margin-left: 5px;
+            margin-right: 20px;
+
+        }
+    </style>
+    <div class="container filter-container">
+        <div class="row my-4">
+            <div class="col">
+                <p style="font-size: 20px;font-weight:600;padding-left: 12px;">Status</p>
             </div>
         </div>
+        <div class="row" style="width:70%;">
+            <div class="col">
+                <div class="dashboard-items" style="padding:20px;margin:auto;display: flex;">
+                    <div class="row ps-3">
+                        <div class="h1-dashboard">{{ $total_doctor }}</div>
+                        <br>
+                        <div class="h3-dashboard"> Doctors </div>
+                    </div>
+                    <div class="row">
+                        <img style="background-color: rgba(184, 184, 184, 0.247);"
+                            src="{{ asset('assets/img/icons/doctors-hover.svg') }}" class="btn-icon-back dashboard-icons"
+                            alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dashboard-items" style="padding:20px;margin:auto;display: flex;">
+                    <div class="row ps-3">
+                        <div class="h1-dashboard">{{ $total_patient }}</div>
+                        <br>
+                        <div class="h3-dashboard"> Patients </div>
+                    </div>
+                    <div class="row">
+                        <img style="background-color: rgba(184, 184, 184, 0.247);"
+                            src="{{ asset('assets/img/icons/patients-hover.svg') }}" class="btn-icon-back dashboard-icons"
+                            alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dashboard-items" style="padding:20px;margin:auto;display: flex; ">
+                    <div class="row ps-3">
+                        <div class="h1-dashboard">{{ $total_apt }}</div>
+                        <br>
+                        <div class="h3-dashboard"> Appointments </div>
+                    </div>
+                    <div class="row">
+                        <img style="background-color: rgba(184, 184, 184, 0.247);"
+                            src="{{ asset('assets/img/icons/book-hover.svg') }}" class="btn-icon-back dashboard-icons"
+                            alt="" srcset="">
+                    </div>
+                </div>
+            </div>
 
+        </div>
     </div>
 @endsection
